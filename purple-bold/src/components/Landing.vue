@@ -7,32 +7,40 @@
         .landing__page__content
           .landing__page__content__container
             .landing__page__content__container__top(
-              :class="{loaded: isLoaded}"
+              :class="[loaded, afterLoad]"
               )
               h1 Purple
             .landing__page__content__container__middle
               .landing__page__content__container__middle__left(
-                :class="{loaded: isLoaded}"
+                :class="[loaded, afterLoad]"
               )
                 h1 +
               .landing__page__content__container__middle__right(
-                :class="{loaded: isLoaded}"
+                :class="[loaded, afterLoad]"
               )
                 h1 Bold
-            .landing__page__content__container__bottom
-              img.landing--arrow(src='../assets/images/icons/arrow.svg')
+            .landing__page__content__container__bottom(
+              :class="[loaded, afterLoad]"
+            )
+              img.landing--arrow(
+                :class="[loaded, afterLoad]"
+                src='../assets/images/icons/arrow.svg')
 </template>
 
 <script>
    export default {
         data() {
           return {
-            isLoaded: false
+            loaded: '',
+            afterLoad: ''
           }
         },
         methods: {
           toggleLoad() {
-            this.isLoaded = !this.isLoaded;
+            this.loaded = 'loaded';
+            setTimeout(() => {
+              this.afterLoad = 'after-load';
+            }, 1500);
           }
         }
     }
@@ -65,8 +73,10 @@ $arrow-margin-bottom: 20px
       height: 100vh
       justify-content: center
       &__top.loaded
-        animation:
-        transform: translateX(0px)
+        animation: landing-top-load 1.5s forwards
+        //transform: translateX(0px)
+        h1
+          animation: landing-top-load 2s forwards
       &__top
         margin-bottom: 10px
         text-align: right
@@ -82,23 +92,35 @@ $arrow-margin-bottom: 20px
         h1
           font-size: 6em
         &__left.loaded
-          transform: translateX(0px)
+          animation: landing-middle-left-load 1.5s forwards
+        &__left.loaded.after-load
+          transform: translateX(0)
+          animation: landing-middle-left-after-load 1.5s forwards
         &__left
           transform: translateX(-100vw)
+        &__right.loaded.after-load
+          animation: landing-middle-right-after-load 1.5s forwards
         &__right.loaded
-          transform: translateX(0px)
+          animation: landing-middle-right-load 1.5s forwards
         &__right
           transform: translateX(-100vw)
+      &__bottom.after-load
+        animation: landing-bottom-after-load 2.5s forwards
       &__bottom
         display: flex
         align-self: flex-end
         position: absolute
         bottom: 0
         justify-content: flex-end
+        // transform: translateX(-100vw)
         img
           height: 70px
           margin-bottom: $arrow-margin-bottom
-          animation: landing-arrow 4s ease-in-out infinite
+          opacity: 0
+          transition: opacity 5s ease-out
+          &.after-load
+            animation: landing-arrow 4s ease-in-out infinite
+            opacity: 1
 
 @keyframes landing-arrow
   0%
@@ -115,7 +137,57 @@ $arrow-margin-bottom: 20px
   100%
     
 
+
 @keyframes landing-top-load
+  0%
+  10%
+    letter-spacing: 4em
+  20%
+  30%
+  40%
+  50%
+  60%
+    //.letter-spacing: .1em
+  70%
+  80% 
+    letter-spacing: .045em
+  90%
+  100%
+    transform: translateX(0px)
+    //letter-spacing: .15em
+
+@keyframes landing-middle-left-load
+  0%
+  10%
+  20%
+  30%
+  40%
+  50%
+    transform: rotate(-180deg)
+  60%
+  70%
+  80% 
+  90%
+  100%
+    transform: translateX(0px)
+    transform: rotate(-360deg)
+
+@keyframes landing-middle-left-after-load
+  0%
+    transform: rotate(0deg)
+  10%
+  20%
+  30%
+  40%
+  50%
+  60%
+  70%
+  80% 
+  90%
+  100%
+    transform: rotate(360deg)
+
+@keyframes landing-middle-right-load
   0%
   10%
   20%
@@ -128,8 +200,10 @@ $arrow-margin-bottom: 20px
   90%
   100%
 
-@keyframes landing-middle-load
+@keyframes landing-middle-right-after-load
   0%
+    opacity: 0
+    transform: translateY(225px)
   10%
   20%
   30%
@@ -140,6 +214,9 @@ $arrow-margin-bottom: 20px
   80% 
   90%
   100%
+    transform: translateX(0px)
+    transform: translateY(0px)
+    opactiy: 1
 
   @keyframes landing-bottom-load
   0%
@@ -154,6 +231,18 @@ $arrow-margin-bottom: 20px
   90%
   100%
   
+@keyframes landing-bottom-after-load
+  0%
+  10%
+  20%
+  30%
+  40%
+  50%
+  60%
+  70%
+  80% 
+  90%
+  100%
   
   
 
