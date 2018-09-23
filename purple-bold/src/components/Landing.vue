@@ -129,6 +129,8 @@ $arrow-margin-bottom: 20px
         img
           height: 70px
           margin-bottom: $arrow-margin-bottom
+          //MAY NEED TO CHANGE THIS IN SMALLER VIEWS
+          margin-right: 10px
           opacity: 0
           transition: opacity 5s ease-out
           @include tablet-portrait

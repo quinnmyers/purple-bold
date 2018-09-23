@@ -1,6 +1,8 @@
 <template lang="pug">
   #app
     app-landing
+    app-navbar
+    app-hero
 
   
   
@@ -15,10 +17,14 @@
 
 <script>
 import Landing from './components/Landing.vue'
+import Navbar from './components/Navbar/Navbar.vue'
+import Hero from './components/Hero.vue'
 
 export default {
   components: {
-    appLanding: Landing
+    appLanding: Landing,
+    appHero: Hero,
+    appNavbar: Navbar
   }
 }
 </script>
