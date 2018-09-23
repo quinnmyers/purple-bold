@@ -38,10 +38,15 @@ $phone-large: 414px
 $tablet-width: 768px
 $desktop-width: 992px
 $edgesnap-width: 1100px
+$nav-snap: 700px
 
 
 =edgesnap
   @media (max-width: #{$edgesnap-width})
+    @content
+
+=navsnap
+  @media (max-width: #{$nav-snap})
     @content
 
 =tablet-landscape

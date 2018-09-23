@@ -1,6 +1,9 @@
 <template lang="pug">
     div
-      .navbar
+      //ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED
+      nav.navbar(
+        :class="{ expanded: mobileNavExpanded }"
+      )
         .navbar__content
           .navbar__content__brand
             h2 
@@ -10,30 +13,45 @@
             ul
               li(
                 v-for="navitem in navItems"
-                @mouseenter="hasBorder"
-                @mouseleave="removeBorder"
                 ) 
                 a(:href=" navitem.url ") {{ navitem.name  }}
+
+          .navbar__content__mobilenav
+            button.navbar__content__mobilenav__hamburger(
+              @click="mobileNavExpanded = !mobileNavExpanded"
+            )
+              span.navbar__content__mobilenav__hamburger__line1
+              span.navbar__content__mobilenav__hamburger__line2
+              span.navbar__content__mobilenav__hamburger__line3
+      app-mobile-nav(
+        :navItems="this.navItems"
+      )
+      //- nav.mobilenav
+      //-   .mobilenav__container 
+      //-      ul(
+      //-        :class="{ expanded: mobileNavExpanded }"
+      //-      )
+      //-         li(
+      //-           v-for="navitem in navItems"
+      //-           ) 
+      //-           a(:href=" navitem.url ") {{ navitem.name  }}
+      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
+      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
+      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
       br
       br
       br
       br
-      br
-      br
-      br  
-      br
-      br
-      br
-      br
-      br
-      br
-      br       
+      br     
 </template>
 
 <script>
+import MobileNav from './MobileNav.vue'
+
     export default {
       data() {
         return {
+          mobileNavExpanded: false,
           navItems: [
           {
             name: 'About',
@@ -55,14 +73,10 @@
         }
       },
       methods: {
-        // hasBorder(event) {
-        //   const el = event.target
-        //   el.style.borderBottom = "4px solid #522E60";
-        // },
-        // removeBorder(event) {
-        //   const el = event.target
-        //   el.style.borderBottom = "4px solid transparent"
-        // }
+        
+      },
+      components: {
+        appMobileNav: MobileNav
       }
         
     }
@@ -79,18 +93,27 @@
   align-items: center
   height: 60px
   background: lightgrey
+  @include tablet-portrait 
+    height: 50px
+  &.expanded
+    background: pink
   &__content
     display: flex
     align-items: center
     justify-content: space-between
     width: 1100px
     height: 100%
+    @include edgesnap 
+      width: 100%
+      padding: 0px 10px
     &__brand
       font-family: 'Rubik', 'Avenir', sans-serif
       color: $blue-grey
       h2
         font-size: 2.3em
         letter-spacing: .025em
+        @include tablet-portrait
+          font-size: 2em
         .purple
             font-weight: $normal
         .bold
@@ -101,6 +124,8 @@
       align-items: center
       width: auto
       height: 100%
+      @include navsnap
+        display: none
       ul
         display: flex
         justify-content: center
@@ -121,6 +146,8 @@
           //transition: border-color .25s ease-in-out
           background: pink
           //removes hover effect of the contact button -- may want to remove this
+          @include tablet-portrait 
+            font-size: .9em
           &:last-child
             &:before
               content: ''
@@ -156,5 +183,27 @@
               border: 1px solid $blue-grey
               padding: 6px 20px
               border-radius: 4px
+              @include tablet-portrait 
+                padding: 5px 16px
+                border-radius: 3px
+    &__mobilenav
+      display: flex
+      height: 28px
+      width: 40px 
+      background: red
+      &__hamburger
+        display: flex
+        flex-direction: column 
+        justify-content: space-between
+        //height: 3px
+        &__line1, &__line2, &__line3
+          display: flex
+          height: 3px
+          border-radius: 2px
+          width: 40px
+          background: yellow
+        &__line1
+        &__line2
+        &__line3
 
 </style>
