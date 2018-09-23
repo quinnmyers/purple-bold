@@ -1,9 +1,6 @@
 <template lang="pug">
     div
       .landing__page
-        button(
-          @click="toggleLoad"
-        ) Click Me
         .landing__page__content
           .landing__page__content__container
             .landing__page__content__container__top(
@@ -13,15 +10,15 @@
             .landing__page__content__container__middle
               .landing__page__content__container__middle__left(
                 :class="[loaded, afterLoad]"
-              )
+                )
                 h1 +
               .landing__page__content__container__middle__right(
                 :class="[loaded, afterLoad]"
-              )
+                )
                 h1 Bold
             .landing__page__content__container__bottom(
               :class="[loaded, afterLoad]"
-            )
+              )
               img.landing--arrow(
                 :class="[loaded, afterLoad]"
                 src='../assets/images/icons/arrow.svg')
@@ -42,6 +39,9 @@
               this.afterLoad = 'after-load';
             }, 1500);
           }
+        },
+        mounted() {
+          this.toggleLoad()
         }
     }
 </script>
@@ -67,6 +67,12 @@ $arrow-margin-bottom: 20px
     width: 1100px
     margin: auto 0
     color: white
+    @include edgesnap
+      width: 100%
+      overflow: hidden
+      padding: 0px 10px
+    @include tablet-portrait
+      margin-right: 40px
     &__container
       display: flex
       flex-direction: column
@@ -86,11 +92,19 @@ $arrow-margin-bottom: 20px
           letter-spacing: .15em
           margin-right: -.15em
           font-weight: $light
+          @include tablet-portrait
+            font-size: 5em
+          @include phone-large 
+            font-size: 3.5em
       &__middle
         display: flex
         justify-content: space-between
         h1
           font-size: 6em
+          @include tablet-portrait
+            font-size: 4.5em
+          @include phone-large 
+            font-size: 3em
         &__left.loaded
           animation: landing-middle-left-load 1.5s forwards
         &__left.loaded.after-load
@@ -112,12 +126,15 @@ $arrow-margin-bottom: 20px
         position: absolute
         bottom: 0
         justify-content: flex-end
-        // transform: translateX(-100vw)
         img
           height: 70px
           margin-bottom: $arrow-margin-bottom
           opacity: 0
           transition: opacity 5s ease-out
+          @include tablet-portrait
+            height: 50px
+          @include phone-large 
+            height: 35px
           &.after-load
             animation: landing-arrow 4s ease-in-out infinite
             opacity: 1
@@ -147,14 +164,12 @@ $arrow-margin-bottom: 20px
   40%
   50%
   60%
-    //.letter-spacing: .1em
   70%
   80% 
     letter-spacing: .045em
   90%
   100%
     transform: translateX(0px)
-    //letter-spacing: .15em
 
 @keyframes landing-middle-left-load
   0%
@@ -218,33 +233,9 @@ $arrow-margin-bottom: 20px
     transform: translateY(0px)
     opactiy: 1
 
-  @keyframes landing-bottom-load
-  0%
-  10%
-  20%
-  30%
-  40%
-  50%
-  60%
-  70%
-  80% 
-  90%
-  100%
-  
-@keyframes landing-bottom-after-load
-  0%
-  10%
-  20%
-  30%
-  40%
-  50%
-  60%
-  70%
-  80% 
-  90%
-  100%
   
   
+
 
 
 </style>

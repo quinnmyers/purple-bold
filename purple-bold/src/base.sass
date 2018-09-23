@@ -14,14 +14,51 @@ h1, h2, h3, h4, h5, h6
 
 
 
-//variables
+//VARIABLES
 
+//colors
 $blue-grey: #102B3F
 
+//font-weights
 $light: 300
 $normal: 400
 $medium: 500
 $bold: 700
 
 
-// NEED TO ADD IN MIXINS FOR SIZING
+// MIXINS
+
+
+$phone-small: 330px
+$phone-max-width: 440px
+$phone-large: 414px
+$tablet-width: 768px
+$desktop-width: 992px
+$edgesnap-width: 1100px
+
+
+=edgesnap
+  @media (max-width: #{$edgesnap-width})
+    @content
+
+=tablet-landscape
+  @media (max-width: #{$tablet-width})
+    @content
+
+=tablet-portrait
+  @media (max-width: #{$tablet-width})
+    @content
+
+=phone-large
+  @media (max-width: #{$phone-large})
+    @content
+
+=phone
+  @media (max-width: unquote("#{$phone-max-width} - 1"))
+    @content
+
+=phone-small
+  @media (max-width: #{$phone-small})
+    @content
+
+
