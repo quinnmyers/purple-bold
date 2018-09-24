@@ -1,14 +1,14 @@
 <template lang="pug">
-  div
-    nav.mobilenav
-      .mobilenav__container 
-          ul(
-            :class="{ expanded: mobileNavExpanded }"
-          )
-            li(
-              v-for="navitem in navItems"
-              ) 
-              a(:href=" navitem.url ") {{ navitem.name  }}
+  //- div
+  //-   nav(role='navigation').mobilenav
+  //-     .mobilenav__container 
+  //-         ul(
+  //-           :class="{ expanded: mobileNavExpanded }"
+  //-         )
+  //-           li(
+  //-             v-for="navitem in navItems"
+  //-             ) 
+  //-             a(:href=" navitem.url ") {{ navitem.name  }}
 </template>
 
 <script>
@@ -18,7 +18,7 @@
         
         }
       },
-      props: ['navItems']
+      props: ['navItems', 'mobileNavExpanded']
     }
 </script>
 

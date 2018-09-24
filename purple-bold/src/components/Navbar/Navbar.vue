@@ -10,11 +10,24 @@
               span.purple Purple 
               span.bold + Bold
           .navbar__content__desktopnav 
-            ul
-              li(
+            ul.main__nav
+              li.main__nav__item(
+                @mouseenter="setFocus"
+                @mouseleave="setFocus"
                 v-for="navitem in navItems"
                 ) 
-                a(:href=" navitem.url ") {{ navitem.name  }}
+                a(
+                :href=" navitem.url "
+                @mouseover.stop
+                ) {{ navitem.name  }}
+                template(
+                  v-if="navitem.hasOwnProperty('subCategories')"
+                )
+                  .navbar__content__desktopnav__subcategory
+                    ul.desktopnav__sub__menu 
+                      li.desktopnav__sub__menu__item(
+                        v-for="subCategory in navitem.subCategories"
+                      ) {{ subCategory.name }}
 
           .navbar__content__mobilenav
             button.navbar__content__mobilenav__hamburger(
@@ -25,6 +38,7 @@
               span.navbar__content__mobilenav__hamburger__line3
       app-mobile-nav(
         :navItems="this.navItems"
+        :mobileNavExpanded="this.mobileNavExpanded"
       )
       //- nav.mobilenav
       //-   .mobilenav__container 
@@ -35,31 +49,109 @@
       //-           v-for="navitem in navItems"
       //-           ) 
       //-           a(:href=" navitem.url ") {{ navitem.name  }}
-      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
-      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
-      p Consectetur nulla sunt incididunt eu exercitation. Enim nulla ex anim occaecat. Nulla proident laborum ullamco nisi aliqua id tempor incididunt pariatur consequat nostrud deserunt. Occaecat exercitation esse et eiusmod. Laborum laborum nulla mollit laboris laborum irure ex exercitation excepteur do.
-      br
-      br
-      br
-      br
-      br     
 </template>
 
 <script>
+//subcategory LI are not getting a class may fix underline issue
 import MobileNav from './MobileNav.vue'
+
+
 
     export default {
       data() {
         return {
           mobileNavExpanded: false,
+          focus: false,
           navItems: [
           {
             name: 'About',
-            url: 'https://www.google.com', 
+            url: '#', 
           },
           {
             name: 'Services',
-            url: '#', 
+            url: '#',
+            subCategories: [
+              {
+                name: 'Web Development',
+                url: '#',
+                icon: '#',
+                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+                subSubCategories: [
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                ]
+              },
+              {
+                name: 'Creative',
+                url: '#',
+                icon: '#',
+                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+                subSubCategories: [
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                ]
+              },
+              {
+                name: 'Branding',
+                url: '#',
+                icon: '#',
+                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+                subSubCategories: [
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                ]
+              },
+              {
+                name: 'Marketing',
+                url: '#',
+                icon: '#',
+                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+                subSubCategories: [
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                  {
+                    name: 'Lorem Ipsum Dolor',
+                    url: '#'
+                  },
+                ]
+              },
+            ] 
           },
           {
             name: 'Portfolio',
@@ -73,7 +165,27 @@ import MobileNav from './MobileNav.vue'
         }
       },
       methods: {
-        
+        elementCoords(event) {
+          const coords = event.target.getBoundingClientRect();
+          const xCoord = Math.floor(coords.x);
+          const yCoord = Math.floor(coords.y);
+          // console.log(`X: ${coords.x}, Y:${coords.y}`);
+          console.log(`X: ${xCoord}, Y: ${yCoord}`)
+          const el = event.target;
+          el.style.color = "green";
+        },
+        setFocus(event) {
+          console.log(event)
+          this.focus = !this.focus;
+          const el = event.target;
+          const popoutMenu = el.childNodes[1];
+          console.log(this.focus)
+          if(this.focus) {
+            popoutMenu.style.opacity = '1'
+          } else {
+            popoutMenu.style.opacity = '0'
+          }
+        }
       },
       components: {
         appMobileNav: MobileNav
@@ -86,13 +198,14 @@ import MobileNav from './MobileNav.vue'
 @import '../../normalize.scss'
 @import '../../base.sass'
 
+//scoped variables 
+$nav-height: 60px
 
 .navbar
   display: flex
   justify-content: center
   align-items: center
-  height: 60px
-  background: lightgrey
+  height: $nav-height
   @include tablet-portrait 
     height: 50px
   &.expanded
@@ -126,14 +239,14 @@ import MobileNav from './MobileNav.vue'
       height: 100%
       @include navsnap
         display: none
-      ul
+      ul.main__nav
         display: flex
         justify-content: center
         align-items: center
         list-style: none
         font-family: 'Rubik', 'Avenir', sans-serif
         height: 100%
-        li
+        li.main__nav__item
           display: flex
           flex-direction: column
           justify-content: space-between
@@ -144,7 +257,6 @@ import MobileNav from './MobileNav.vue'
           height: 100%
           //border-bottom: 4px solid transparent
           //transition: border-color .25s ease-in-out
-          background: pink
           //removes hover effect of the contact button -- may want to remove this
           @include tablet-portrait 
             font-size: .9em
@@ -186,15 +298,39 @@ import MobileNav from './MobileNav.vue'
               @include tablet-portrait 
                 padding: 5px 16px
                 border-radius: 3px
+    .navbar__content__desktopnav 
+      ul
+        li
+          .navbar__content__desktopnav__subcategory
+            display: flex
+            opacity: 0
+            background: white
+            border: 2px solid black
+            padding: 30px 40px
+            flex-direction: column
+            position: absolute
+            transform: translateY($nav-height)
+            ul.desktopnav__sub__menu 
+              display: flex 
+              flex-direction: column
+              li.desktopnav__sub__menu__item
+                &:after 
+                  content: ''
+                  border: none
+               
+
     &__mobilenav
-      display: flex
+      display: none
       height: 28px
       width: 40px 
       background: red
+      @include navsnap 
+        display: flex
       &__hamburger
         display: flex
         flex-direction: column 
         justify-content: space-between
+        cursor: pointer
         //height: 3px
         &__line1, &__line2, &__line3
           display: flex

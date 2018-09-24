@@ -3,6 +3,7 @@
     app-landing
     app-navbar
     app-hero
+    app-about
 
   
   
@@ -19,12 +20,14 @@
 import Landing from './components/Landing.vue'
 import Navbar from './components/Navbar/Navbar.vue'
 import Hero from './components/Hero.vue'
+import About from './components/About/About.vue'
 
 export default {
   components: {
     appLanding: Landing,
+    appNavbar: Navbar,
     appHero: Hero,
-    appNavbar: Navbar
+    appAbout: About
   }
 }
 </script>
