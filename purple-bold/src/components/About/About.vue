@@ -48,7 +48,10 @@ import AboutPanels from './AboutPanels.vue'
       width: 100%
       &__left, &__right
       &__left
-        background: red
+        display: flex
+        justify-content: center
+        //align-items: center
+        background: lightskyblue
         width: 60%
         margin-right: 50px
       &__right
