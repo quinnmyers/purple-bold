@@ -4,7 +4,7 @@
         <li class="hero__image"
         v-for="(heroImg, index) in heroImages"
         >
-          <img :src="getImgSrc(index + 1)" :class="`hero__panel__image__${index + 1}`" :alt="heroImg.alt" :style="stylePanel(index)">
+          <img :src="getImgSrc(index + 1)" :class="`hero__panel__image__${index + 1}`" :ref="index" :alt="heroImg.alt" :style="stylePanel(index)">
         </li>
       </ul>
     </div>
@@ -48,6 +48,8 @@
               alt: ""
           },
         ],
+        heroPanels: [],
+        panelArray: [],
         display: 'none',
         panelCount: 0
       }
@@ -57,12 +59,43 @@
           return require("../../assets/images/hero-iso/iso-" + index + ".svg");
       },
       stylePanel(index) {
+        //offsets
+        const minOffset = 20
+        const maxOffset = 50
+        const offset = this.getRandomNumber(minOffset, maxOffset)
+        console.log(offset)
+        // let i = 0
+        // while(i < 0 ) {
+        //   console.log(offset)
+        // }
+        //scale of the panels
         let scale = index;
         scale = Math.random();
-        // return { transform: 'scale(' + scale + ')' };
-        return { transform: `scale(${scale})` };
+        return { 
+          transform: `scale(${scale})`, 
+          display: 'flex',
+        };
+      },
+      getRandomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      },
+      selectListItem() {
+        let id = 0
+        const limit = this.heroImages.length 
+        while(id < limit) {
+          let el = this.$refs[id]
+          console.log(el)
+          id++
+          this.panelArray.push(el)
+        }
+        const pictureTwo = this.$refs[2][0]
+        console.log(pictureTwo)
+        pictureTwo.style.display = "flex"
       }
-    }
+    },
+    mounted() {
+      this.selectListItem();
+    } 
   }
 </script>
 
