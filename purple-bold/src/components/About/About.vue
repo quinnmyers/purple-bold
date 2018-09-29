@@ -1,13 +1,13 @@
 <template>
     <div>
-      <section class="hero">
-        <div class="hero__content">
-          <div class="hero__content__container">
-            <div class="hero__content__container__left">
+      <section class="about">
+        <div class="about__content">
+          <div class="about__content__container">
+            <div class="about__content__container__left">
               <app-about-panels></app-about-panels>
             </div>
-            <div class="hero__content__container__right">
-              <img src="../../assets/images/hero-text.svg" alt="" class="hero__content__container__right__image">
+            <div class="about__content__container__right">
+              <img src="../../assets/images/hero-text.svg" alt="" class="about__content__container__right__image">
               <p>Amet excepteur consectetur cupidatat commodo enim esse fugiat fugiat et consectetur officia Lorem fugiat sit. Officia laborum laboris consectetur nisi tempor duis elit. Excepteur fugiat in exercitation consequat incididunt officia ad commodo tempor non velit quis. Incididunt et sit eu laborum nisi officia tempor dolor laboris amet enim dolore cillum incididunt.</p>
             </div>
           </div>
@@ -18,23 +18,24 @@
 </template>
 
 <script>
-import AboutPanels from './AboutPanels.vue'
+import AboutPanels from "./AboutPanels.vue";
 
-    export default {
-      components: {
-        appAboutPanels: AboutPanels
-      }   
-    }
+export default {
+  components: {
+    appAboutPanels: AboutPanels
+  }
+};
 </script>
 
 <style scoped lang="sass">
 @import '../../normalize.scss'
 @import '../../base.sass'
 
-.hero
+.about
   display: flex
   justify-content: center
-  height: 525px
+  height: auto
+  padding: 150px 0px
   background: $light-grey
   color: $grey
   font-family: 'Avenir', sans-serif
@@ -48,10 +49,12 @@ import AboutPanels from './AboutPanels.vue'
       width: 100%
       &__left, &__right
       &__left
+        //animation: panel-entry-animation 2s forwards
+        z-index: 1
         display: flex
         justify-content: center
         //align-items: center
-        background: lightskyblue
+        //background: lightskyblue
         width: 60%
         margin-right: 50px
       &__right
@@ -67,5 +70,10 @@ import AboutPanels from './AboutPanels.vue'
           width: 100%
           margin-bottom: 20px
         
+@keyframes panel-entry-animation
+  from 
+    transform: scale(0)
+  to 
+    transform: scale(1)
 
 </style>
