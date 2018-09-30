@@ -53,145 +53,146 @@
 
 <script>
 //subcategory LI are not getting a class may fix underline issue
-import MobileNav from './MobileNav.vue'
+import MobileNav from "./MobileNav.vue";
 
-
-
-    export default {
-      data() {
-        return {
-          mobileNavExpanded: false,
-          focus: false,
-          navItems: [
-          {
-            name: 'About',
-            url: '#', 
-          },
-          {
-            name: 'Services',
-            url: '#',
-            subCategories: [
-              {
-                name: 'Web Development',
-                url: '#',
-                icon: '#',
-                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
-                subSubCategories: [
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                ]
-              },
-              {
-                name: 'Creative',
-                url: '#',
-                icon: '#',
-                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
-                subSubCategories: [
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                ]
-              },
-              {
-                name: 'Branding',
-                url: '#',
-                icon: '#',
-                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
-                subSubCategories: [
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                ]
-              },
-              {
-                name: 'Marketing',
-                url: '#',
-                icon: '#',
-                desc: "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
-                subSubCategories: [
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                  {
-                    name: 'Lorem Ipsum Dolor',
-                    url: '#'
-                  },
-                ]
-              },
-            ] 
-          },
-          {
-            name: 'Portfolio',
-            url: '#', 
-          },
-          {
-            name: 'Contact',
-            url: '#', 
-          }
-        ]
-        }
-      },
-      methods: {
-        elementCoords(event) {
-          const coords = event.target.getBoundingClientRect();
-          const xCoord = Math.floor(coords.x);
-          const yCoord = Math.floor(coords.y);
-          // console.log(`X: ${coords.x}, Y:${coords.y}`);
-          console.log(`X: ${xCoord}, Y: ${yCoord}`)
-          const el = event.target;
-          el.style.color = "green";
+export default {
+  data() {
+    return {
+      mobileNavExpanded: false,
+      focus: false,
+      navItems: [
+        {
+          name: "About",
+          url: "#"
         },
-        setFocus(event) {
-          console.log(event)
-          this.focus = !this.focus;
-          const el = event.target;
-          const popoutMenu = el.childNodes[1];
-          console.log(this.focus)
-          if(this.focus) {
-            popoutMenu.style.opacity = '1'
-          } else {
-            popoutMenu.style.opacity = '0'
-          }
+        {
+          name: "Services",
+          url: "#",
+          subCategories: [
+            {
+              name: "Web Development",
+              url: "#",
+              icon: "#",
+              desc:
+                "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+              subSubCategories: [
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                }
+              ]
+            },
+            {
+              name: "Creative",
+              url: "#",
+              icon: "#",
+              desc:
+                "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+              subSubCategories: [
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                }
+              ]
+            },
+            {
+              name: "Branding",
+              url: "#",
+              icon: "#",
+              desc:
+                "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+              subSubCategories: [
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                }
+              ]
+            },
+            {
+              name: "Marketing",
+              url: "#",
+              icon: "#",
+              desc:
+                "Commodo quis qui excepteur exercitation elit cillum voluptate enim veniam fugiat consequat.",
+              subSubCategories: [
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                },
+                {
+                  name: "Lorem Ipsum Dolor",
+                  url: "#"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: "Portfolio",
+          url: "#"
+        },
+        {
+          name: "Contact",
+          url: "#"
         }
-      },
-      components: {
-        appMobileNav: MobileNav
+      ]
+    };
+  },
+  methods: {
+    elementCoords(event) {
+      const coords = event.target.getBoundingClientRect();
+      const xCoord = Math.floor(coords.x);
+      const yCoord = Math.floor(coords.y);
+      // console.log(`X: ${coords.x}, Y:${coords.y}`);
+      console.log(`X: ${xCoord}, Y: ${yCoord}`);
+      const el = event.target;
+      el.style.color = "green";
+    },
+    setFocus(event) {
+      console.log(event);
+      this.focus = !this.focus;
+      const el = event.target;
+      const popoutMenu = el.childNodes[1];
+      console.log(this.focus);
+      if (this.focus) {
+        popoutMenu.style.opacity = "1";
+      } else {
+        popoutMenu.style.opacity = "0";
       }
-        
     }
+  },
+  components: {
+    appMobileNav: MobileNav
+  }
+};
 </script>
 
 <style scoped lang="sass">
@@ -203,9 +204,11 @@ $nav-height: 60px
 
 .navbar
   display: flex
+  position: relative
   justify-content: center
   align-items: center
   height: $nav-height
+  z-index: 999
   @include tablet-portrait 
     height: 50px
   &.expanded

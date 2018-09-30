@@ -39,10 +39,16 @@ export default {
   background: $light-grey
   color: $grey
   font-family: 'Avenir', sans-serif
+  @include edgesnap 
+    padding: 120px 0px
+  @include tablet-portrait 
+    padding: 80px 0px
   &__content
     display: flex
     width: 1100px
-    //background: lightskyblue
+    @include edgesnap 
+      width: 100% 
+      padding: 0px 20px
     &__container 
       display: flex
       justify-content: space-between
@@ -54,21 +60,35 @@ export default {
         display: flex
         justify-content: center
         //align-items: center
-        //background: lightskyblue
+        // background: lightskyblue
         width: 60%
         margin-right: 50px
+        @include edgesnap 
+          width: 30%
+          margin-left: 100px
       &__right
         display: flex
         flex-direction: column
         justify-content: center
         width: 40%
-        //background: green
         font-size: .9em
         line-height: 1.75em
         font-weight: $light
+        @include edgesnap 
+          width: 50%
+          margin-right: 20px
+        @include tablet-portrait
+          font-size: .8em
+          line-height: 1.45em
+        p 
+          @include tablet-portrait
+            width: 90%
         img 
           width: 100%
           margin-bottom: 20px
+          @include tablet-portrait 
+            width: 90%
+            margin-bottom: 15px
         
 @keyframes panel-entry-animation
   from 

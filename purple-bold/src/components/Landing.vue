@@ -25,25 +25,25 @@
 </template>
 
 <script>
-   export default {
-        data() {
-          return {
-            loaded: '',
-            afterLoad: ''
-          }
-        },
-        methods: {
-          toggleLoad() {
-            this.loaded = 'loaded';
-            setTimeout(() => {
-              this.afterLoad = 'after-load';
-            }, 1500);
-          }
-        },
-        mounted() {
-          this.toggleLoad()
-        }
+export default {
+  data() {
+    return {
+      loaded: "",
+      afterLoad: ""
+    };
+  },
+  methods: {
+    toggleLoad() {
+      this.loaded = "loaded";
+      setTimeout(() => {
+        this.afterLoad = "after-load";
+      }, 1500);
     }
+  },
+  mounted() {
+    this.toggleLoad();
+  }
+};
 </script>
 
 <style lang="sass">
@@ -70,7 +70,7 @@ $arrow-margin-bottom: 20px
     @include edgesnap
       width: 100%
       overflow: hidden
-      padding: 0px 10px
+      padding: 0px 20px
     @include tablet-portrait
       //may way to add this back if it's too far to the edge
       //will need to test on an actual device

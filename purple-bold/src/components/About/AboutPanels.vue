@@ -145,69 +145,73 @@ export default {
 //IMPORTANT 
   //in order to reorder these images later or recolor them, if you set the display of the UL/LI
   //to make all panel images show  in a line on top of each other the order is correct, 1 is 1, 2 is 2, etc.
-
-ul 
-  display: flex
-  align-items: center
-  justify-content: center
-  margin-right: 170px
-  height: 100% 
-  list-style: none
-  li.panel__loaded 
-    animation: after-panels-loaded 3s infinite
-    //make sure this timeout is exactly the same as the IMG tag load-in animation timing
-    //I think it looks best at exactly the same timing (delay) or 0.1 under.
-    animation-delay: 1.9s
-  li
-    //remove this for reordering, or recoloring
-    position: absolute
-    img 
-    .load__in
-      animation: test-animation 2s forwards
-      position: relative
-      opacity: 0
-  .about__panel__image
-    img
-    &__1.loaded 
-      display: none
-    &__1
-      //large top right peach
-      margin-left: 250px
-      margin-bottom: 100px
-    &__2
-      // pinkish on top of larger black middle bottom
-      z-index: 2
-      margin-top: 120px
-      margin-right: 10px
-    &__3
-      //smaller black one
-      z-index: 1
-      margin-right: 210px
-      margin-bottom: 130px
-    &__4
-      //black below top right peach middle
-      z-index: 1
-      margin-left: 90px
-      margin-top: 50px
-    &__5
-      // top left purple
-      z-index: -1
-      margin-left: 50px
-      margin-bottom: 200px
-    &__6
-      //lower right purple
-      margin-left: 390px
-      margin-top: 330px
-    &__7
-      //small narrow pinkish top left
-      margin-right: 150px
-      margin-bottom: 190px
-    &__8
-      // display: none
-      margin-right: 300px
-      margin-bottom: 100px
-      z-index: 1
-    
+div 
+  @include edgesnap
+    transform: scale(0.8)
+  @include tablet-portrait
+    transform: scale(0.6)
+  ul 
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-right: 170px
+    height: 100% 
+    list-style: none
+    li.panel__loaded 
+      animation: after-panels-loaded 3s infinite
+      //make sure this timeout is exactly the same as the IMG tag load-in animation timing
+      //I think it looks best at exactly the same timing (delay) or 0.1 under.
+      animation-delay: 1.9s
+    li
+      //remove this for reordering, or recoloring
+      position: absolute
+      img 
+      .load__in
+        animation: test-animation 2s forwards
+        position: relative
+        opacity: 0
+    .about__panel__image
+      img
+      &__1.loaded 
+        display: none
+      &__1
+        //large top right peach
+        margin-left: 250px
+        margin-bottom: 100px
+      &__2
+        // pinkish on top of larger black middle bottom
+        z-index: 2
+        margin-top: 120px
+        margin-right: 10px
+      &__3
+        //smaller black one
+        z-index: 1
+        margin-right: 210px
+        margin-bottom: 130px
+      &__4
+        //black below top right peach middle
+        z-index: 1
+        margin-left: 90px
+        margin-top: 50px
+      &__5
+        // top left purple
+        z-index: -1
+        margin-left: 50px
+        margin-bottom: 200px
+      &__6
+        //lower right purple
+        margin-left: 390px
+        margin-top: 330px
+      &__7
+        //small narrow pinkish top left
+        margin-right: 150px
+        margin-bottom: 190px
+      &__8
+        // display: none
+        margin-right: 300px
+        margin-bottom: 100px
+        z-index: 1
+      
     
 @keyframes test-animation 
   20% 
