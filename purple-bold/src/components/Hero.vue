@@ -36,7 +36,7 @@ export default {};
     position: relative
     float: right
     margin-bottom: 1350px
-    margin-left: calc(100% + 250px)
+    margin-left: calc(100% + 300px)
   img.hero__img
     position: absolute
     right: 0
