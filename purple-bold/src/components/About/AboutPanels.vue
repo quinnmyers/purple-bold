@@ -1,10 +1,12 @@
 <template>
     <div>
       <ul>
-        <li class="about__image"
+        <li
+        :class="[aboutImage, panelLoaded]"
         v-for="(heroImg, index) in heroImages"
+        :style="styleAboutListItem(index)"
         >
-          <img :src="getImgSrc(index + 1)" :class="`about__panel__image__${index + 1}`" :ref="index" :alt="heroImg.alt" :style="stylePanel(index)">
+          <img :src="getImgSrc(index + 1)" :class="[`about__panel__image__${index + 1}`, loadIn]" :ref="index" :alt="heroImg.alt" :style="stylePanel(index)">
         </li>
       </ul>
     </div>
@@ -49,62 +51,88 @@ export default {
         }
       ],
       panelArray: [],
-      display: "none"
+      display: "none",
+      panelLoaded: "",
+      loadIn: "",
+      aboutImage: ""
     };
   },
   methods: {
+    //returns a string that fills in the :src binding of each img src
     getImgSrc(index) {
       return require("../../assets/images/hero-iso/iso-" + index + ".svg");
     },
+    //sets the starting style of the IMG tags of each list item
+    //LI are styled in function below which is the after-load animations
+    //animations in CSS only serve to reset to 0 at this point
+    //these set the starting position of the IMG/LI for the load-in animations
     stylePanel(index) {
-      //offsets
-      const minOffset = 20;
-      const maxOffset = 50;
-      const offset = this.getRandomNumber(minOffset, maxOffset);
-      //console.log(offset);
       //translateX
       const minTranslateX = 100;
       const maxTranslateX = 800;
       let translateX = this.getRandomNumber(minTranslateX, maxTranslateX);
-      // console.log(translateX);
-      // translateX = translateX * -1;
-      // console.log(translateX);
       if (Math.random() > 0.5) {
         translateX = translateX;
+        // rotate = rotate;
       } else {
         translateX = translateX * -1;
+        // rotate = rotate * -1;
       }
       //translateY
+      //multiplied by 0.57 to ensure the deg movement is 30 degree the same angle used in isometric illustrations
       const translateY = translateX * 0.57;
       //scale
       const scale = Math.random();
       return {
-        transform: `rotate(-145deg) translateX(${translateX}px) translateY(${translateY}px)`
-        //   scale(${scale}) translateZ(-500px)
+        transform: `scale(${scale}) translateX(${translateX}px) translateY(${translateY}px) rotateY(180deg)`
+        //may want to add in rotation to styling
+        //
       };
     },
+    //this styles the starting point of the styling for the LI tags
+    //animation being styled is the "after-load" animation on the LI
+    styleAboutListItem(index) {
+      const minScale = 0.97;
+      const maxScale = 1.03;
+      const scale = this.getRandomNumber(minScale, maxScale);
+      const minHeightOffset = 2;
+      const maxHeightOffset = 9;
+      let heightOffset = this.getRandomNumber(minHeightOffset, maxHeightOffset);
+      if (Math.random() > 0.5) {
+        heightOffset = heightOffset;
+      } else {
+        heightOffset = heightOffset * -1;
+      }
+      console.log(heightOffset);
+      return {
+        marginTop: `${heightOffset}px`
+      };
+    },
+
+    //constrols starts of animation and timeout of others if added
+    panelAnimations() {
+      this.loadIn = "load__in";
+      this.aboutImage = "about__image";
+      this.panelLoaded = "panel__loaded";
+    },
+
     getRandomNumber(min, max) {
       return Math.random() * (max - min) + min;
     },
+
     selectListItem() {
       let id = 0;
       const limit = this.heroImages.length;
       while (id < limit) {
         const el = this.$refs[id];
-        //console.log(el);
         id++;
         this.panelArray.push(el);
       }
-      // console.log(this.panelArray);
-      // console.log(this.panelArray[1]);
-      // const pictureTwo = this.$refs[2][0]
-      // console.log(pictureTwo)
-      // console.log(this.panelArray)
-      //pictureTwo.style.display = "flex"
     }
   },
   mounted() {
     this.selectListItem();
+    this.panelAnimations();
   }
 };
 </script>
@@ -125,20 +153,27 @@ ul
   margin-right: 170px
   height: 100% 
   list-style: none
+  li.panel__loaded 
+    animation: after-panels-loaded 3s infinite
+    //make sure this timeout is exactly the same as the IMG tag load-in animation timing
+    //I think it looks best at exactly the same timing (delay) or 0.1 under.
+    animation-delay: 1.9s
   li
     //remove this for reordering, or recoloring
     position: absolute
-    perspective: 500px
-    img
+    img 
+    .load__in
       animation: test-animation 2s forwards
       position: relative
       opacity: 0
   .about__panel__image
+    img
+    &__1.loaded 
+      display: none
     &__1
       //large top right peach
       margin-left: 250px
       margin-bottom: 100px
-      //transform: translateX(-800px) translateY(-456px)  scale(0.5) rotate(-90deg)
     &__2
       // pinkish on top of larger black middle bottom
       z-index: 2
@@ -149,7 +184,6 @@ ul
       z-index: 1
       margin-right: 210px
       margin-bottom: 130px
-      //transform: translateX(-600px) translateY(-342px) rotate(-90deg)
     &__4
       //black below top right peach middle
       z-index: 1
@@ -176,17 +210,16 @@ ul
     
     
 @keyframes test-animation 
-  0%
-  30%
-  50%
-  60%
-  75% 
-  80%
-  85%
-  90%
+  20% 
+    opacity: 0
   100%
     opacity: 1
-    transform: rotate(0deg) scale(1) translateX(0px) translateY(0px)
+    transform: scale(1) translateX(0px) translateY(0px)
 
+
+@keyframes after-panels-loaded
+  50%
+    margin-top: 0px
+    transform: scale(1)
 
 </style>
