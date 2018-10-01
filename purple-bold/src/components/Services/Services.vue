@@ -2,10 +2,11 @@
   <div>
     <section class="services">
       <div class="services__content">
+        <h2 class="section--header">Services</h2>
         <div class="services__content__container">
         </div>
         <template v-for="(service, index) in services">
-          <app-services-item :services="service"></app-services-item>
+          <app-services-item :services="service" :servicesIndex="index"></app-services-item>
         </template>
       </div>
     </section>
@@ -123,7 +124,7 @@ export default {
 .services 
   display: flex
   justify-content: center
-  height: 500px
+  height: auto
   &__content 
     background: pink
     width: 1100px
