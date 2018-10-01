@@ -184,8 +184,10 @@ export default {
       console.log(this.focus);
       if (this.focus) {
         popoutMenu.style.opacity = "1";
+        popoutMenu.style.visibility = "visible";
       } else {
         popoutMenu.style.opacity = "0";
+        popoutMenu.style.visibility = "hidden";
       }
     }
   },
@@ -313,6 +315,7 @@ $nav-height: 60px
             flex-direction: column
             position: absolute
             transform: translateY($nav-height)
+            visibility: hidden
             ul.desktopnav__sub__menu 
               display: flex 
               flex-direction: column

@@ -3,7 +3,7 @@
     margin: 0 
     box-sizing: border-box
 
-#app 
+#app
     display: flex
     flex-direction: column
 
@@ -44,6 +44,7 @@ $black: 900
 $phone-small: 330px
 $phone-max-width: 440px
 $phone-large: 414px
+$tablet-phone: 650px
 $tablet-width: 768px
 $desktop-width: 992px
 $edgesnap-width: 1100px
@@ -56,6 +57,10 @@ $nav-snap: 700px
 
 =navsnap
   @media (max-width: #{$nav-snap})
+    @content
+
+=tablet-phone
+  @media (max-width: #{$tablet-phone})
     @content
 
 =tablet-landscape

@@ -31,9 +31,12 @@ export default {};
   height: auto
   background: $blue-grey
   overflow: hidden
+  @include tablet-phone 
+    flex-direction: column
   &__image__container
+    display: flex
+    justify-content: center
     position: relative
-    z-index: 0
     img
       transition: all 1s ease-in-out
       position: absolute
@@ -48,7 +51,17 @@ export default {};
         height: 160% 
         margin-bottom: -20px
         margin-right: -180px
+      @include navsnap
+        height: 140% 
+        margin-right: -220px
+      @include tablet-phone
+        position: relative
+        width: 100% 
+        padding: 0px 20px
+        margin-right: 0px
+        margin-bottom: -200px
   &__content 
+    display: flex
     height: 100%
     width: 1100px
     margin: auto
@@ -59,6 +72,7 @@ export default {};
       padding: 100px 20px
     @include tablet-portrait 
       padding: 70px 20px
+    @include tablet-phone
     &__container
       height: 100%
       display: flex 

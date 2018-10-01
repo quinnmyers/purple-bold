@@ -4,6 +4,7 @@
     app-navbar
     app-hero
     app-about
+    app-services
 
   
   
@@ -17,19 +18,21 @@
 </template>
 
 <script>
-import Landing from './components/Landing.vue'
-import Navbar from './components/Navbar/Navbar.vue'
-import Hero from './components/Hero.vue'
-import About from './components/About/About.vue'
+import Landing from "./components/Landing.vue";
+import Navbar from "./components/Navbar/Navbar.vue";
+import Hero from "./components/Hero.vue";
+import About from "./components/About/About.vue";
+import Services from "./components/Services/Services.vue";
 
 export default {
   components: {
     appLanding: Landing,
     appNavbar: Navbar,
     appHero: Hero,
-    appAbout: About
+    appAbout: About,
+    appServices: Services
   }
-}
+};
 </script>
 
 <style lang="sass">

@@ -13,7 +13,6 @@
           </div>
         </div>
       </section>
-      <br><br><br><br><br><br><br><br><br><br>
     </div>
 </template>
 
@@ -86,6 +85,8 @@ export default {
         img 
           width: 100%
           margin-bottom: 20px
+          @include edgesnap 
+            width: 90%
           @include tablet-portrait 
             width: 90%
             margin-bottom: 15px
