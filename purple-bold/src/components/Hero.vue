@@ -4,7 +4,7 @@
       <div class="hero__content">
         <div class="hero__content__container">
           <h3>A modern <span>creative agency.</span></h3>
-          <h3>If you're starting something new,<br>
+          <h3>If you're starting something new,<br v-show="lineBreak">
               let's make sure it's not already old.</h3>
           <button class="hero__content__container__ctabutton">
             Get A Free Quote
@@ -19,7 +19,27 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      lineBreak: false
+    };
+  },
+  methods: {
+    removeLineBreak() {
+      if (window.matchMedia("(max-width: 650px)").matches) {
+        this.lineBreak = this.lineBreak;
+        console.log("smaller than 650");
+      } else {
+        this.lineBreak = true;
+        console.log("bigger than 650");
+      }
+    }
+  },
+  mounted() {
+    this.removeLineBreak();
+  }
+};
 </script>
 
 <style scoped lang='sass'>
@@ -33,10 +53,16 @@ export default {};
   overflow: hidden
   @include tablet-phone 
     flex-direction: column
+  @include phone-large
+    flex-direction: column-reverse 
+    height: calc(100vh - 60px)
   &__image__container
     display: flex
     justify-content: center
     position: relative
+    @include phone-large 
+      width: 100% 
+      height: 200px
     img
       transition: all 1s ease-in-out
       position: absolute
@@ -60,6 +86,18 @@ export default {};
         padding: 0px 20px
         margin-right: 0px
         margin-bottom: -200px
+      @include phone-large 
+        position: absolute 
+        width: 500px
+        height: 500px 
+        margin-bottom: -150px
+        //margin-left: 200px
+        margin-right: -170px
+      @include phone-small 
+        height: 400px 
+        width: 400px 
+        margin-bottom: -90px
+        margin-right: -140px
   &__content 
     display: flex
     height: 100%
@@ -73,12 +111,16 @@ export default {};
     @include tablet-portrait 
       padding: 70px 20px
     @include tablet-phone
+      padding: 20px 20px
     &__container
       height: 100%
       display: flex 
       flex-direction: column 
       justify-content: space-around
       font-family: 'Rubik', 'Avenir', sans-serif
+      @include phone-large
+          height: auto
+          align-self: flex-end
       h3 
         font-size: 2.15em
         font-weight: $light
@@ -87,10 +129,17 @@ export default {};
         @include tablet-portrait 
           font-size: 1.75em
           margin-top: 40px
+        @include phone-large 
+          font-size: 1.6em
+          margin-top: 40px
+        @include phone-small 
+          font-size: 1.3em
         &:nth-child(1)
           margin-top: 0px
         &:nth-child(2)
           margin-bottom: 70px
+          @include phone-large 
+            margin-bottom: 40px
       span 
         font-style: italic
         border-bottom: 1px solid white
@@ -111,4 +160,8 @@ export default {};
           font-size: .85em
           height: 36px 
           width: 145px
+        @include phone-large 
+          margin-bottom: 30px
+        @include phone-small 
+          margin-bottom: 20px
 </style>
