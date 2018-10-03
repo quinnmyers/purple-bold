@@ -134,12 +134,15 @@ export default {
           margin-top: 40px
         @include phone-small 
           font-size: 1.3em
+          margin-top: 30px
         &:nth-child(1)
           margin-top: 0px
         &:nth-child(2)
           margin-bottom: 70px
           @include phone-large 
             margin-bottom: 40px
+          @include phone-small 
+            margin-bottom: 30px
       span 
         font-style: italic
         border-bottom: 1px solid white

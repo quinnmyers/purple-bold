@@ -165,6 +165,7 @@ div
     li
       //remove this for reordering, or recoloring
       position: absolute
+      @include phone-large
       img 
       .load__in
         animation: test-animation 2s forwards

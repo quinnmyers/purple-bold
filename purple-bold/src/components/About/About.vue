@@ -42,6 +42,9 @@ export default {
     padding: 120px 0px
   @include tablet-portrait 
     padding: 80px 0px
+  @include phone-large 
+    height: 590px
+    padding: 0px 0px
   &__content
     display: flex
     width: 1100px
@@ -52,6 +55,9 @@ export default {
       display: flex
       justify-content: space-between
       width: 100%
+      @include phone-large 
+        flex-direction: column
+
       &__left, &__right
       &__left
         //animation: panel-entry-animation 2s forwards
@@ -65,6 +71,10 @@ export default {
         @include edgesnap 
           width: 30%
           margin-left: 100px
+        @include phone-large 
+          width: 100%
+          margin-top: 175px 
+          margin-left: 25px
       &__right
         display: flex
         flex-direction: column
@@ -79,16 +89,19 @@ export default {
         @include tablet-portrait
           font-size: .8em
           line-height: 1.45em
+        @include phone-large 
+          width: 100%
+          margin-bottom: 40px
         p 
           @include tablet-portrait
-            width: 90%
+            width: 100%
         img 
           width: 100%
           margin-bottom: 20px
           @include edgesnap 
             width: 90%
           @include tablet-portrait 
-            width: 90%
+            width: 100%
             margin-bottom: 15px
         
 @keyframes panel-entry-animation
