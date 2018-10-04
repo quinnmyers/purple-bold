@@ -26,7 +26,7 @@ export default {
             {
               subName: "Custom Web Development",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
             },
             {
               subName: "Websites 2",

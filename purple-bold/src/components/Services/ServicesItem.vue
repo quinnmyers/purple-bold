@@ -11,12 +11,15 @@
           </div>
           <div class="services__content__container__item__container__right">
               <ul class="services__content__container__item__container__right__subcategories">
-                  <li v-for="sub in services.subCategories" class="services__content__container__item__container__right__subcategories__item">
+                  <li v-for="(sub, index) in services.subCategories" class="services__content__container__item__container__right__subcategories__item">
                     <div class="services__content__container__item__container__right__subcategories__item__title">
-                      <h3 class="services__content__container__item__container__right__subcategories__item__title__name"> {{ sub.subName }} </h3>
-                      <div class="services__content__container__item__container__right__subcategories__item__title__arrow"></div>
-                    </div> 
-                    <p class="services__content__container__item__container__right__subcategories__item__description"> {{ sub.subDescription }} </p>
+                      <h3 class="services__content__container__item__container__right__subcategories__item__title__name" 
+                      @click="getDescriptionHeight(index)"> {{ sub.subName }} </h3>
+                      <div class="services__content__container__item__container__right__subcategories__item__title__arrow expanded"><p>V</p></div>
+                    </div>
+                    <div class="services__content__container__item__container__right__subcategories__item__description">
+                      <p class="services__content__container__item__container__right__subcategories__item__description__text " :ref="'description-' + index "> {{ sub.subDescription }} </p>
+                    </div>
                   </li>
               </ul>
           </div>
@@ -50,6 +53,19 @@ export default {
       index: this.servicesIndex,
       serviceList: ["Websites", "Creative", "Branding", "Marketing"]
     };
+  },
+  methods: {
+    getDescriptionHeight(index) {
+      const el = event.target;
+      console.log(index.toString());
+      const targetIndex = index;
+      const expansionTarget = this.$refs[`description-${index.toString()}`][0];
+      if (expansionTarget.classList.contains("expanded")) {
+        expansionTarget.classList.remove("expanded");
+      } else {
+        expansionTarget.classList.add("expanded");
+      }
+    }
   },
   computed: {
     servicesImgComponent() {
@@ -119,12 +135,31 @@ export default {
               height: 23px 
               width: 23px 
               background: red
-          p, &__description
-            font-family: 'Avenir', sans-serif
-            margin-bottom: 20px
-            font-size: 0.95em
-            line-height: 1.25em
-
+              &.expanded 
+                background: green
+          &__description
+            background: yellow
+            overflow: hidden 
+            height: auto
+            width: 100%
+            &.expanded 
+              height: auto
+            &__text
+              display: flex
+              font-family: 'Avenir', sans-serif
+              margin-bottom: 20px
+              font-size: 0.95em
+              line-height: 1.25em
+              overflow: hidden
+              color: black
+              height: 55px
+              transition: all 1s ease
+              transform: translateY(-100%)
+              &.expanded 
+                color: red
+                height: auto
+                transform: translateY(0px)
+                
 
 
 </style>
