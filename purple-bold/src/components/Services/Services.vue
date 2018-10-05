@@ -5,7 +5,7 @@
       <div class="services__content__container">
       </div>
       <template v-for="(service, index) in services">
-        <app-services-item :services="service" :servicesIndex="index"></app-services-item>
+        <app-services-item :service="service" :servicesIndex="index" :servicesArray="servicesArray[index]"></app-services-item>
       </template>
     </div>
   </section>
@@ -15,8 +15,12 @@
 import ServicesItem from "./ServicesItem.vue";
 
 export default {
+  components: {
+    appServicesItem: ServicesItem
+  },
   data() {
     return {
+      servicesArray: [],
       services: [
         {
           name: "Websites",
@@ -26,17 +30,20 @@ export default {
             {
               subName: "Custom Web Development",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              expanded: false
             },
             {
               subName: "Websites 2",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              expanded: false
             },
             {
               subName: "Websites 2",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              expanded: false
             }
           ]
         },
@@ -81,6 +88,11 @@ export default {
               subName: "Printed Materials",
               subDescription:
                 "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+            },
+            {
+              subName: "Printed Materials",
+              subDescription:
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
             }
           ]
         },
@@ -109,8 +121,24 @@ export default {
       ]
     };
   },
-  components: {
-    appServicesItem: ServicesItem
+  mounted() {
+    this.getServicesArray();
+  },
+  methods: {
+    getServicesArray() {
+      const serviceCount = this.services.length;
+      let counter = 0;
+      while (counter < serviceCount) {
+        const subCount = this.services[counter].subCategories.length;
+        let subCounter = 0;
+        this.servicesArray.push([]);
+        while (subCounter < subCount) {
+          this.servicesArray[counter].push({ expanded: false });
+          subCounter++;
+        }
+        counter++;
+      }
+    }
   }
 };
 </script>

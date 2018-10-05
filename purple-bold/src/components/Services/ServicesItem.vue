@@ -2,36 +2,20 @@
   <div class="services__content__container__item">
       <div class="services__content__container__item__container">
           <div class="services__content__container__item__container__left">
-              <h2 class="services__content__container__item__container__left__title"> {{ services.name }} </h2>
-              <component :is="servicesImgComponent" :services="services"></component>
+              <h2 class="services__content__container__item__container__left__title"> {{ service.name }} </h2>
+              <component :is="servicesImgComponent" :service="service"></component>
           </div>
           <div class="services__content__container__item__container__middle">
               <div class="services__content__container__item__container__middle--arrow"></div>
               <div class="services__content__container__item__container__middle--line"></div>
           </div>
           <div class="services__content__container__item__container__right">
-              <ul class="services__content__container__item__container__right__subcategories">
-                  <li v-for="(sub, index) in services.subCategories" class="services__content__container__item__container__right__subcategories__item">
-                    <div class="services__content__container__item__container__right__subcategories__item__title">
-                      <h3 class="services__content__container__item__container__right__subcategories__item__title__name" 
-                      @click="getDescriptionHeight(index)"> {{ sub.subName }} </h3>
-                      <div class="services__content__container__item__container__right__subcategories__item__title__arrow expanded"><p>V</p></div>
-                    </div>
-                    <div class="services__content__container__item__container__right__subcategories__item__description">
-                      <p class="services__content__container__item__container__right__subcategories__item__description__text " :ref="'description-' + index "> {{ sub.subDescription }} </p>
-                    </div>
-                  </li>
-              </ul>
+            <ul class="services__content__container__item__container__right__subcategories">
+              <app-services-sublist :service="service" :servicesIndex="index" :servicesArray="servicesArray"></app-services-sublist>
+            </ul>
           </div>
       </div>
   </div>
-        <!-- <p>{{ services.name }}</p>
-        <ul>
-            <li v-for="sub in services.subCategories">
-                <p> {{ sub.subName }} </p>
-                <p> {{ sub.subDescription }} </p>
-            </li>
-        </ul> -->
 </template>
 
 <script>
@@ -39,25 +23,32 @@ import ServicesWebsites from "./ServicesWebsites.vue";
 import ServicesCreative from "./ServicesCreative.vue";
 import ServicesBranding from "./ServicesBranding.vue";
 import ServicesMarketing from "./ServicesMarketing.vue";
+import ServicesSublist from "./ServicesSublist.vue";
+import VueSlideUpDown from "vue-slide-up-down";
 
 export default {
-  props: ["services", "servicesIndex"],
+  props: ["service", "servicesIndex", "servicesArray"],
   components: {
     appServicesWebsites: ServicesWebsites,
     appServicesCreative: ServicesCreative,
     appServicesBranding: ServicesBranding,
-    appServicesMarketing: ServicesMarketing
+    appServicesMarketing: ServicesMarketing,
+    appServicesSublist: ServicesSublist,
+    VueSlideUpDown: VueSlideUpDown
   },
   data() {
     return {
       index: this.servicesIndex,
+      active: [false, false, false],
       serviceList: ["Websites", "Creative", "Branding", "Marketing"]
     };
   },
   methods: {
+    //each p description in right div gets a ref "description-index"
+    //this function targets the same p ref as the index of the header clicked and gives it a class or removes a class
     getDescriptionHeight(index) {
       const el = event.target;
-      console.log(index.toString());
+      //console.log(index.toString());
       const targetIndex = index;
       const expansionTarget = this.$refs[`description-${index.toString()}`][0];
       if (expansionTarget.classList.contains("expanded")) {
@@ -130,6 +121,7 @@ export default {
               font-family: 'Rubik', 'Avenir', sans-serif 
               font-weight: $normal 
               font-size: 1.4em
+              cursor: pointer
             &__arrow
               margin-left: 20px
               height: 23px 
@@ -142,6 +134,7 @@ export default {
             overflow: hidden 
             height: auto
             width: 100%
+            transition: all .5s ease
             &.expanded 
               height: auto
             &__text
@@ -152,12 +145,12 @@ export default {
               line-height: 1.25em
               overflow: hidden
               color: black
-              height: 55px
-              transition: all 1s ease
+              max-height: 55px
+              transition: all .5s ease
               transform: translateY(-100%)
               &.expanded 
                 color: red
-                height: auto
+                max-height: 600px
                 transform: translateY(0px)
                 
 

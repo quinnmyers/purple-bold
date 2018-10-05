@@ -7,11 +7,15 @@
 
 <script>
 export default {
-  props: ["services"],
+  props: ["service"],
   methods: {
     testFunction() {
-      this.services.name = "Hello World This is Websites Talking";
+      this.service.subCategories[1].subName =
+        "Hello World This is Websites Talking";
     }
+  },
+  mounted() {
+    console.log(this.service.subCategories[1].expanded);
   }
 };
 </script>
