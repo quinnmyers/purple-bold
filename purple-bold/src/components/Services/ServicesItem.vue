@@ -75,14 +75,24 @@ export default {
   background: lightskyblue
   margin: 60px 0px
   height: 100%
+  @include edgesnap 
+      width: 100%
+      padding: 0px 20px
   &__container
     display: flex
     height: 100%
+    @include tablet-portrait 
+      flex-direction: column 
+      align-items: center
+      height: auto
     &__left
       display: flex 
       flex-direction: column
       background: green
       width: 300px
+      @include tablet-portrait 
+        width: 100%
+        margin-bottom: 20px 
       h2, &__title
         font-family: "Rubik", "Avenir", sans-serif 
         font-weight: $medium
@@ -92,6 +102,8 @@ export default {
       display: flex 
       flex-direction: column
       justify-content: center
+      @include tablet-portrait 
+        align-items: center
       &--arrow 
         //this image must be the same stroke thickness as the width of the div next to it "--line"
         position: absolute
@@ -102,14 +114,33 @@ export default {
         background:
           image: url('../../assets/images/services-arrow.svg')
           repeat: no-repeat
+        @include tablet-portrait 
+          transform: rotate(90deg)
+          background-position: top
+          margin-left: 0px
+          margin-top: -4px 
       &--line
       height: 100%
       margin: 0px 50px 
-      width: 1px 
-      background: $grey 
+      width: 1px
+      border-right: 1px solid $grey
+      @include edgesnap 
+        margin: 0px 25px
+      @include tablet-portrait 
+        transform: rotate(-180deg)
+        width: 100%
+        border-right: none
+        border-bottom: 1px solid $grey
+        background: yellow
     &__right 
       flex: 1
       background: orange
+      @include edgesnap 
+        width: 100% 
+      @include tablet-portrait 
+        width: auto
+        margin-top: 20px
+
       ul, &__subcategories 
         list-style: none
         li, &__item

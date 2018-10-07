@@ -159,8 +159,9 @@ export default {
     background: pink
     width: 1100px
     @include edgesnap 
-      width: 100% 
+      width: 100%
       padding: 0px 20px 
+      background: lightskyblue
     
 
 </style>
