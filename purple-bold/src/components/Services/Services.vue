@@ -5,7 +5,7 @@
       <div class="services__content__container">
       </div>
       <template v-for="(service, index) in services">
-        <app-services-item :service="service" :servicesIndex="index" :servicesArray="servicesArray[index]"></app-services-item>
+        <app-services-item :service="service" :services="services" :servicesIndex="index" :servicesArray="servicesArray[index]"></app-services-item>
       </template>
     </div>
   </section>
@@ -31,19 +31,19 @@ export default {
               subName: "Custom Web Development",
               subDescription:
                 "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure. Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
-              expanded: false
+              recolor: false
             },
             {
               subName: "Websites 2",
               subDescription:
                 "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
-              expanded: false
+              recolor: false
             },
             {
               subName: "Websites 2",
               subDescription:
                 "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
-              expanded: false
+              recolor: false
             }
           ]
         },
@@ -55,17 +55,26 @@ export default {
             {
               subName: "Web Design",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              color: "#000000",
+              recolor: true,
+              id: 1
             },
             {
               subName: "Logo Design",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              color: "#000000",
+              recolor: true,
+              id: 2
             },
             {
               subName: "Other Creative Services",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              color: "#000000",
+              recolor: true,
+              id: 3
             }
           ]
         },
@@ -77,22 +86,26 @@ export default {
             {
               subName: "New Brand Development",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             },
             {
               subName: "Logo Design",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             },
             {
               subName: "Printed Materials",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             },
             {
               subName: "Printed Materials",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             }
           ]
         },
@@ -104,17 +117,20 @@ export default {
             {
               subName: "SEO",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             },
             {
               subName: "Email Marketing",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             },
             {
               subName: "Analytics",
               subDescription:
-                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure."
+                "Est magna deserunt eu ex reprehenderit in dolor aliquip velit. Laboris aliqua occaecat qui aliquip exercitation do esse irure.",
+              recolor: false
             }
           ]
         }
@@ -156,12 +172,12 @@ export default {
     flex-direction: column
     justify-content: center 
     align-items: center
-    background: pink
+    //background: pink
     width: 1100px
     @include edgesnap 
       width: 100%
       padding: 0px 20px 
-      background: lightskyblue
+      //background: lightskyblue
     
 
 </style>

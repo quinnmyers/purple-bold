@@ -1,5 +1,5 @@
 <template>
-  <div class="services__content__container__item">
+  <div class="services__content__container__item" v-if="isMounted">
       <div class="services__content__container__item__container">
           <div class="services__content__container__item__container__left">
               <h2 class="services__content__container__item__container__left__title"> {{ service.name }} </h2>
@@ -11,7 +11,7 @@
           </div>
           <div class="services__content__container__item__container__right">
             <ul class="services__content__container__item__container__right__subcategories">
-              <app-services-sublist :service="service" :servicesIndex="index" :servicesArray="servicesArray"></app-services-sublist>
+              <app-services-sublist :service="service" :services="services" :servicesIndex="index" :servicesArray="servicesArray"></app-services-sublist>
             </ul>
           </div>
       </div>
@@ -27,7 +27,7 @@ import ServicesSublist from "./ServicesSublist.vue";
 import VueSlideUpDown from "vue-slide-up-down";
 
 export default {
-  props: ["service", "servicesIndex", "servicesArray"],
+  props: ["service", "services", "servicesIndex", "servicesArray"],
   components: {
     appServicesWebsites: ServicesWebsites,
     appServicesCreative: ServicesCreative,
@@ -40,7 +40,8 @@ export default {
     return {
       index: this.servicesIndex,
       active: [false, false, false],
-      serviceList: ["Websites", "Creative", "Branding", "Marketing"]
+      serviceList: ["Websites", "Creative", "Branding", "Marketing"],
+      isMounted: false
     };
   },
   methods: {
@@ -48,7 +49,6 @@ export default {
     //this function targets the same p ref as the index of the header clicked and gives it a class or removes a class
     getDescriptionHeight(index) {
       const el = event.target;
-      //console.log(index.toString());
       const targetIndex = index;
       const expansionTarget = this.$refs[`description-${index.toString()}`][0];
       if (expansionTarget.classList.contains("expanded")) {
@@ -62,6 +62,9 @@ export default {
     servicesImgComponent() {
       return `app-services-${this.serviceList[this.index].toLowerCase()}`;
     }
+  },
+  mounted() {
+    this.isMounted = true;
   }
 };
 </script>
@@ -72,7 +75,7 @@ export default {
 
 .services__content__container__item
   width: 880px
-  background: lightskyblue
+  //background: lightskyblue
   margin: 60px 0px
   height: 100%
   @include edgesnap 
@@ -90,7 +93,7 @@ export default {
     &__left
       display: flex 
       flex-direction: column
-      background: green
+      //background: green
       width: 300px
       @include tablet-portrait 
         width: 100%
@@ -98,6 +101,7 @@ export default {
       h2, &__title
         font-family: "Rubik", "Avenir", sans-serif 
         font-weight: $medium
+        font-size: 1.7em
         margin-bottom: 10px
         align-self: flex-end
     &__middle
@@ -133,10 +137,10 @@ export default {
         width: 100%
         border-right: none
         border-bottom: 1px solid $grey
-        background: yellow
+        //background: yellow
     &__right 
       flex: 1
-      background: orange
+      //background: orange
       @include edgesnap 
         width: 100% 
       @include tablet-portrait 
@@ -148,6 +152,10 @@ export default {
       @include tablet-phone 
         width: 100%
       ul, &__subcategories 
+        display: flex 
+        flex-direction: column 
+        justify-content: center
+        height: 100%
         list-style: none
                 
 

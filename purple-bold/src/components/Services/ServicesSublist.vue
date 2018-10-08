@@ -1,32 +1,32 @@
 <template>
-  <div>
+  <div v-if="isMounted">
     <li v-for="(sub, index) in service.subCategories" class="services__content__container__item__container__right__subcategories__item">
       <div class="services__content__container__item__container__right__subcategories__item__title">
         <h3 class="services__content__container__item__container__right__subcategories__item__title__name" 
-        @click="expandSubComponent(index)"> {{ sub.subName }} </h3>
-        <div class="services__content__container__item__container__right__subcategories__item__title__arrow expanded"><p>V</p></div>
+        @click="expandSubComponent(index)" :ref="'title-' + sub.recolor"> {{ sub.subName }} </h3>
+        <div class="services__content__container__item__container__right__subcategories__item__title__arrow" :class="{ expanded: servicesArray[index].expanded }"></div>
       </div>
-      <template v-if="testing">
         <vue-slide-up-down :active="servicesArray[index].expanded" :duration="600" class="services__content__container__item__container__right__subcategories__item__description">
          <div class="services__content__container__item__container__right__subcategories__item__description">
           <p class="services__content__container__item__container__right__subcategories__item__description__text " :ref="'description-' + index "> {{ sub.subDescription }} </p>
       </div>
       </vue-slide-up-down>
-      </template>
     </li>
   </div>
 </template>
 
 <script>
 import VueSlideUpDown from "vue-slide-up-down";
+import { eventBus } from "../../main";
 
 export default {
   data() {
     return {
-      testing: false
+      isMounted: true,
+      counter: 0
     };
   },
-  props: ["service", "servicesIndex", "servicesArray"],
+  props: ["service", "services", "servicesIndex", "servicesArray"],
   components: {
     VueSlideUpDown: VueSlideUpDown
   },
@@ -34,9 +34,34 @@ export default {
     expandSubComponent(index) {
       this.servicesArray[index].expanded = !this.servicesArray[index].expanded;
     },
+    updateColor(color) {
+      const counter = this.services[1].subCategories.length;
+      if (this.$refs["title-true"]) {
+        let limit = this.$refs["title-true"].length;
+        let elementId = Math.floor(this.getRandomNumber(0, limit));
+        if (this.counter < limit) {
+          const el = this.$refs["title-true"][this.counter];
+          el.style.color = color;
+          this.counter++;
+        } else {
+          this.$refs["title-true"][0].style.color = "#000000";
+          this.$refs["title-true"][1].style.color = "#000000";
+          this.$refs["title-true"][2].style.color = "#000000";
+          this.counter = 0;
+        }
+      }
+    },
+    getRandomNumber(min, max) {
+      return Math.random() * (max - min) + min;
+    },
     mountFunction() {
-      this.testing = true;
+      this.isMounted = true;
     }
+  },
+  created() {
+    eventBus.$on("colorWasEdited", color => {
+      this.updateColor(color);
+    });
   },
   mounted() {
     this.mountFunction();
@@ -56,25 +81,30 @@ export default {
       margin-bottom: 5px
       @include tablet-portrait 
         justify-content: space-between
-        background: pink
+        //background: pink
       h3, &__name
         font-family: 'Rubik', 'Avenir', sans-serif 
         font-weight: $normal 
-        font-size: 1.4em
+        font-size: 1.5em
         cursor: pointer
       &__arrow
         margin-left: 20px
-        height: 23px 
-        width: 23px 
-        background: red
+        height: 20px 
+        width: 20px
+        //transform: rotate(0deg)
+        //transition: transform 0.5s forwards
+        background: 
+          image: url('../../assets/images/services-title-arrow.svg')
+          position: center 
+          size: contain
+          repeat: no-repeat
         &.expanded 
-          background: green
+          animation: arrow-grow 0.5s forwards
     &__description
-      background: yellow
+      //background: yellow
       overflow: hidden 
       height: auto
       width: 100%
-      transition: all .5s ease
       &.expanded 
         height: auto
       &__text
@@ -94,5 +124,11 @@ export default {
           max-height: 600px
           transform: translateY(0px)
               
-
+@keyframes arrow-grow 
+  0% 
+    transform: scale(1) rotate(0deg)
+  50% 
+    transform: scale(1.2)
+  100%
+    transform: scale(1) rotate(-180deg)
 </style>
