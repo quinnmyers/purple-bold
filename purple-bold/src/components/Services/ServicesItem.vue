@@ -76,8 +76,10 @@ export default {
   margin: 60px 0px
   height: 100%
   @include edgesnap 
-      width: 100%
-      padding: 0px 20px
+    width: 100%
+    padding: 0px 20px
+  @include tablet-portrait 
+    margin: 50px 0px
   &__container
     display: flex
     height: 100%
@@ -118,7 +120,7 @@ export default {
           transform: rotate(90deg)
           background-position: top
           margin-left: 0px
-          margin-top: -4px 
+          margin-top: -4px
       &--line
       height: 100%
       margin: 0px 50px 
@@ -140,49 +142,13 @@ export default {
       @include tablet-portrait 
         width: auto
         margin-top: 20px
-
+    &__left, &__middle, &__right 
+      @include tablet-portrait
+        width: 60%
+      @include tablet-phone 
+        width: 100%
       ul, &__subcategories 
         list-style: none
-        li, &__item
-          &__title 
-            display: flex 
-            align-items: center
-            margin-bottom: 5px
-            h3, &__name
-              font-family: 'Rubik', 'Avenir', sans-serif 
-              font-weight: $normal 
-              font-size: 1.4em
-              cursor: pointer
-            &__arrow
-              margin-left: 20px
-              height: 23px 
-              width: 23px 
-              background: red
-              &.expanded 
-                background: green
-          &__description
-            background: yellow
-            overflow: hidden 
-            height: auto
-            width: 100%
-            transition: all .5s ease
-            &.expanded 
-              height: auto
-            &__text
-              display: flex
-              font-family: 'Avenir', sans-serif
-              margin-bottom: 20px
-              font-size: 0.95em
-              line-height: 1.25em
-              overflow: hidden
-              color: black
-              max-height: 55px
-              transition: all .5s ease
-              transform: translateY(-100%)
-              &.expanded 
-                color: red
-                max-height: 600px
-                transform: translateY(0px)
                 
 
 

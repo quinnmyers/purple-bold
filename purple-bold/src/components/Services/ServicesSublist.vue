@@ -54,6 +54,9 @@ export default {
       display: flex 
       align-items: center
       margin-bottom: 5px
+      @include tablet-portrait 
+        justify-content: space-between
+        background: pink
       h3, &__name
         font-family: 'Rubik', 'Avenir', sans-serif 
         font-weight: $normal 
