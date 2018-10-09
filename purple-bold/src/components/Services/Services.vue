@@ -5,7 +5,12 @@
       <div class="services__content__container">
       </div>
       <template v-for="(service, index) in services">
-        <app-services-item :service="service" :services="services" :servicesIndex="index" :servicesArray="servicesArray[index]"></app-services-item>
+        <app-services-item :service="service" 
+                           :services="services" 
+                           :servicesIndex="index" 
+                           :servicesArray="servicesArray[index]"
+                           :serviceName="services[index].name.toLowerCase()">
+        </app-services-item>
       </template>
     </div>
   </section>
@@ -172,7 +177,7 @@ export default {
     flex-direction: column
     justify-content: center 
     align-items: center
-    //background: pink
+    // background: pink
     width: 1100px
     @include edgesnap 
       width: 100%

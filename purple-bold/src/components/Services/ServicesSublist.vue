@@ -26,7 +26,13 @@ export default {
       counter: 0
     };
   },
-  props: ["service", "services", "servicesIndex", "servicesArray"],
+  props: [
+    "service",
+    "services",
+    "servicesIndex",
+    "servicesArray",
+    "serviceName"
+  ],
   components: {
     VueSlideUpDown: VueSlideUpDown
   },
@@ -44,9 +50,11 @@ export default {
           el.style.color = color;
           this.counter++;
         } else {
-          this.$refs["title-true"][0].style.color = "#000000";
-          this.$refs["title-true"][1].style.color = "#000000";
-          this.$refs["title-true"][2].style.color = "#000000";
+          this.counter = limit - 1;
+          while (this.counter >= 0) {
+            this.$refs["title-true"][this.counter].style.color = "#000000";
+            this.counter--;
+          }
           this.counter = 0;
         }
       }

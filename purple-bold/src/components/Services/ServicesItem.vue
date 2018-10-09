@@ -3,7 +3,10 @@
       <div class="services__content__container__item__container">
           <div class="services__content__container__item__container__left">
               <h2 class="services__content__container__item__container__left__title"> {{ service.name }} </h2>
-              <component :is="servicesImgComponent" :service="service"></component>
+              <component :is="servicesImgComponent" 
+                         :service="service"
+                         :serviceName="serviceName">
+                         </component>
           </div>
           <div class="services__content__container__item__container__middle">
               <div class="services__content__container__item__container__middle--arrow"></div>
@@ -11,7 +14,12 @@
           </div>
           <div class="services__content__container__item__container__right">
             <ul class="services__content__container__item__container__right__subcategories">
-              <app-services-sublist :service="service" :services="services" :servicesIndex="index" :servicesArray="servicesArray"></app-services-sublist>
+              <app-services-sublist :service="service" 
+                                    :services="services" 
+                                    :servicesIndex="index" 
+                                    :servicesArray="servicesArray"
+                                    :serviceName="serviceName">
+                                    </app-services-sublist>
             </ul>
           </div>
       </div>
@@ -27,7 +35,13 @@ import ServicesSublist from "./ServicesSublist.vue";
 import VueSlideUpDown from "vue-slide-up-down";
 
 export default {
-  props: ["service", "services", "servicesIndex", "servicesArray"],
+  props: [
+    "service",
+    "services",
+    "servicesIndex",
+    "servicesArray",
+    "serviceName"
+  ],
   components: {
     appServicesWebsites: ServicesWebsites,
     appServicesCreative: ServicesCreative,
@@ -65,6 +79,7 @@ export default {
   },
   mounted() {
     this.isMounted = true;
+    console.log(this.serviceName);
   }
 };
 </script>
