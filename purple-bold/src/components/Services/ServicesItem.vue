@@ -18,7 +18,8 @@
                                     :services="services" 
                                     :servicesIndex="index" 
                                     :servicesArray="servicesArray"
-                                    :serviceName="serviceName">
+                                    :serviceName="serviceName"
+                                    :ref="serviceName">
                                     </app-services-sublist>
             </ul>
           </div>

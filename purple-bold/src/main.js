@@ -6,9 +6,9 @@ Vue.config.productionTip = false;
 
 export const eventBus = new Vue({
   methods: {
-    handleColorUpdate(color) {
-      console.log("this is event bus " + color);
-      this.$emit("colorWasEdited", color);
+    handleColorUpdate(hexColor, rgbColor) {
+      this.$emit("colorWasEdited", hexColor);
+      // this.$emit("colorWasEdited", rgbColor);
     }
   }
 });
