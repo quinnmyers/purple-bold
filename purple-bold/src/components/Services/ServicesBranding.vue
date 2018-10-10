@@ -16,14 +16,22 @@
             <div class="branding__container__middle--rgb"><p>{{ middleSwatch.rgbBottom }}</p></div>
           </div>
           <div class="branding__container__right">
-            <div class="branding__container__right--big-heading"><p>Big Heading</p></div>
-            <div class="branding__container__right--heading"><p>Heading</p></div>
-            <div class="branding__container__right--subheading" ref="subheading"><p>Subheading</p></div>
-            <div class="branding__container__right--bodytext"><p>Body Text</p></div>
-            <div class="branding__container__right--caption"><p>Caption</p></div>
-            <div class="branding__container__right--captionuppercase"><p>UPPERCASE</p></div>
-            <div class="branding__container__right--label"><p>Label</p></div>
-            <div class="branding__container__right--hyperlink" ref="hyperlink"><p>Hyperlink</p></div>
+            <div class="branding__container__right__input__container">
+              <input type="text" class="branding__container__right__input__container--field" 
+                                 ref="branding-input-field" 
+                                 v-model="brandingInput"
+                                 @focus="inputHandler(true)"
+                                 @blur="inputHandler(false)"
+                                 @keydown="inputValue">
+            </div>
+            <div class="branding__container__right--big-heading"><p>{{ brandingInput === '' ? bigHeading : brandingInput }}</p></div>
+            <div class="branding__container__right--heading"><p>{{ brandingInput === '' ? smallHeading : brandingInput }}</p></div>
+            <div class="branding__container__right--subheading" ref="subheading"><p>{{ brandingInput === '' ? subheading : brandingInput }}</p></div>
+            <div class="branding__container__right--bodytext"><p>{{ brandingInput === '' ? bodyText : brandingInput }}</p></div>
+            <div class="branding__container__right--caption"><p>{{ brandingInput === '' ? caption : brandingInput }}</p></div>
+            <div class="branding__container__right--captionuppercase"><p>{{ brandingInput === '' ? captionUppercase.toUpperCase() : brandingInput }}</p></div>
+            <div class="branding__container__right--label"><p>{{ brandingInput === '' ? label : brandingInput }}</p></div>
+            <div class="branding__container__right--hyperlink" ref="hyperlink"><p>{{ brandingInput === '' ? hyperlink : brandingInput }}</p></div>
           </div>
         </div>
     </div>
@@ -44,23 +52,37 @@ export default {
       },
       leftSmallSwatches: [
         {
-          background: "#5C5C60"
+          background: "#5C5C60",
+          rgb: "rgb(92, 92, 96)"
         },
         {
-          background: "#858F91"
+          background: "#858F91",
+          rgb: "rgb(133, 143, 145)"
         },
         {
-          background: "#BDBDBE"
+          background: "#BDBDBE",
+          rgb: "rgb(189, 189, 190)"
         },
         {
-          background: "#E5E5E6"
+          background: "#E5E5E6",
+          rgb: "rgb(229, 229, 230)"
         }
       ],
       middleSwatch: {
         background: "#7CBDF1",
         hexBottom: "#7CBDF1",
         rgbBottom: "rgb(124, 189, 241)"
-      }
+      },
+      brandingInput: "",
+      inputValueArray: [],
+      bigHeading: "Big Heading",
+      smallHeading: "Heading",
+      subheading: "Subheading",
+      bodyText: "Body Text",
+      caption: "Caption",
+      captionUppercase: "UPPERCASE",
+      label: "Label",
+      hyperlink: "Hyperlink"
     };
   },
   methods: {
@@ -107,11 +129,42 @@ export default {
       const eventTarget = this.$refs[`${this.serviceName}` + index][0];
       leftSwatch.style.background = backGroundColor;
       eventTarget.style.border = "1px solid white";
+      this.leftSwatch.hexBottom = this.leftSmallSwatches[index].background;
+      this.leftSwatch.rgbBottom = this.leftSmallSwatches[index].rgb;
+    },
+    inputHandler(bool) {
+      if (bool) {
+        console.log("input focued");
+      } else {
+        console.log("input UNFOCUSED");
+      }
+    },
+    inputValue() {
+      //console.log(event.key);
+      const characterLimit = 14;
+      if (this.inputValueArray.length < characterLimit) {
+        if (event.key === "Backspace" && this.inputValueArray.length === 0) {
+          return;
+        } else if (event.key === "Backspace") {
+          this.inputValueArray.pop();
+          console.log(this.inputValueArray);
+        } else {
+          this.inputValueArray.push(event.key);
+          console.log(this.inputValueArray);
+        }
+      } else {
+        return;
+      }
     }
   },
   created() {
     eventBus.$on("colorWasEdited", hexColor => {
       this.updateColor(hexColor);
+      this.middleSwatch.hexBottom = hexColor.toUpperCase();
+    });
+    eventBus.$on("hexColorChanged", rgbColor => {
+      // this.changeRgbValue(rgbColor);
+      this.middleSwatch.rgbBottom = rgbColor;
     });
     // eventBus.$on("colorWasEdited", rgbColor => {
     //   console.log("this is branding talking: " + rgbColor);
@@ -122,6 +175,7 @@ export default {
     this.$nextTick(this.styleSmallSwatches);
     this.$nextTick(this.styleSwatches);
     this.$nextTick(this.styleText);
+    this.$nextTick(this.inputHandler);
   }
 };
 </script>
@@ -196,6 +250,27 @@ div
       width: 28% 
       height: 100% 
       font-family: 'Helvetica', sans-serif
+      &__input__container
+        display: flex
+        //background: red
+        height 20px
+        &:before 
+          display: flex
+          content: ' '
+          height: 11px
+          align-self: center
+          width: 1px 
+          background: black
+          animation: blink 1.5s infinite
+        &--field, input 
+          font-family: "Helvetica", sans-serif
+          font-size: 0.9em 
+          font-weight: bold
+          border: none
+          width: 100%
+          border-bottom: 1px solid black
+          &:focus 
+            outline: none
       &--big-heading
         font-weight: bold
         font-size: .9em
@@ -220,4 +295,13 @@ div
       &--hyperlink
         font-size: 0.3em
 
+@keyframes blink 
+  0% 
+    opacity: 0
+  49% 
+    opacity: 0 
+  50% 
+    opacity: 1
+  100%
+    opacity: 1
 </style>

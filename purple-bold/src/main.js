@@ -7,8 +7,10 @@ Vue.config.productionTip = false;
 export const eventBus = new Vue({
   methods: {
     handleColorUpdate(hexColor, rgbColor) {
+      //may want to consider breaking these up to two different events
+      //causes some event listeners to fire twice
       this.$emit("colorWasEdited", hexColor);
-      // this.$emit("colorWasEdited", rgbColor);
+      this.$emit("hexColorChanged", rgbColor);
     }
   }
 });
