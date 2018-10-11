@@ -5,6 +5,14 @@
     app-hero
     app-about
     app-services
+    hr
+    br 
+    br 
+    br 
+    br
+    br
+    br
+    br
 
   
   
