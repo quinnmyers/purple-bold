@@ -29,8 +29,8 @@
             <div class="branding__container__right--subheading" ref="subheading"><p>{{ brandingInput === '' ? subheading : brandingInput }}</p></div>
             <div class="branding__container__right--bodytext"><p>{{ brandingInput === '' ? bodyText : brandingInput }}</p></div>
             <div class="branding__container__right--caption"><p>{{ brandingInput === '' ? caption : brandingInput }}</p></div>
-            <div class="branding__container__right--captionuppercase"><p>{{ brandingInput === '' ? captionUppercase.toUpperCase() : brandingInput }}</p></div>
-            <div class="branding__container__right--label"><p>{{ brandingInput === '' ? label : brandingInput }}</p></div>
+            <!-- <div class="branding__container__right--captionuppercase"><p>{{ brandingInput === '' ? captionUppercase.toUpperCase() : brandingInput }}</p></div>
+            <div class="branding__container__right--label"><p>{{ brandingInput === '' ? label : brandingInput }}</p></div> -->
             <div class="branding__container__right--hyperlink" ref="hyperlink"><p>{{ brandingInput === '' ? hyperlink : brandingInput }}</p></div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 <template>
   <div v-if="isMounted">
     <li v-for="(sub, index) in service.subCategories" class="services__content__container__item__container__right__subcategories__item">
-      <div class="services__content__container__item__container__right__subcategories__item__title">
+      <div class="services__content__container__item__container__right__subcategories__item__title" @click="expandSubComponent(index)">
         <h3 class="services__content__container__item__container__right__subcategories__item__title__name" 
-        @click="expandSubComponent(index)" :ref="`${serviceName}-sub-${index}`"> {{ sub.subName }} </h3>
+        :ref="`${serviceName}-sub-${index}`"> {{ sub.subName }} </h3>
         <div class="services__content__container__item__container__right__subcategories__item__title__arrow" :class="{ expanded: servicesArray[index].expanded }"></div>
       </div>
         <vue-slide-up-down :active="servicesArray[index].expanded" :duration="600" class="services__content__container__item__container__right__subcategories__item__description">
@@ -113,6 +113,7 @@ export default {
       display: flex 
       align-items: center
       margin-bottom: 5px
+      cursor: pointer
       @include tablet-portrait 
         justify-content: space-between
         //background: pink
@@ -120,7 +121,6 @@ export default {
         font-family: 'Rubik', 'Avenir', sans-serif 
         font-weight: $normal 
         font-size: 1.5em
-        cursor: pointer
       &__arrow
         margin-left: 20px
         height: 20px 
