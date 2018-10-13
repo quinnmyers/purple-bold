@@ -16,7 +16,11 @@
                 v-for="number in sideNumberArray">{{ number }}</li>
           </ul>
         </div>
-        <img class="websites__container__editor__main--codeblock" 
+        <textarea name="editor__textarea" cols="30" rows="10"
+                  @focus="textareaFocused = true"
+                  @blur="clearTextarea"
+                  ref="websites-textarea"></textarea>
+        <img :class="[`websites__container__editor__main--codeblock`, { isnotvisible: textareaFocused }]" 
              :src="codeBlockImage.src" 
              :alt="codeBlockImage.alt"
              > 
@@ -34,6 +38,7 @@ export default {
     return {
       isMounted: false,
       sideNumberArray: [],
+      textareaFocused: false,
       codeBlockImage: {
         src: require("../../assets/images/websites-code-block.svg"),
         alt: "programming code inside of a text editor"
@@ -50,6 +55,10 @@ export default {
         counter++;
       }
       console.log(this.sideNumberArray);
+    },
+    clearTextarea() {
+      this.textareaFocused = false;
+      this.$refs["websites-textarea"].value = "";
     }
   },
   mounted() {
@@ -116,8 +125,11 @@ $numbers-dark: #5A639A
           background: $green 
     &__main 
       display: flex
+      position: relative
+      width: 300px
       //must be the same as the .top height %
       height: calc(100% - 12%)
+      overflow-x: hidden
       &__numbers
         display: flex
         height: 100%
@@ -134,7 +146,30 @@ $numbers-dark: #5A639A
       &--codeblock, img 
         align-self: flex-start
         margin-top: 10px 
-        margin-left: 10px
+        margin-left: 30px
         height: 106px
+        position: absolute
+        z-index: 1
+        transform: translateX(0px)
+        transition: transform .25s ease-in-out
+        &.isnotvisible 
+          transform: translateX(-200px)
+          transition: transform .25s ease-in-out
+      textarea 
+        height: 100% 
+        width: 100%
+        position: relative
+        z-index: 2
+        background: transparent
+        padding-top: 11px
+        padding-left: 10px
+        resize: none
+        line-height: .55em
+        font-size: .55em
+        font-family: "Inconsolata", sans-serif 
+        color: $numbers-dark
+        &:focus
+          outline: none
+          color: $numbers-dark
 
 </style>  
