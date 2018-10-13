@@ -1,5 +1,6 @@
 <template>
-  <div class="websites__container" v-if="isMounted">
+<div class="websites">
+ <div class="websites__container" v-if="isMounted">
     <div class="websites__container__editor">
       <div class="websites__container__editor__top">
         <div class="websites__container__editor__top__nav">
@@ -22,6 +23,9 @@
       </div>
     </div>
   </div>
+
+</div>
+ 
 </template>
 
 <script>

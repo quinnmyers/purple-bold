@@ -79,7 +79,7 @@ export default {
         display: flex
         flex-direction: column
         justify-content: center
-        width: 40%
+        width: 76%
         font-size: .9em
         line-height: 1.75em
         font-weight: $light
@@ -96,7 +96,7 @@ export default {
           @include tablet-portrait
             width: 100%
         img 
-          width: 100%
+          width: 60%
           margin-bottom: 20px
           @include edgesnap 
             width: 90%

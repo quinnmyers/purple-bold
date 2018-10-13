@@ -146,6 +146,7 @@ export default {
   //in order to reorder these images later or recolor them, if you set the display of the UL/LI
   //to make all panel images show  in a line on top of each other the order is correct, 1 is 1, 2 is 2, etc.
 div 
+  transform: scale(0.8)
   @include edgesnap
     transform: scale(0.8)
   @include tablet-portrait
@@ -168,7 +169,8 @@ div
       @include phone-large
       img 
       .load__in
-        animation: test-animation 2s forwards
+        animation: panel-load-in 2s forwards
+        //cubic-bezier(.07,0,.73,.07)
         position: relative
         opacity: 0
     .about__panel__image
@@ -214,7 +216,7 @@ div
         z-index: 1
       
     
-@keyframes test-animation 
+@keyframes panel-load-in
   20% 
     opacity: 0
   100%

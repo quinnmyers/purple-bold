@@ -110,7 +110,8 @@ export default {
 .services__content__container__item__container__right__subcategories
   li, &__item
     &__title 
-      display: flex 
+      display: flex
+      justify-content: space-between 
       align-items: center
       margin-bottom: 5px
       cursor: pointer

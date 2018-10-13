@@ -1,46 +1,42 @@
-<template lang="pug">
-    div
-      //ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED
-      nav.navbar(
-        :class="{ expanded: mobileNavExpanded }"
-      )
-        .navbar__content
-          .navbar__content__brand
-            h2 
-              span.purple Purple 
-              span.bold + Bold
-          .navbar__content__desktopnav 
-            ul.main__nav
-              li.main__nav__item(
-                @mouseenter="setFocus"
-                @mouseleave="setFocus"
-                v-for="navitem in navItems"
-                ) 
-                a(
-                :href=" navitem.url "
-                @mouseover.stop
-                ) {{ navitem.name  }}
-                template(
-                  v-if="navitem.hasOwnProperty('subCategories')"
-                )
-                  .navbar__content__desktopnav__subcategory
-                    ul.desktopnav__sub__menu 
-                      li.desktopnav__sub__menu__item(
-                        v-for="subCategory in navitem.subCategories"
-                      ) {{ subCategory.name }}
-
-          .navbar__content__mobilenav
-            button.navbar__content__mobilenav__hamburger(
-              @click="mobileNavExpanded = !mobileNavExpanded"
-            )
-              span.navbar__content__mobilenav__hamburger__line1
-              span.navbar__content__mobilenav__hamburger__line2
-              span.navbar__content__mobilenav__hamburger__line3
-      app-mobile-nav(
-        :navItems="this.navItems"
-        :mobileNavExpanded="this.mobileNavExpanded"
-      )
-      //- nav.mobilenav
+<template>
+    <div>
+    <!--ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED-->
+    <nav class="navbar" :class="{ expanded: mobileNavExpanded }">
+      <div class="navbar__content">
+        <div class="navbar__content__brand">
+          <h2>
+            <span class="purple">Purple</span>
+            <span class="bold">+ Bold</span>
+          </h2>
+        </div>
+          <div class="navbar__content__desktopnav">
+            <ul class="main__nav">
+              <li class="main__nav__item" v-for="(navitem, index) in navItems"@mouseenter="setFocus" @mouseleave="setFocus" > 
+                <a :href=" navitem.url ">{{ navitem.name  }}</a>
+                  <!-- <template v-if="navitem.hasOwnProperty('subCategories')">
+                  <div class="navbar__content__desktopnav__subcategory">
+                    <ul class="desktopnav__sub__menu"> 
+                      <li class="desktopnav__sub__menu__item" 
+                          v-for="subCategory in navitem.subCategories">{{ subCategory.name }}
+                      </li>
+                    </ul>
+                  </div>
+                  </template> -->
+                </li>
+              </ul>
+          </div>
+          <div class="navbar__content__mobilenav">
+            <button class="navbar__content__mobilenav__hamburger" @click="mobileNavExpanded = !mobileNavExpanded">
+              <span class="navbar__content__mobilenav__hamburger__line1"></span>
+              <span class="navbar__content__mobilenav__hamburger__line2"></span>
+              <span class="navbar__content__mobilenav__hamburger__line3"></span>
+            </button>
+          </div>
+      </div>
+    </nav>
+    <app-mobile-nav :navItems="this.navItems" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
+</div>
+      <!-- //- nav.mobilenav
       //-   .mobilenav__container 
       //-      ul(
       //-        :class="{ expanded: mobileNavExpanded }"
@@ -48,7 +44,7 @@
       //-         li(
       //-           v-for="navitem in navItems"
       //-           ) 
-      //-           a(:href=" navitem.url ") {{ navitem.name  }}
+      //-           a(:href=" navitem.url ") {{ navitem.name  }} -->
 </template>
 
 <script>
@@ -56,6 +52,9 @@
 import MobileNav from "./MobileNav.vue";
 
 export default {
+  components: {
+    appMobileNav: MobileNav
+  },
   data() {
     return {
       mobileNavExpanded: false,
@@ -167,34 +166,40 @@ export default {
     };
   },
   methods: {
-    elementCoords(event) {
-      const coords = event.target.getBoundingClientRect();
-      const xCoord = Math.floor(coords.x);
-      const yCoord = Math.floor(coords.y);
-      // console.log(`X: ${coords.x}, Y:${coords.y}`);
-      console.log(`X: ${xCoord}, Y: ${yCoord}`);
-      const el = event.target;
-      el.style.color = "green";
-    },
     setFocus(event) {
       console.log(event);
       this.focus = !this.focus;
       const el = event.target;
       const popoutMenu = el.childNodes[1];
       console.log(this.focus);
-      if (this.focus) {
-        popoutMenu.style.opacity = "1";
-        popoutMenu.style.visibility = "visible";
-      } else {
-        popoutMenu.style.opacity = "0";
-        popoutMenu.style.visibility = "hidden";
-      }
+      // if (this.focus) {
+      //   // popoutMenu.style.opacity = "1";
+      //   // popoutMenu.style.visibility = "visible";
+      //   popoutMenu.classList.add("submenu-expanded");
+      // } else {
+      //   // popoutMenu.style.opacity = "0";
+      //   // popoutMenu.style.visibility = "hidden";
+      //   popoutMenu.classList.remove("submenu-expanded");
+      // }
+    },
+    expandSubMenu() {
+      console.log(event.target);
+    },
+    removeSubMenu() {
+      console.log("lext the LI");
     }
-  },
-  components: {
-    appMobileNav: MobileNav
   }
 };
+
+// elementCoords(event) {
+//   const coords = event.target.getBoundingClientRect();
+//   const xCoord = Math.floor(coords.x);
+//   const yCoord = Math.floor(coords.y);
+//   // console.log(`X: ${coords.x}, Y:${coords.y}`);
+//   console.log(`X: ${xCoord}, Y: ${yCoord}`);
+//   const el = event.target;
+//   el.style.color = "green";
+// },
 </script>
 
 <style scoped lang="sass">
@@ -260,8 +265,6 @@ $nav-height: 60px
           font-weight: $light
           letter-spacing: .025em
           height: 100%
-          //border-bottom: 4px solid transparent
-          //transition: border-color .25s ease-in-out
           //removes hover effect of the contact button -- may want to remove this
           @include tablet-portrait 
             font-size: .9em
@@ -275,37 +278,52 @@ $nav-height: 60px
             content: ''
             transform: scaleX(0)
           &:hover:after
-            background: #522E60
+            background: $accent
             transform: scaleX(1)
-            border-radius: 2px
+            //margin-bottom: 10px
+            // border-radius: 2px
           &:after
             content: ''
             width: 100%
-            height: 4px
+            height: 1px
             background: transparent
             transform: scaleX(0)
-            transition: all 0.25s ease-in-out
+            transition: all 0.2s ease-in-out
           a
             color: $blue-grey
             cursor: pointer
             text-decoration: none
+            transition: all .2s ease
             //this needs to be set the same as the height
             //:after of the li's above to cancel it
-            margin-bottom: -4px
+            margin-bottom: -2px
           a:visited 
             color: $blue-grey
           &:last-child
+            display: flex 
+            flex-direction: column
+            justify-content: center
+            //always needs to be the same as the li:after (-)
+            //in order to cancel out the hover effect :after sizing
+            margin-bottom: 2px
             margin-right: 0px
+            height: 100% 
+            &:after 
+              display: none
             a 
               border: 1px solid $blue-grey
-              padding: 6px 20px
               border-radius: 4px
+              padding: 6px 20px
+              &:hover 
+                border: 1px solid $accent
               @include tablet-portrait 
                 padding: 5px 16px
                 border-radius: 3px
     .navbar__content__desktopnav 
       ul
         li
+          // position: relative 
+          // z-index: -1
           .navbar__content__desktopnav__subcategory
             display: flex
             opacity: 0
@@ -313,9 +331,13 @@ $nav-height: 60px
             border: 2px solid black
             padding: 30px 40px
             flex-direction: column
-            position: absolute
             transform: translateY($nav-height)
-            visibility: hidden
+            position: absolute
+            //visibility: hidden
+            //z-index: -100
+            &.submenu-expanded 
+              animation: expand-submenu 1s cubic-bezier(.36,.19,.11,-0.38) forwards
+              transform-origin: top
             ul.desktopnav__sub__menu 
               display: flex 
               flex-direction: column
@@ -347,5 +369,17 @@ $nav-height: 60px
         &__line1
         &__line2
         &__line3
+
+
+@keyframes expand-submenu 
+  from 
+    opacity: 0
+    transform: rotateY(0deg) scale(0.3) translateY($nav-height)
+    //transform: scale(1) rotateX(-90deg) translateY($nav-height)
+  to 
+    opacity: 1
+    transform: rotateY(1080deg) scale(1) translateY($nav-height)
+    //transform: scale(1) rotateX(0deg) translateY($nav-height)
+
 
 </style>

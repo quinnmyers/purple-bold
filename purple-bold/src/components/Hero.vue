@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="hero__image__container">
-        <img src="../assets/images/hero-monitor.svg" alt="">
+        <img src="../assets/images/hero-monitor-2.svg" alt="">
       </div>
     </section>
   </div>

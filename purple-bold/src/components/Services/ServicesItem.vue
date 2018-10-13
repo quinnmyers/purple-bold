@@ -92,7 +92,7 @@ export default {
 .services__content__container__item
   width: 880px
   //background: lightskyblue
-  margin: 60px 0px
+  margin: 50px 0px
   height: 100%
   @include edgesnap 
     width: 100%
@@ -101,15 +101,16 @@ export default {
     margin: 50px 0px
   &__container
     display: flex
+    align-items: center
     height: 100%
     @include tablet-portrait 
       flex-direction: column 
       align-items: center
       height: auto
     &__left
-      display: flex 
+      display: flex
       flex-direction: column
-      //background: green
+      align-items: right
       width: 300px
       @include tablet-portrait 
         width: 100%
@@ -126,33 +127,33 @@ export default {
       justify-content: center
       @include tablet-portrait 
         align-items: center
-      &--arrow 
-        //this image must be the same stroke thickness as the width of the div next to it "--line"
-        position: absolute
-        height: 15px
-        width: 15px 
-        //must be the same as width/height - 1 / 2 (w/h of the SRC IMG)
-        margin-left: -6px
-        background:
-          image: url('../../assets/images/services-arrow.svg')
-          repeat: no-repeat
-        @include tablet-portrait 
-          transform: rotate(90deg)
-          background-position: top
-          margin-left: 0px
-          margin-top: -4px
+      // &--arrow 
+      //   //this image must be the same stroke thickness as the width of the div next to it "--line"
+      //   position: absolute
+      //   height: 15px
+      //   width: 15px 
+      //   //must be the same as width/height - 1 / 2 (w/h of the SRC IMG)
+      //   margin-left: -6px
+      //   background:
+      //     image: url('../../assets/images/services-arrow.svg')
+      //     repeat: no-repeat
+      //   @include tablet-portrait 
+      //     transform: rotate(90deg)
+      //     background-position: top
+      //     margin-left: 0px
+      //     margin-top: -4px
       &--line
       height: 100%
       margin: 0px 50px 
       width: 1px
-      border-right: 1px solid $grey
+      border-right: .12em solid $light-grey
       @include edgesnap 
         margin: 0px 25px
       @include tablet-portrait 
         transform: rotate(-180deg)
         width: 100%
         border-right: none
-        border-bottom: 1px solid $grey
+        border-bottom: 1px solid $light-grey
         //background: yellow
     &__right 
       flex: 1
