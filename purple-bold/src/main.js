@@ -4,6 +4,9 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
+var VueMasonryPlugin = window["vue-masonry-plugin"].VueMasonryPlugin;
+Vue.use(VueMasonryPlugin);
+
 export const eventBus = new Vue({
   methods: {
     handleColorUpdate(hexColor, rgbColor) {

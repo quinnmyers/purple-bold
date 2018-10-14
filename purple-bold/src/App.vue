@@ -1,27 +1,48 @@
-<template lang="pug">
-  #app
-    app-landing
-    app-navbar
-    app-hero
-    app-about
-    app-services
-    hr
-    br 
-    br 
-    br 
-    br
-    br
-    br
-    br
-
+<template>
+  <div id="app">
+    <app-landing></app-landing>
+    <app-navbar></app-navbar>
+    <app-hero></app-hero>
+    <app-about></app-about>
+    <app-services></app-services>
+    <app-portfolio></app-portfolio>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
   
-  
-  
-  //#app
+  <!-- #app
     #nav 
       router-link(to='/') Home | 
       router-link(to='/about') About
-      router-view
+      router-view -->
 
 </template>
 
@@ -31,6 +52,7 @@ import Navbar from "./components/Navbar/Navbar.vue";
 import Hero from "./components/Hero.vue";
 import About from "./components/About/About.vue";
 import Services from "./components/Services/Services.vue";
+import Portfolio from "./components/Portfolio/Portfolio.vue";
 
 export default {
   components: {
@@ -38,7 +60,8 @@ export default {
     appNavbar: Navbar,
     appHero: Hero,
     appAbout: About,
-    appServices: Services
+    appServices: Services,
+    appPortfolio: Portfolio
   }
 };
 </script>
