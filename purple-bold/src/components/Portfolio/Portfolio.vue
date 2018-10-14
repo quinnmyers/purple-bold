@@ -13,7 +13,8 @@
           </div>
         </div>
         <app-portfolio-grid
-          :portfolioPieces='portfolioPieces'>
+          :portfolioPieces='portfolioPieces'
+          :tagArray="tagArray">
         </app-portfolio-grid>
       </div>
     </div>
@@ -34,16 +35,16 @@ export default {
       isMounted: false,
       tagArray: [
         {
-          name: "websites"
+          name: "website"
         },
         {
-          name: "logos"
+          name: "logo"
         },
         {
           name: "branding"
         },
         {
-          name: "graphics"
+          name: "graphic"
         }
       ],
       portfolioPieces: [
@@ -61,18 +62,18 @@ export default {
         {
           id: 1,
           name: "Dima Duchet Artist Portfolio",
-          type: "Website",
+          type: "Logo",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
           },
           description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 0,
+          id: 2,
           name: "Nexus Technology Group",
-          type: "Website",
+          type: "Graphic",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -81,7 +82,7 @@ export default {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 1,
+          id: 3,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
           mainImg: {
@@ -92,7 +93,7 @@ export default {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 0,
+          id: 4,
           name: "Nexus Technology Group",
           type: "Website",
           mainImg: {
@@ -100,10 +101,10 @@ export default {
             alt: "sample alt text"
           },
           description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 1,
+          id: 5,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
           mainImg: {
@@ -114,7 +115,51 @@ export default {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 0,
+          id: 6,
+          name: "Nexus Technology Group",
+          type: "Branding",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 7,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! v v"
+        },
+        {
+          id: 8,
+          name: "Nexus Technology Group",
+          type: "Logo",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 9,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Graphic",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 10,
           name: "Nexus Technology Group",
           type: "Website",
           mainImg: {
@@ -125,7 +170,7 @@ export default {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
-          id: 1,
+          id: 11,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
           mainImg: {
@@ -134,6 +179,94 @@ export default {
           },
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 12,
+          name: "Nexus Technology Group",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! v"
+        },
+        {
+          id: 13,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Logo",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 14,
+          name: "Nexus Technology Group",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 15,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Branding",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 16,
+          name: "Nexus Technology Group",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 17,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Logo",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! v"
+        },
+        {
+          id: 18,
+          name: "Nexus Technology Group",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
+        },
+        {
+          id: 19,
+          name: "Dima Duchet Artist Portfolio",
+          type: "Website",
+          mainImg: {
+            src: "https://via.placeholder.com/231x329",
+            alt: "sample alt text"
+          },
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         }
       ]
     };

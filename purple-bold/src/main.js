@@ -1,11 +1,11 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import { VueMasonryPlugin } from "vue-masonry";
+
+Vue.use(VueMasonryPlugin);
 
 Vue.config.productionTip = false;
-
-var VueMasonryPlugin = window["vue-masonry-plugin"].VueMasonryPlugin;
-Vue.use(VueMasonryPlugin);
 
 export const eventBus = new Vue({
   methods: {
@@ -14,6 +14,9 @@ export const eventBus = new Vue({
       //causes some event listeners to fire twice
       this.$emit("colorWasEdited", hexColor);
       this.$emit("hexColorChanged", rgbColor);
+    },
+    updateCategory(category) {
+      this.$emit("categoryWasChanged", category);
     }
   }
 });

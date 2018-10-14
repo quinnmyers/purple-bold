@@ -1,14 +1,30 @@
 <template>
   <ul>
     <li
-      v-for="tag in tagArray"> {{ tag.name }}
+      v-for="(tag, index) in tagArray"
+      @click="categorySelected(index)"> 
+      {{ tag.name }}
     </li>
   </ul>
 </template>
 
 <script>
+import { eventBus } from "../../main";
+
 export default {
-  props: ["tagArray"]
+  props: ["tagArray"],
+  methods: {
+    categorySelected(index) {
+      const category = this.tagArray[index].name;
+      eventBus.updateCategory(category);
+      // const hexColor = this.colors[index].hex;
+      // const rgbColor = this.colors[index].rgb;
+      // eventBus.handleColorUpdate(hexColor, rgbColor);
+    }
+  },
+  mounted() {
+    console.log(this.tagArray);
+  }
 };
 </script>
 
