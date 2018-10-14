@@ -161,10 +161,11 @@ $numbers-dark: #5A639A
         position: relative
         z-index: 2
         background: transparent
-        padding-top: 11px
+        border: none
+        padding-top: 9px
         padding-left: 10px
         resize: none
-        line-height: .55em
+        line-height: 1.5em
         font-size: .55em
         font-family: "Inconsolata", sans-serif 
         color: $numbers-dark
