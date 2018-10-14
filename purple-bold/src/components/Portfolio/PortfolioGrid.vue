@@ -22,13 +22,13 @@
   </div> -->
   <div class="portfolio__grid" v-if="isMounted">
     <div class="portfolio__grid__container">
-      <template v-for="(piece,index) in portfolioPieces">
-        <template v-if="categoryArray.includes(piece.type.toLowerCase())">
+      <template v-for="(piece,index) in filteredPortfolioPieces">
+        <!-- <template v-if="categoryArray.includes(piece.type.toLowerCase())"> -->
           <div :class="[`item portfolio__grid__container__item`, piece.type.toLowerCase()]">
             <h4>{{ piece.type }}</h4>
             <p>{{ piece.description.substr(0, 99)  }}</p>
           </div>
-        </template>
+        <!-- </template> -->
       </template>
     </div>
   </div>
@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       isMounted: false,
-      categoryArray: []
+      categoryArray: [],
+      selectedCategories: []
     };
   },
   methods: {
@@ -63,6 +64,17 @@ export default {
       console.log(this.categoryArray);
     }
   },
+  computed: {
+    filteredPortfolioPieces() {
+      if (this.selectedCategories.length === 0) {
+        return this.portfolioPieces;
+      } else {
+        return this.portfolioPieces.filter(piece =>
+          this.selectedCategories.includes(piece.type.toLowerCase())
+        );
+      }
+    }
+  },
   mounted() {
     this.populateCategoryArray();
     this.$nextTick(() => {
@@ -70,6 +82,16 @@ export default {
     });
     eventBus.$on("categoryWasChanged", category => {
       console.log("grid speaking, category is: " + category);
+      if (this.selectedCategories.includes(category)) {
+        this.selectedCategories = this.selectedCategories.filter(
+          item => item != category
+        );
+        console.log(this.selectedCategories);
+        return;
+      } else {
+        this.selectedCategories.push(category);
+        console.log(this.selectedCategories);
+      }
     });
   }
 
