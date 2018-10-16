@@ -6,6 +6,7 @@
     <app-about></app-about>
     <app-services></app-services>
     <app-portfolio></app-portfolio>
+    <!-- <app-contact></app-contact> -->
     <br>
     <br>
     <br>
@@ -53,6 +54,7 @@ import Hero from "./components/Hero.vue";
 import About from "./components/About/About.vue";
 import Services from "./components/Services/Services.vue";
 import Portfolio from "./components/Portfolio/Portfolio.vue";
+import Contact from "./components/Contact.vue";
 
 export default {
   components: {
@@ -61,7 +63,8 @@ export default {
     appHero: Hero,
     appAbout: About,
     appServices: Services,
-    appPortfolio: Portfolio
+    appPortfolio: Portfolio,
+    appContact: Contact
   }
 };
 </script>
