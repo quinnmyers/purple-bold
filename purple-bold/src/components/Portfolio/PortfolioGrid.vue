@@ -139,15 +139,18 @@ export default {
   //   width: 55%
   //   margin: 0 auto
 
-.grid-enter, .grid-leave-to
+.grid-enter, 
+  opacity: 1
+  transform: translateY(300px)
+
+.grid-leave-to
   opacity: 0
-  transform: translateY(30px)
 
 .grid-leave-active 
-  position: absolute
+  //position: absolute
   opacity: 0
-  transform: scale(0.1)
-  right: 0
+  transform: translateX(-1800px) scale(0.3)
+  //right: 0
 
 
 </style>
