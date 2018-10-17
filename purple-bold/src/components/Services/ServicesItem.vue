@@ -115,12 +115,17 @@ export default {
       @include tablet-portrait 
         width: 100%
         margin-bottom: 20px 
+        align-items: center
+        width: auto 
       h2, &__title
         font-family: "Rubik", "Avenir", sans-serif 
         font-weight: $medium
         font-size: 1.7em
         margin-bottom: 10px
         align-self: flex-end
+        @include tablet-portrait 
+          align-self: center
+          margin-bottom: 20px
     &__middle
       display: flex 
       flex-direction: column
@@ -154,6 +159,7 @@ export default {
         width: 100%
         border-right: none
         border-bottom: 1px solid $light-grey
+        margin: 15px 0px
         //background: yellow
     &__right 
       flex: 1

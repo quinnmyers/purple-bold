@@ -48,6 +48,8 @@ export default {
 ul
   margin-top: 10px
   list-style: none 
+  @include edgesnap 
+    padding: 0px 20px
   li 
     display: inline-block
     cursor: pointer

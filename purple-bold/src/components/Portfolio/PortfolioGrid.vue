@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import '../../normalize.scss'
+@import '../../base.sass'
+
 .portfolio__grid
   margin-top: 20px
   &__container
@@ -107,6 +110,11 @@ export default {
     grid-gap: 20px
     grid-template-columns: repeat(auto-fill, minmax(254px,1fr))
     grid-auto-rows: 43px
+    @include edgesnap 
+      width: 100vw
+      background: pink
+      padding: 0px 20px
+      margin-left: 10px
     &__item 
       display: flex
       transition: all 1s
@@ -118,6 +126,8 @@ export default {
       box-shadow: 0px 0px 10px 1px rgba(218,218,218,1);
       border-radius: 4px
       width: 258px
+      @include edgesnap
+        width: auto
       //transition: all .3s ease-in-out
       &.is-visible 
         display: flex
