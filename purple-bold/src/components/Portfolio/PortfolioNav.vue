@@ -63,7 +63,8 @@ ul
     background: linear-gradient(to bottom, white 50%, black 50%)
     background-size: 100% 200% 
     background-position: right top
-    //box-shadow: inset 0px 0 0 0 #fff
+    @include phone-large 
+      font-size: 0.7em
     &.grow 
       animation: portfolio-tag-bounce .5s forwards
     &:nth-child(1)
