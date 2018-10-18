@@ -286,6 +286,7 @@ export default {
   display: flex
   justify-content: center
   margin-top: 30px
+  margin-bottom: 50px
   &__content 
     display: flex 
     flex-direction: column
