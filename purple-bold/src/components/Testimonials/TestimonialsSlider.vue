@@ -1,15 +1,18 @@
 <template>
   <div class="testimonials__slider__container" v-if="isMounted">
-    <div class="testimonials__slider__container__slide"
-    v-for="(testimonial, index) in testimonials"
-    :key="index"
-    ref="testimonial--slide">
-      <p class="description">{{ testimonial.testimonial }}</p>
-      <div class="bottom">
-        <h4>{{ testimonial.name }}</h4>
-        <p class="position">{{ testimonial.position }}</p>
+    <tiny-slider class="tiny__slider" ref="slider"  :mouse-drag="true" :autoplay="true" :autoplay-hover-pause="true" :speed="2000" :controls="false" :autoplayButton="'.playbtn'" :useLocalStorage="false" :autoplayText="['play', 'play']" :animateIn="'zoomin'" :loop="true" :autoplayTimeout="2400" items="3"  :gutter="50">
+ <div class="testimonials__slider__container__slide"
+      v-for="(testimonial, index) in testimonials"
+      :key="index"
+      ref="testimonialslide">
+        <p class="description">{{ testimonial.testimonial }}</p>
+        <div class="bottom">
+          <h4>{{ testimonial.name }}</h4>
+          <p class="position">{{ testimonial.position }}</p>
+        </div>
       </div>
-    </div>
+    </tiny-slider>
+     
   </div>
   <!-- <div class="testimonials__slider__container">
     <div class="testimonials__slider__container__slide"
@@ -25,15 +28,16 @@
 </template>
 
 <script>
-import TestimonialsSlide from "./TestimonialsSlide.vue";
+import VueTinySlider from "vue-tiny-slider";
 
 export default {
   components: {
-    appTestimonialsSlide: TestimonialsSlide
+    tinySlider: VueTinySlider
   },
   data() {
     return {
       isMounted: false,
+      slidesInView: 3,
       testimonials: [
         {
           id: 1,
@@ -55,22 +59,62 @@ export default {
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
+        },
+        {
+          id: 4,
+          name: "Jared Bonnell",
+          position: "Broker/Owner, One Commercial",
+          testimonial:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
+        },
+        {
+          id: 5,
+          name: "Jared Bonnell",
+          position: "Broker/Owner, One Commercial",
+          testimonial:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
+        },
+        {
+          id: 6,
+          name: "Jared Bonnell",
+          position: "Broker/Owner, One Commercial",
+          testimonial:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
         }
       ]
     };
   },
   methods: {
-    moveSlidesForward() {
-      const testimonialSlides = [...this.$refs["testimonial--slide"]];
-      testimonialSlides.forEach(slide => {
-        slide.classList.add("moving-forward");
-      });
-      console.log(testimonialSlides);
-    }
+    // moveSlidesForward() {
+    //   const testimonialSlides = [...this.$refs["testimonial--slide"]];
+    //   testimonialSlides.forEach(slide => {
+    //     slide.classList.add("moving-forward");
+    //   });
+    //   console.log(testimonialSlides);
+    // },
+    // moveSlidesForward() {
+    // const testimonialSlides = [...this.$refs["testimonial--slide"]];
+    // this.slides = testimonialSlides;
+    // testimonialSlides[0].classList.add("is-visible");
+    //   setTimeout(() => {
+    //     this.$refs.testimonialslide[0].classList.add("is-visible");
+    //   }, 1000);
+    //   setTimeout(() => {
+    //     this.$refs.testimonialslide[1].classList.add("is-visible");
+    //   }, 5000);
+    //   setTimeout(() => {
+    //     this.$refs.testimonialslide[2].classList.add("is-visible");
+    //   }, 9000);
+    // }
   },
   mounted() {
     this.isMounted = true;
-    this.$nextTick(this.moveSlidesForward);
+    // this.$nextTick(this.moveSlidesForward);
+    if (window.matchMedia("(max-width: 650px)").matches) {
+      this.slidesInView = 1;
+    } else if (window.matchMedia("(max-width: 768px)").matches) {
+      this.slidesInView = 2;
+    }
   }
 };
 </script>
@@ -78,10 +122,15 @@ export default {
 <style scoped lang="sass">
 @import '../../normalize.scss'
 @import '../../base.sass'
+@import './tnsCss.sass'
 
 .testimonials__slider__container 
-  display: flex 
-  justify-content: space-between
+  .tiny__slider
+    .testimonials__slider__container__slide
+      width: 200px
+
+
+.testimonials__slider__container 
   position: relative
   background: pink
   height: 100% 
@@ -90,19 +139,24 @@ export default {
   z-index: 1
   &__slide 
     display: flex
-    //position: absolute
-    height: 100% 
+    //margin-right: -260px
+    height: 300px 
     width: 260px 
     padding: 0px 15px
     // margin-left: 100%
     // margin-right: -100%
     //margin: 0px 25px
     background: khaki
-    flex-direction: column 
-    justify-content: space-between
+    flex-direction: column
     border-left: 1px solid black
-    &.moving-forward 
-      animation: moving-forward 10s linear infinite
+    // &.moving-forward 
+    //   animation: moving-forward 10s linear infinite
+    // &.is-visible 
+    //   display: flex
+    //   animation: moving-forward 10s linear forwards
+    .bottom
+      position: absolute 
+      bottom: 0
     .description 
       font-size: 0.95em
       line-height: 1.3em

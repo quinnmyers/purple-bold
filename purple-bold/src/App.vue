@@ -7,7 +7,8 @@
     <app-services></app-services>
     <app-portfolio></app-portfolio>
     <app-testimonials></app-testimonials>
-    <!-- <app-contact></app-contact> -->
+    <app-testimonials-cole></app-testimonials-cole>
+    <app-contact></app-contact>
     <br>
     <br>
     <br>
@@ -56,7 +57,8 @@ import About from "./components/About/About.vue";
 import Services from "./components/Services/Services.vue";
 import Portfolio from "./components/Portfolio/Portfolio.vue";
 import Testimonials from "./components/Testimonials/Testimonials.vue";
-import Contact from "./components/Contact.vue";
+import TestimonialsCole from "./components/TestimonialsCole/TestimonialsCole.vue";
+import Contact from "./components/Contact/Contact.vue";
 
 export default {
   components: {
@@ -67,6 +69,7 @@ export default {
     appServices: Services,
     appPortfolio: Portfolio,
     appTestimonials: Testimonials,
+    appTestimonialsCole: TestimonialsCole,
     appContact: Contact
   }
 };
