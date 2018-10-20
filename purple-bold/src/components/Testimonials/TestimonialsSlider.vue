@@ -1,6 +1,6 @@
 <template>
   <div class="testimonials__slider__container" v-if="isMounted">
-    <tiny-slider class="tiny__slider" ref="slider"  :mouse-drag="true" :autoplay="true" :autoplay-hover-pause="true" :speed="2000" :controls="false" :autoplayButton="'.playbtn'" :useLocalStorage="false" :autoplayText="['play', 'play']" :animateIn="'zoomin'" :loop="true" :autoplayTimeout="2400" items="3"  :gutter="50">
+    <tiny-slider class="tiny__slider" ref="slider"  :mouse-drag="true" :autoplay="true" :autoplay-hover-pause="true" :slideBy='1' :speed="1000" :controls="false" :useLocalStorage="false" :autoplayText="['play', 'play']" :loop="true" :autoplayTimeout="2400" :items="3"  :gutter="50">
  <div class="testimonials__slider__container__slide"
       v-for="(testimonial, index) in testimonials"
       :key="index"
@@ -41,42 +41,42 @@ export default {
       testimonials: [
         {
           id: 1,
-          name: "Dima Duchet",
+          name: "Dima Duchet 1",
           position: "Artist",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit."
         },
         {
           id: 2,
-          name: "Jim Jackson",
+          name: "Jim Jackson 2",
           position: "CEO, BluHare Studios",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis."
         },
         {
           id: 3,
-          name: "Jared Bonnell",
+          name: "Jared Bonnell 3",
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
         },
         {
           id: 4,
-          name: "Jared Bonnell",
+          name: "Jared Bonnell 4",
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
         },
         {
           id: 5,
-          name: "Jared Bonnell",
+          name: "Jared Bonnell 5",
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
         },
         {
           id: 6,
-          name: "Jared Bonnell",
+          name: "Jared Bonnell 6",
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
@@ -122,13 +122,7 @@ export default {
 <style scoped lang="sass">
 @import '../../normalize.scss'
 @import '../../base.sass'
-@import './tnsCss.sass'
-
-.testimonials__slider__container 
-  .tiny__slider
-    .testimonials__slider__container__slide
-      width: 200px
-
+@import '../../tnsCss.sass'
 
 .testimonials__slider__container 
   position: relative

@@ -7,7 +7,7 @@
     <app-services></app-services>
     <app-portfolio></app-portfolio>
     <app-testimonials></app-testimonials>
-    <app-testimonials-cole></app-testimonials-cole>
+    <!-- <app-testimonials-cole></app-testimonials-cole> -->
     <app-contact></app-contact>
     <br>
     <br>
