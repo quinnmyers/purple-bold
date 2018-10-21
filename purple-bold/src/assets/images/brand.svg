@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="252px" height="37px" viewBox="0 0 252 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title> brand</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFED9F" offset="0%"></stop>
+            <stop stop-color="#FF49A4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-121.000000, -1212.000000)">
+            <g id="navbar" transform="translate(0.000000, 1200.000000)">
+                <g id="-brand" transform="translate(118.000000, 4.000000)">
+                    <text id="Purple" font-family="Rubik-Regular, Rubik" font-size="40" font-weight="normal" fill="#102B3F">
+                        <tspan x="0" y="37">Purple</tspan>
+                    </text>
+                    <text id="Bold" font-family="Rubik-Black, Rubik" font-size="40" font-weight="700" fill="#102B3F">
+                        <tspan x="163" y="37">Bold</tspan>
+                    </text>
+                    <path d="M138.48,36.68 C138.186665,36.68 137.933334,36.5733344 137.72,36.36 C137.506666,36.1466656 137.4,35.8933348 137.4,35.6 L137.4,29.16 L131.2,29.16 C130.906665,29.16 130.653334,29.0533344 130.44,28.84 C130.226666,28.6266656 130.12,28.3733348 130.12,28.08 L130.12,23.72 C130.12,23.4266652 130.226666,23.1733344 130.44,22.96 C130.653334,22.7466656 130.906665,22.64 131.2,22.64 L137.4,22.64 L137.4,16.4 C137.4,16.1066652 137.506666,15.8533344 137.72,15.64 C137.933334,15.4266656 138.186665,15.32 138.48,15.32 L143.36,15.32 C143.653335,15.32 143.906666,15.4266656 144.12,15.64 C144.333334,15.8533344 144.44,16.1066652 144.44,16.4 L144.44,22.64 L150.56,22.64 C150.853335,22.64 151.106666,22.7466656 151.32,22.96 C151.533334,23.1733344 151.64,23.4266652 151.64,23.72 L151.64,28.08 C151.64,28.3733348 151.533334,28.6266656 151.32,28.84 C151.106666,29.0533344 150.853335,29.16 150.56,29.16 L144.44,29.16 L144.44,35.6 C144.44,35.8933348 144.333334,36.1466656 144.12,36.36 C143.906666,36.5733344 143.653335,36.68 143.36,36.68 L138.48,36.68 Z" id="+" fill="url(#linearGradient-1)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

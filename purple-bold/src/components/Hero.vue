@@ -1,9 +1,19 @@
 <template>
-  <div>
+  <div v-if="isMounted">
     <section class="hero">
       <div class="hero__content">
         <div class="hero__content__container">
-          <h3>A modern <span>creative agency.</span></h3>
+          <h3>A modern &nbsp;
+            <ul>
+              <li :class="slideClass(index)" 
+                  v-for='(aboutSlide, index) in aboutSlides'
+                  :key='index' 
+                  ref="heroSlide"
+                  >
+                {{ aboutSlide.text }}.
+              </li>
+          </ul>
+          </h3>
           <h3>If you're starting something new,<br v-show="lineBreak">
               let's make sure it's not already old.</h3>
           <button class="hero__content__container__ctabutton">
@@ -16,12 +26,31 @@
       </div>
     </section>
   </div>
+  <!-- <span>creative agency.</span> -->
 </template>
-
 <script>
 export default {
   data() {
     return {
+      isMounted: false,
+      aboutSlides: [
+        {
+          text: "creative agency",
+          classNumber: "one"
+        },
+        {
+          text: "web development firm",
+          classNumber: "two"
+        },
+        {
+          text: "branding company",
+          classNumber: "three"
+        },
+        {
+          text: "design agency",
+          classNumber: "four"
+        }
+      ],
       lineBreak: false
     };
   },
@@ -34,10 +63,35 @@ export default {
         this.lineBreak = true;
         console.log("bigger than 650");
       }
+    },
+    slideClass(index) {
+      return `about-slide-${index}`;
+    },
+    styleHeroSlides(index) {
+      const limit = this.aboutSlides.length;
+      let counter = 0;
+      const heroSlideArray = [...this.$refs["heroSlide"]];
+      console.log(heroSlideArray);
+      heroSlideArray.forEach(slide => {
+        slide.style.color = "white";
+        // slide.style.animation = "fade 12s infinite linear";
+        slide.style.opacity = "0";
+        slide.style.position = "absolute";
+        slide.style.textDecoration = "underline";
+        slide.style.fontStyle = "italic";
+      });
+      // while(counter < limit) {
+      //   return
+      // }
+      // return { display: "none" };
     }
   },
   mounted() {
-    this.removeLineBreak();
+    this.isMounted = true;
+    this.$nextTick(this.removeLineBreak);
+    this.$nextTick(this.styleHeroSlides);
+    // this.removeLineBreak();
+    // this.styleHeroSlides();
   }
 };
 </script>
@@ -114,8 +168,8 @@ export default {
       padding: 20px 20px
     &__container
       height: 100%
-      display: flex 
-      flex-direction: column 
+      display: flex
+      flex-direction: column
       justify-content: space-around
       font-family: 'Rubik', 'Avenir', sans-serif
       @include phone-large
@@ -125,7 +179,12 @@ export default {
         font-size: 2.15em
         font-weight: $light
         color: white
-        margin-top: 70px
+        margin-top: 40px
+      ul
+        list-style: none
+        display: inline
+        li 
+          display: inline
         @include tablet-portrait 
           font-size: 1.75em
           margin-top: 40px
@@ -143,9 +202,6 @@ export default {
             margin-bottom: 40px
           @include phone-small 
             margin-bottom: 30px
-      span 
-        font-style: italic
-        border-bottom: 1px solid white
       button
         display: flex 
         flex-direction: column 
@@ -159,6 +215,7 @@ export default {
         font-size: .9em
         letter-spacing: .05em
         font-weight: $light
+        margin-top: 40px
         @include tablet-portrait
           font-size: .85em
           height: 36px 
@@ -167,4 +224,60 @@ export default {
           margin-bottom: 30px
         @include phone-small 
           margin-bottom: 20px
+
+.about-slide-0
+  animation: fade 12s infinite linear
+  animation-delay: 0s
+.about-slide-1
+  animation: fade 12s infinite linear
+  animation-delay: 3s
+.about-slide-2
+  animation: fade 12s infinite linear
+  animation-delay: 6s
+.about-slide-3
+  animation: fade 12s infinite linear
+  animation-delay: 9s
+
+
+@keyframes fade 
+  0% 
+    opacity: 0
+  10%
+    opacity: 1
+  15%
+    opacity: 1
+  20%
+    opacity: 1
+  25%
+    opacity: 0
+  30%
+    opacity: 0
+  35%
+    opacity: 0
+  40%
+    opacity: 0
+  45%
+    opacity: 0
+  50%
+    opacity: 0
+  55%
+    opacity: 0
+  60%
+    opacity: 0
+  65%
+    opacity: 0
+  70%
+    opacity: 0
+  75%
+    opacity: 0
+  80%
+    opacity: 0
+  85%
+    opacity: 0
+  90%
+    opacity: 0
+  95%
+    opacity: 0
+  100%
+    opacity: 0
 </style>

@@ -7,7 +7,7 @@
               <app-about-panels></app-about-panels>
             </div>
             <div class="about__content__container__right">
-              <img src="../../assets/images/hero-text.svg" alt="" class="about__content__container__right__image">
+              <img src="../../assets/images/brand.svg" alt="" class="about__content__container__right__image">
               <p>Amet excepteur consectetur cupidatat commodo enim esse fugiat fugiat et consectetur officia Lorem fugiat sit. Officia laborum laboris consectetur nisi tempor duis elit. Excepteur fugiat in exercitation consequat incididunt officia ad commodo tempor non velit quis. Incididunt et sit eu laborum nisi officia tempor dolor laboris amet enim dolore cillum incididunt.</p>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default {
   height: auto
   padding: 150px 0px
   background: $light-grey
-  color: $grey
+  color: black
   font-family: 'Avenir', sans-serif
   @include edgesnap 
     padding: 120px 0px

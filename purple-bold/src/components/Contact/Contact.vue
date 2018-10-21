@@ -26,7 +26,7 @@
                     <label> Project Details</label>
                     <div class="tag">
                        <div class="tag__bubbles" v-for="(tag, index) in tags" :key="index" @click="addTag(index)">
-                            <p>{{ tag }}</p>
+                            <p>{{ tag.toLowerCase() }}</p>
                         </div>
                         <input type="text" v-model="customTag"> 
                         <button @click="addCustomTag">+</button>
@@ -45,7 +45,7 @@
                     <div class="tag">
                         <transition-group name="tag-in">
                         <div class="tag__bubbles" v-for="(tag, index) in messageData.pickedTags" :key="index" @click="removeTag(index)">
-                            <p>{{ tag }}  <button class="tag__bubbles--del">x</button></p>
+                            <p>{{ tag.toLowerCase() }}  <button class="tag__bubbles--del"><p>x</p></button></p>
                         </div>
                         </transition-group>
                     </div>
@@ -180,166 +180,189 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-    @import '../../normalize.scss'
-    @import '../../base.sass'
-    $gradient: linear-gradient(to right bottom, #eaa26e, #ff9e89, #ff9eab, #ffa4d1, #fab1f5);
-    $inputback: #f7f3f3
-    $cardback: rgba(255, 255, 255, .4)
-    $inputColor: black
-    $maintextcolor: white
-    $disabled: #fc3a3a45
+@import '../../normalize.scss'
+@import '../../base.sass'
+$gradient: linear-gradient(to right bottom, #eaa26e, #ff9e89, #ff9eab, #ffa4d1, #fab1f5);
+$inputback: #f7f3f3
+$cardback: rgba(255, 255, 255, .4)
+$inputColor: black
+$maintextcolor: white
+$disabled: #fc3a3a45
 
-    section
-        width: 100vw
-        height: 100vh
-        color: $maintextcolor
-        background-image: $gradient
-        display: flex
-        justify-content: center
-        align-items: center
+section
+    width: 100vw
+    height: auto
+    color: $maintextcolor
+    background-image: $gradient
+    font-family: "avenir", sans-serif
+    display: flex
+    justify-content: center
+    align-items: center
+    @include edgesnap
+        padding: 20px
+    @include tablet-phone
+        height: auto
+        padding: 10px
+    .contact
+        width: 1100px
         @include edgesnap
-            padding: 20px
-        @include tablet-phone
-            height: auto
-            padding: 10px
-        .contact
-            width: 1100px
-            @include edgesnap
-                width: 100%
-            h2
-                padding-bottom: 50px
-                font-size: 2em
-            input:focus 
-                outline: none
-                box-shadow: 0px 0px 7px 1px rgba(250,177,245,1);//rgba(234,162,110,1);
-            &__body
-                display: flex
-                justify-content: center
-                justify-content: space-between
+            width: 100%
+        h2
+            padding-bottom: 50px
+            font-size: 2em
+        input:focus 
+            outline: none
+            box-shadow: 0px 0px 7px 1px rgba(250,177,245,1);//rgba(234,162,110,1);
+        &__body
+            display: flex
+            justify-content: center
+            justify-content: space-between
+            @include tablet-phone
+                flex-direction: column
+            &__left, &__right 
+                label 
+                    margin-bottom: 5px
+            &__left
+                width: 48%
                 @include tablet-phone
-                    flex-direction: column
-                &__left
-                    width: 48%
-                    @include tablet-phone
-                        width: 100%
-                    .contact__body__left--details
-                        input
-                            color: $maintextcolor
-                        button
-                            display: flex
-                            justify-content: center
-                            align-items: center
-                            border: 1px solid $maintextcolor
-                            border-radius: 100%
-                            height: 1.5em
-                            width: 1.5em
-                            transform: translateY(25%)
-                        h4
-                            margin-bottom: 20px
-                        p
-                            text-align: center
-                &__right
-                    width: 48%
-                    overflow: hidden
-                    @include tablet-phone
-                        width: 100%
-                    textarea
-                        border: none
-                        background: $inputback
-                        margin-top: 20px 
-                        color: $inputColor
-                        resize: none
-                        &:focus 
-                            outline: none
-                            box-shadow: 0px 0px 7px 1px rgba(250,177,245,1);//rgba(234,162,110,1);
-                    .tag
-                        min-height: 62px
-                        flex-wrap: wrap
-                        span
-                            height: 100%
-                        &__bubbles
-                            height: 75%
-                    .tag-in-enter-active
-                        animation: tag-in 1.5s forwards
-                    .tag-in-leave-active
-                        animation: tag-out 2s forwards
-
-                .flex__col
-                    display: flex
-                    flex-direction: column
-                .pb
-                    padding-bottom: 64px
-                .transback
-                    background: $cardback
-                    padding: 10px
-                    margin-bottom: 20px
-                    border-radius: 5px
-                input
-                    color: $inputColor
+                    width: 100%
+                .contact__body__left--details
+                    input
+                        color: $maintextcolor
+                    button
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        border: 1px solid $maintextcolor
+                        border-radius: 100%
+                        height: 1.4em
+                        width: 1.4em
+                        line-height: 10px
+                        transform: translateY(25%)
+                    h4
+                        margin-bottom: 20px
+                    p
+                        text-align: center
+            &__right
+                width: 48%
+                overflow: hidden
+                @include tablet-phone
+                    width: 100%
+                &--missed 
+                    margin-top: 15px
+                textarea
                     border: none
                     background: $inputback
-                    font-size: 1.1rem
-                    padding: 6px
-                .contact__body__right--compose
-                    font-size: 1.2rem
-                    .contact__body__right--ul
-                        border-bottom: 2px solid white
-                        display: inline-block
-                        min-width: 50px
-            .tag
+                    margin-top: 10px 
+                    color: $inputColor
+                    resize: none
+                    &:focus 
+                        outline: none
+                        box-shadow: 0px 0px 7px 1px rgba(250,177,245,1);//rgba(234,162,110,1);
+                .tag
+                    min-height: 62px
+                    flex-wrap: wrap
+                    span
+                        height: 100%
+                    &__bubbles
+                        height: 75%
+                .tag-in-enter-active
+                    animation: tag-in 1.5s forwards
+                .tag-in-leave-active
+                    animation: tag-out 2s forwards
+
+            .flex__col
                 display: flex
-                flex-wrap: wrap
-                span
-                    display: flex
-                    flex-wrap: wrap 
-                input
-                    background: none
+                flex-direction: column
+            .pb
+                padding-bottom: 64px
+            .transback
+                background: $cardback
+                padding: 10px
+                margin-bottom: 20px
+                border-radius: 3px
+            input
+                color: $inputColor
+                border: none
+                background: $inputback
+                font-size: 1.1rem
+                padding: 6px
+            .contact__body__right--compose
+                font-size: 1.2rem
+                .contact__body__right--ul
                     border-bottom: 2px solid white
-                &__bubbles
-                    background: $cardback
-                    border-radius: 15px
-                    padding: 5px
-                    margin: 5px
-                    &--del
-                        height: 1.5em
-                        width: 1.5em
-                     
-                        border: 1px solid white
-                        border-radius: 100%
-            &__send
+                    display: inline-block
+                    min-width: 50px
+                .tag
+                    .tag__bubbles 
+                        display: inline
+                        border-radius: 100px
+                        p
+                            padding: 4px 15px
+                            font-size: 0.9em 
+                            margin: 0px 0px
+                        .tag__bubbles--del
+                            display: inline 
+                            p
+                                line-height: 10px
+
+        .tag
+            display: flex
+            flex-wrap: wrap
+            span
                 display: flex
-                justify-content: flex-end
-                align-self: flex-end
-                input
-                    margin-top: 20px
-                    font-size: 1.4em
-                    border-radius: 15px
-                    padding: .5em 1em
-                    border: 2px solid $maintextcolor
-                    transition: .8s 
-                    &:disabled
-                        background: $disabled
-                        box-shadow: 0px 0px 5px 0px $disabled
-                        animation: disabled 3s infinite
-                #contact__send--message
-                    visibility: hidden
-    @keyframes tag-in 
-        0%    
-            transform: translatex(-300%)
-        100%  
-            transform: translatex(0%)
-    @keyframes tag-out 
-        0%    
-            transform: translatex(0%)
-        100%  
-            transform: translatex(-500%)
-    @keyframes disabled 
-        0%    
-            opacity: 1
-        50%  
-            opacity: .4
-        100%
-            opacity: 1
+                flex-wrap: wrap 
+            input
+                background: none
+                border-bottom: 2px solid white
+            &__bubbles
+                background: $cardback
+                border-radius: 15px
+                padding: 4px 15px
+                margin: 5px
+                font-size: 0.9em
+                &--del
+                    height: 1.5em
+                    width: 1.5em
+                    
+                    border: 1px solid white
+                    border-radius: 100%
+        &__send
+            display: flex
+            justify-content: flex-end
+            align-self: flex-end
+            input
+                margin-top: 20px
+                font-size: 1.4em
+                border-radius: 5px
+                padding: .5em 1em
+                border: 2px solid $maintextcolor
+                transition: .8s 
+                &:disabled
+                    background: $disabled
+                    box-shadow: 0px 0px 5px 0px $disabled
+                    animation: disabled 3s infinite
+            #contact__send--message
+                visibility: hidden
+
+
+@keyframes tag-in 
+    0%    
+        transform: translatex(-300%)
+    100%  
+        transform: translatex(0%)
+@keyframes tag-out 
+    0%    
+        transform: translatex(0%)
+    100%  
+        transform: translatex(-500%)
+@keyframes disabled 
+    0%    
+        opacity: 1
+    50%  
+        opacity: .4
+    100%
+        opacity: 1
 
 </style>
 

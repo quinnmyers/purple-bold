@@ -4,10 +4,11 @@
     <nav class="navbar" :class="{ expanded: mobileNavExpanded }">
       <div class="navbar__content">
         <div class="navbar__content__brand">
-          <h2>
+          <img src="../../assets/images/brand.svg" alt="Purple and Bold Logo">
+          <!-- <h2>
             <span class="purple">Purple</span>
             <span class="bold">+ Bold</span>
-          </h2>
+          </h2> -->
         </div>
           <div class="navbar__content__desktopnav">
             <ul class="main__nav">
@@ -230,6 +231,7 @@ $nav-height: 60px
       width: 100%
       padding: 0px 10px
     &__brand
+      display: flex
       font-family: 'Rubik', 'Avenir', sans-serif
       color: $blue-grey
       h2
