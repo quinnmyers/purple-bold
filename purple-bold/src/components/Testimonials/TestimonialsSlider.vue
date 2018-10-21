@@ -127,7 +127,7 @@ export default {
 .testimonials__slider__container 
   position: relative
   background: pink
-  height: 100% 
+  height: auto
   width: 75% 
   font-family: "Avenir", sans-serif
   z-index: 1

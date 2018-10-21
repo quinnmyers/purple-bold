@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials">
+  <section class="testimonials" v-if="isMounted">
     <div class="testimonials__content">
         <div class="testimonials__content__container">
           <h2 class="section--header">Testimonials</h2>
@@ -8,7 +8,18 @@
           <app-testimonials-controls></app-testimonials-controls>
           </div>
          
-          <div class="testimonials__content__container__cta"> <p>this is a test</p></div>
+          <div class="testimonials__content__container__cta">
+            <h3>Need help with your &nbsp;
+              <ul>
+                <li 
+                :class="ctaSlideClass(index)"
+                v-for="(ctaSlide, index) in testimonialCtaSlides" ref="ctaSlide">
+                  {{ ctaSlide }}?
+                </li>
+              </ul>
+            </h3>
+            <button>Get A Free Quote</button>
+          </div>
         </div>
       </div>
   </section>
@@ -22,6 +33,32 @@ export default {
   components: {
     appTestimonialsSlider: TestimonialsSlider,
     appTestimonialsControls: TestimonialsControls
+  },
+  data() {
+    return {
+      isMounted: false,
+      testimonialCtaSlides: ["website", "brand", "logo"]
+    };
+  },
+  methods: {
+    ctaSlideClass(index) {
+      return `testimonial-cta-slide-${index}`;
+    },
+    styleCtaSlides() {
+      console.log("this is working");
+      const ctaSlideArray = [...this.$refs["ctaSlide"]];
+      ctaSlideArray.forEach(slide => {
+        slide.style.color = "black";
+        slide.style.opacity = "0";
+        slide.style.position = "absolute";
+        slide.style.textDecoration = "underline";
+        slide.style.fontStyle = "italic";
+      });
+    }
+  },
+  mounted() {
+    this.isMounted = true;
+    this.$nextTick(this.styleCtaSlides);
   }
 };
 </script>
@@ -33,7 +70,7 @@ export default {
 .testimonials 
   display: flex
   flex-direction: column
-  height: 600px
+  height: 650px
   width: 100%
   background: $light-grey
   &__content 
@@ -46,7 +83,7 @@ export default {
     &__container
       display: flex
       flex-direction: column
-      justify-content: space-around
+      justify-content: center
       height: 100% 
       width: 100%
       h2 
@@ -63,11 +100,89 @@ export default {
         width: 100% 
         height: 55%
         background: red
+        margin: 40px 0px
       &__cta
         margin-bottom: 30px
         background: green
-        height: 30px 
+        height: auto 
         width: 100%
+        ul 
+          list-style: none
+          display: inline
+          li
+            display: inline
+        h3 
+          font-size: 1.85em
+          font-weight: $light
+          color: black
+        button
+          display: flex 
+          flex-direction: column 
+          justify-content: center
+          align-items: center
+          color: rgb(240,129,148)
+          height: 40px
+          width: 140px
+          border: .08em solid rgb(240,129,148)
+          border-radius: 3px
+          font-size: .8em
+          letter-spacing: .05em
+          font-weight: $light
+          margin-top: 20px
+          @include tablet-portrait
+            font-size: .75em
+            height: 30px 
+            width: 135px
     
+.testimonial-cta-slide-0
+  animation: fade 9s infinite linear
+  animation-delay: 0s
+.testimonial-cta-slide-1
+  animation: fade 9s infinite linear
+  animation-delay: 3s  
+.testimonial-cta-slide-2
+  animation: fade 9s infinite linear
+  animation-delay: 6s
 
+@keyframes fade 
+  0% 
+    opacity: 0
+  10%
+    opacity: 1
+  15%
+    opacity: 1
+  20%
+    opacity: 1
+  25%
+    opacity: 0
+  30%
+    opacity: 0
+  35%
+    opacity: 0
+  40%
+    opacity: 0
+  45%
+    opacity: 0
+  50%
+    opacity: 0
+  55%
+    opacity: 0
+  60%
+    opacity: 0
+  65%
+    opacity: 0
+  70%
+    opacity: 0
+  75%
+    opacity: 0
+  80%
+    opacity: 0
+  85%
+    opacity: 0
+  90%
+    opacity: 0
+  95%
+    opacity: 0
+  100%
+    opacity: 0
 </style>

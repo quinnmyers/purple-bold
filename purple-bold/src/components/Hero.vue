@@ -10,7 +10,7 @@
                   :key='index' 
                   ref="heroSlide"
                   >
-                {{ aboutSlide.text }}.
+                {{ aboutSlide }}.
               </li>
           </ul>
           </h3>
@@ -34,22 +34,10 @@ export default {
     return {
       isMounted: false,
       aboutSlides: [
-        {
-          text: "creative agency",
-          classNumber: "one"
-        },
-        {
-          text: "web development firm",
-          classNumber: "two"
-        },
-        {
-          text: "branding company",
-          classNumber: "three"
-        },
-        {
-          text: "design agency",
-          classNumber: "four"
-        }
+        "creative agency",
+        "web development firm",
+        "branding company",
+        "design agency"
       ],
       lineBreak: false
     };
@@ -225,6 +213,9 @@ export default {
         @include phone-small 
           margin-bottom: 20px
 
+//each new item added to [aboutSlides] needs to be added here, with the new number on the end
+//animation timing must be  [aboutSlides].length * 3
+//animation display must be about-slide-[index] index * 3
 .about-slide-0
   animation: fade 12s infinite linear
   animation-delay: 0s
