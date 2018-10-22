@@ -134,6 +134,9 @@ export default {
             height: 30px 
             width: 135px
     
+//each new item added to [testimonialCtaSlides] needs to be added here, with the new number on the end
+//animation timing must be  [testimonialCtaSlides].length * 3
+//animation display must be .testimonial-cta-slide-0 index * 3
 .testimonial-cta-slide-0
   animation: fade 9s infinite linear
   animation-delay: 0s

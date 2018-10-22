@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio">
+  <div class="portfolio" v-if="isMounted">
     <div class="portfolio__content">
       <h2 class="section--header">Portfolio</h2>
       <div class="portfolio__content__container">
@@ -18,21 +18,31 @@
         </app-portfolio-grid>
       </div>
     </div>
+    <app-portfolio-item-modal
+          :portfolioPiece="portfolioPieces[pieceIndex]"
+          :imageArray='portfolioPieces[pieceIndex].altImages'
+          >
+
+    </app-portfolio-item-modal>
   </div>
 </template>
 
 <script>
 import PortfolioNav from "./PortfolioNav.vue";
 import PortfolioGrid from "./PortfolioGrid.vue";
+import PortfolioItemModal from "./PortfolioItemModal.vue";
+import { eventBus } from "../../main";
 
 export default {
   components: {
     appPortfolioNav: PortfolioNav,
-    appPortfolioGrid: PortfolioGrid
+    appPortfolioGrid: PortfolioGrid,
+    appPortfolioItemModal: PortfolioItemModal
   },
   data() {
     return {
       isMounted: false,
+      pieceIndex: 0,
       tagArray: [
         {
           name: "website"
@@ -50,30 +60,69 @@ export default {
       portfolioPieces: [
         {
           id: 0,
-          name: "Nexus Technology Group",
+          name: "Nexus Technology Group 0",
           type: "Website",
+          services: ["0000", "0000", "first item"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
           },
+          altImages: [
+            {
+              src: "https://via.placeholder.com/10x10",
+              alt: "lorasdfasfsfsfem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/10x10",
+              alt: "lorem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/10x10",
+              alt: "lorem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/10x10",
+              alt: "lorem ipsum"
+            }
+          ],
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, ullam alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
           id: 1,
-          name: "Dima Duchet Artist Portfolio",
+          name: "Dima Duchet Artist Portfolio 1",
           type: "Logo",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
           },
+          altImages: [
+            {
+              src: "https://via.placeholder.com/100x100",
+              alt: "lorasdfasfsfsfem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/200x200",
+              alt: "lorem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/300x300",
+              alt: "lorem ipsum"
+            },
+            {
+              src: "https://via.placeholder.com/400x400",
+              alt: "lorem ipsum"
+            }
+          ],
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
           id: 2,
-          name: "Nexus Technology Group",
+          name: "Nexus Technology Group 2",
           type: "Graphic",
+          services: ["33333", "333333", "third item"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -83,8 +132,9 @@ export default {
         },
         {
           id: 3,
-          name: "Dima Duchet Artist Portfolio",
+          name: "Dima Duchet Artist Portfolio 3",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -96,6 +146,7 @@ export default {
           id: 4,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -107,6 +158,7 @@ export default {
           id: 5,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -118,6 +170,7 @@ export default {
           id: 6,
           name: "Nexus Technology Group",
           type: "Branding",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -129,6 +182,7 @@ export default {
           id: 7,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -140,6 +194,7 @@ export default {
           id: 8,
           name: "Nexus Technology Group",
           type: "Logo",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -151,6 +206,7 @@ export default {
           id: 9,
           name: "Dima Duchet Artist Portfolio",
           type: "Graphic",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -162,6 +218,7 @@ export default {
           id: 10,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -173,6 +230,7 @@ export default {
           id: 11,
           name: "Dima Duchet Artist Portfolio",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -184,6 +242,7 @@ export default {
           id: 12,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -195,6 +254,7 @@ export default {
           id: 13,
           name: "Dima Duchet Artist Portfolio",
           type: "Logo",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -206,6 +266,7 @@ export default {
           id: 14,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -217,6 +278,7 @@ export default {
           id: 15,
           name: "Dima Duchet Artist Portfolio",
           type: "Branding",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -228,6 +290,7 @@ export default {
           id: 16,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -239,6 +302,7 @@ export default {
           id: 17,
           name: "Dima Duchet Artist Portfolio",
           type: "Logo",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -250,6 +314,7 @@ export default {
           id: 18,
           name: "Nexus Technology Group",
           type: "Website",
+          services: ["website design", "web development", "logo design"],
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -271,9 +336,17 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    selectedPiece(index) {
+      return `potfolioPieces[index]`;
+    }
+  },
   mounted() {
     this.isMounted = true;
+    eventBus.$on("itemSelected", index => {
+      // this.selectedPiece(index);
+      this.pieceIndex = index;
+    });
   }
 };
 </script>

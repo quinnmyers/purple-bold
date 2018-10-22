@@ -2,8 +2,10 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { VueMasonryPlugin } from "vue-masonry";
+import Lightbox from "vue-pure-lightbox";
 
 Vue.use(VueMasonryPlugin);
+Vue.use(Lightbox);
 
 Vue.config.productionTip = false;
 
@@ -17,6 +19,15 @@ export const eventBus = new Vue({
     },
     updateCategory(category) {
       this.$emit("categoryWasChanged", category);
+    },
+    openModal(index) {
+      this.$emit("itemSelected", index);
+    },
+    selected(bool) {
+      this.$emit("selected", bool);
+    },
+    closeModal(bool) {
+      this.$emit("selected", bool);
     }
   }
 });

@@ -3,7 +3,7 @@
     <transition-group name="grid" tag="div" class="portfolio__grid__container">
       <template v-for="(piece,index) in filteredPortfolioPieces">
       <div :key="index" :class="[`item portfolio__grid__container__item`, piece.type.toLowerCase(), visibleClass]"
-      :ref="`portfolio-grid-item`">
+      :ref="`portfolio-grid-item`" @click="itemSelected(index)">
         <h4>{{ piece.type }}</h4>
         <p>{{ piece.description.substr(0, 99)  }}</p>
       </div>
@@ -14,8 +14,6 @@
 
 <script>
 import { eventBus } from "../../main";
-
-//`{is-visible: isVisible}`
 
 export default {
   props: ["portfolioPieces", "tagArray"],
@@ -33,7 +31,6 @@ export default {
       //const limit = this.$refs["portfolio-grid-item"].length;
       //console.log(this.$refs["portfolio-grid-item"][0]);
       const itemArray = [...this.$refs["portfolio-grid-item"]];
-      console.log(itemArray);
       let index = 0;
       itemArray.forEach(function(i) {
         const el = itemArray[index];
@@ -42,6 +39,10 @@ export default {
         }, index * 100);
         index++;
       });
+    },
+    itemSelected(index) {
+      eventBus.openModal(index);
+      eventBus.selected(true);
     }
     // console.log("grid refs: ", this.$refs["portfolio-grid-item"][2]);
   },
@@ -83,19 +84,6 @@ export default {
       }
     });
   }
-
-  // name: "hello",
-  // data() {
-  //   return {};
-  // },
-  // mounted: function() {
-  //   this.$redrawVueMasonry();
-  // },
-  // methods: {
-  //   reDraw: function() {
-  //     this.$redrawVueMasonry();
-  //   }
-  // }
 };
 </script>
 
@@ -119,6 +107,7 @@ export default {
       display: flex
       transition: all 1s
       margin-right: 10px
+      cursor: pointer
       //display: inline-block
       //flex-direction: column
       //border: 1px solid red

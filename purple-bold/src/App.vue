@@ -9,6 +9,7 @@
     <app-testimonials></app-testimonials>
     <!-- <app-testimonials-cole></app-testimonials-cole> -->
     <app-contact></app-contact>
+    <app-footer></app-footer>
     <br>
     <br>
     <br>
@@ -59,6 +60,7 @@ import Portfolio from "./components/Portfolio/Portfolio.vue";
 import Testimonials from "./components/Testimonials/Testimonials.vue";
 import TestimonialsCole from "./components/TestimonialsCole/TestimonialsCole.vue";
 import Contact from "./components/Contact/Contact.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   components: {
@@ -70,7 +72,8 @@ export default {
     appPortfolio: Portfolio,
     appTestimonials: Testimonials,
     appTestimonialsCole: TestimonialsCole,
-    appContact: Contact
+    appContact: Contact,
+    appFooter: Footer
   }
 };
 </script>
