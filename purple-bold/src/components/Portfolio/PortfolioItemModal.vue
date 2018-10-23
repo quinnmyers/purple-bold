@@ -88,6 +88,17 @@ export default {
         this.images.push(image.src);
       });
       console.log(this.images);
+    },
+    itemSelected: function() {
+      if (this.itemSelected) {
+        const el = document.getElementsByTagName("body")[0];
+        el.style.height = "100vh";
+        el.style.overflow = "hidden";
+      } else {
+        const el = document.getElementsByTagName("body")[0];
+        el.style.height = "auto";
+        el.style.overflow = "auto";
+      }
     }
   },
   mounted() {
@@ -114,11 +125,13 @@ export default {
     height: 100vh 
     width: 100vw 
     background: rgba(0,0,0,0.5)
-    position: absolute
-    margin: 0 auto
-    display: flex 
+    display: flex
     justify-content: center 
     align-items: center
+    transform: translate(-50%, -50%)
+    position: fixed
+    top: 50%
+    left: 50%
     &__modal 
         display: flex 
         justify-content: space-between
