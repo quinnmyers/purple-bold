@@ -59,7 +59,13 @@ $tablet-width: 768px
 $desktop-width: 992px
 $edgesnap-width: 1100px
 $nav-snap: 700px
+$testimonial-snap: 900px 
+// $testimonial-hieght: 815px
 
+
+=testimonial-snap 
+  @media (max-width: #{$testimonial-snap})
+    @content
 
 =edgesnap
   @media (max-width: #{$edgesnap-width})

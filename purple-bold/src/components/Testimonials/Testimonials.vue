@@ -73,6 +73,8 @@ export default {
   height: 650px
   width: 100%
   background: $light-grey
+  @include phone-large 
+    height: auto
   &__content 
     display: flex
     flex-direction: column
@@ -80,6 +82,9 @@ export default {
     width: 1100px
     height: 100%
     background: lightskyblue
+    @include edgesnap 
+      width: 100%
+      padding: 0px 20px
     &__container
       display: flex
       flex-direction: column
@@ -101,6 +106,9 @@ export default {
         height: 55%
         background: red
         margin: 40px 0px
+        @include phone-large 
+          flex-direction: column-reverse
+          height: auto
       &__cta
         margin-bottom: 30px
         background: green
@@ -115,6 +123,12 @@ export default {
           font-size: 1.85em
           font-weight: $light
           color: black
+          @include phone-large 
+            font-size: 1.6em 
+          @media (max-width: 360px)
+            font-size: 1.45em
+          @include phone-small
+            font-size: 1.35em
         button
           display: flex 
           flex-direction: column 

@@ -1,6 +1,6 @@
 <template>
   <div class="testimonials__slider__container" v-if="isMounted">
-    <tiny-slider class="tiny__slider" ref="slider"  :mouse-drag="true" :autoplay="true" :autoplay-hover-pause="true" :slideBy='1' :speed="1000" :controls="false" :useLocalStorage="false" :autoplayText="['play', 'play']" :loop="true" :autoplayTimeout="2400" :items="3"  :gutter="50">
+    <tiny-slider class="tiny__slider" ref="slider"  :mouse-drag="true" :autoplay="true" :autoplay-hover-pause="true" :slideBy='1' :speed="1000" :controls="false" :useLocalStorage="false" :autoplayText="['play', 'play']" :loop="true" :autoplayTimeout="2400" :items="slidesInView"  :gutter="50">
  <div class="testimonials__slider__container__slide"
       v-for="(testimonial, index) in testimonials"
       :key="index"
@@ -109,10 +109,9 @@ export default {
   },
   mounted() {
     this.isMounted = true;
-    // this.$nextTick(this.moveSlidesForward);
     if (window.matchMedia("(max-width: 650px)").matches) {
       this.slidesInView = 1;
-    } else if (window.matchMedia("(max-width: 768px)").matches) {
+    } else if (window.matchMedia("(max-width: 900px)").matches) {
       this.slidesInView = 2;
     }
   }
@@ -131,32 +130,39 @@ export default {
   width: 75% 
   font-family: "Avenir", sans-serif
   z-index: 1
+  @include testimonial-snap 
+    width: 65%
+  @include tablet-phone 
+    width: 60%
+  @include phone-large 
+    width: 75%
   &__slide 
     display: flex
-    //margin-right: -260px
     height: 300px 
     width: 260px 
     padding: 0px 15px
-    // margin-left: 100%
-    // margin-right: -100%
-    //margin: 0px 25px
     background: khaki
     flex-direction: column
     border-left: 1px solid black
-    // &.moving-forward 
-    //   animation: moving-forward 10s linear infinite
-    // &.is-visible 
-    //   display: flex
-    //   animation: moving-forward 10s linear forwards
+    @include edgesnap 
+      width: 33%
+    @include testimonial-snap 
+      width: 26%
+    @include phone-large 
+      width: 90%
     .bottom
       position: absolute 
       bottom: 0
     .description 
       font-size: 0.95em
       line-height: 1.3em
+      @include edgesnap 
+        font-size: 0.9em
     h4 
       color: black
       font-size: 1.1em
+      @include edgesnap 
+        font-size: 1em
     .position 
       font-size: .75em 
       color: grey
@@ -167,38 +173,6 @@ export default {
     transform: translateX(0)
   100%
     transform: translateX(-900px)
-  // &-content
-  //   display: flex 
-  //   position: relative
-  //   background: yellow
-  //   height: 100% 
-  //   width: 75% 
-  //   font-family: "Avenir", sans-serif
-  //   z-index: 1
-  //   overflow: hidden 
-  //   animation: marquee 10s linear infinite running
-  //   &:hover
-  //     animation-play-state: paused
-  // &-tag
-  //   display: flex 
-  //   height: 100% 
-  //   width: 260px 
-  //   padding: 0px 15px
-  //   margin: 0px 25px
-  //   background: khaki
-  //   flex-direction: column 
-  //   justify-content: space-between
-  //   border-left: 1px solid black
-  //   .testimonial__description 
-  //     font-size: 0.95em
-  //     line-height: 1.3em
-  //   h4 
-  //     color: black
-  //     font-size: 1.1em
-  //   .testimonial__position 
-  //     font-size: .75em 
-  //     color: grey
-
-
+ 
 
 </style>

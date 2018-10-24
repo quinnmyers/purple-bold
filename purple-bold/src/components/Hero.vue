@@ -168,28 +168,37 @@ export default {
         font-weight: $light
         color: white
         margin-top: 40px
-      ul
-        list-style: none
-        display: inline
-        li 
-          display: inline
+        // @include phone-large   
+        //   font-size: 1.6em 
+        // @media (max-width: 360px)
+        //   font-size: 1.45em
+        // @include phone-small
+        //   font-size: 1.35em
         @include tablet-portrait 
           font-size: 1.75em
           margin-top: 40px
         @include phone-large 
           font-size: 1.6em
           margin-top: 40px
+          colr
         @include phone-small 
           font-size: 1.3em
           margin-top: 30px
         &:nth-child(1)
           margin-top: 0px
+          @include phone-small 
+            margin-bottom: 20px
         &:nth-child(2)
           margin-bottom: 70px
           @include phone-large 
             margin-bottom: 40px
           @include phone-small 
-            margin-bottom: 30px
+            margin-bottom: 10px
+      ul  
+        list-style: none
+        display: inline
+        li
+        display: inline
       button
         display: flex 
         flex-direction: column 
@@ -229,6 +238,11 @@ export default {
   animation: fade 12s infinite linear
   animation-delay: 9s
 
+.about-slide-0, 
+.about-slide-1, 
+.about-slide-2, 
+.about-slide-3
+  color: red
 
 @keyframes fade 
   0% 

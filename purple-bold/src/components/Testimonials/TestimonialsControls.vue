@@ -23,6 +23,15 @@ export default {};
   width: 25%
   background: $blue-grey 
   z-index: 10 
+  @include testimonial-snap 
+    width: 35%
+  @media (max-width: 710px)
+    height: 120%
+  @include tablet-phone 
+    width: 40%
+  @include phone-large 
+    height: 110px 
+    width: 100%
   &__container 
     &__play, &__pause, &__rewind
     &__play
