@@ -14,7 +14,7 @@
                 v-for="(image, imageIndex) in images"
                 :key="imageIndex"
                 @click="index = imageIndex"
-                :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '100%', backgroundSize: 'contain' }"
+                :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '100%', backgroundSize: 'contain', backgroundPosition: 'bottom' }"
                 >
               </div>
             </div>
@@ -30,7 +30,7 @@
            <div class="portfolio__item__overlay__modal__right__info--services">
              <ul>
                 <li v-for="(service, index) in portfolioPiece.services" :key="index">
-                  <p>{{ service }}</p>
+                  <p>{{ service + ","}}</p>
                </li>
              </ul>
             </div>
@@ -39,7 +39,11 @@
             </div>
           </div>
         <!-- need to make this visible only if the type of the piece is a website -->
-          <div class="portfolio__item__overlay__modal__right__link"></div>
+          <div class="portfolio__item__overlay__modal__right__link">
+            <button class="portfolio__item__overlay__modal__right__link--button" type="button">
+              <a :href="`http://${portfolioPiece.siteLink}`" target="_blank">Visit Live Site</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -49,7 +53,6 @@
 <script>
 import VueGallery from "vue-gallery";
 import { eventBus } from "../../main";
-
 export default {
   props: ["portfolioPiece", "selected", "imageArray"],
   components: {
@@ -58,6 +61,7 @@ export default {
   data() {
     return {
       images: [],
+      modalLiveLinkButtonText: "Visit Live Site",
       itemSelected: false,
       index: null
     };
@@ -113,6 +117,8 @@ export default {
 
 <style scoped lang="sass">
 @import '../../tnsCss.sass'
+@import '../../normalize.scss'
+@import '../../base.sass'
 
 .image 
   float: left
@@ -164,21 +170,56 @@ export default {
               display: flex
               width: 100%
               height: 30% 
-              // background: khaki
               .tiny__slider
                 width: 100% 
                 overflow: hidden
                 height: 80px
+              .image 
+                margin: 0px 3px
         &__right 
           display: flex
+          flex-direction: column 
+          justify-content: space-between
+          font-size: 12pt
           &__info 
             &--name 
+              font-family: $mainfont
+              font-size: 1.4em
+              margin-bottom: 0.2em
+              h3 
+                font-weight: $normal
             &--services
+              font-family: $subfont
+              font-size: 0.9em
+              color: grey
+              margin-bottom: 2.1em
               ul 
                 list-style: none
                 li
                   display: inline-block
             &--description
+              font-family: $subfont 
+              font-size: 0.95em
+          &__link, a 
+            color: rgb(240,129,148)
+            text-decoration: none
+            a:visited 
+              color: rgb(240,129,148)
+              text-decoration: none
+            &--button
+              display: flex 
+              flex-direction: column 
+              justify-content: center
+              align-items: center
+              color: rgb(240,129,148)
+              height: 45px
+              width: 100%
+              border: .08em solid rgb(240,129,148)
+              border-radius: 3px
+              font-size: .9em
+              letter-spacing: .05em
+              font-weight: $light
+                
 
 .fade-enter-active, .fade-leave-active 
   transition: opacity .5s

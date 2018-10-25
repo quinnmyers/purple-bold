@@ -63,6 +63,7 @@ export default {
           name: "Nexus Technology Group 0",
           type: "Website",
           services: ["0000", "0000", "first item"],
+          siteLink: "",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -93,6 +94,7 @@ export default {
           name: "Dima Duchet Artist Portfolio 1",
           type: "Logo",
           services: ["website design", "web development", "logo design"],
+          siteLink: "",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -116,13 +118,14 @@ export default {
             }
           ],
           description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!"
         },
         {
           id: 2,
           name: "Nexus Technology Group 2",
           type: "Graphic",
           services: ["33333", "333333", "third item"],
+          siteLink: "",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -135,6 +138,7 @@ export default {
           name: "Dima Duchet Artist Portfolio 3",
           type: "Website",
           services: ["website design", "web development", "logo design"],
+          siteLink: "",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"
@@ -147,6 +151,7 @@ export default {
           name: "Nexus Technology Group",
           type: "Website",
           services: ["website design", "web development", "logo design"],
+          siteLink: "",
           mainImg: {
             src: "https://via.placeholder.com/231x329",
             alt: "sample alt text"

@@ -167,7 +167,7 @@ export default {
         font-size: 2.15em
         font-weight: $light
         color: white
-        margin-top: 40px
+        //margin-top: 40px
         // @include phone-large   
         //   font-size: 1.6em 
         // @media (max-width: 360px)
@@ -186,6 +186,7 @@ export default {
           margin-top: 30px
         &:nth-child(1)
           margin-top: 0px
+          margin-bottom: 70px
           @include phone-small 
             margin-bottom: 20px
         &:nth-child(2)
@@ -196,9 +197,12 @@ export default {
             margin-bottom: 10px
       ul  
         list-style: none
-        display: inline
         li
-        display: inline
+        display: inline-block
+        position: absolute 
+        width: 400px 
+        @include tablet-portrait 
+          width: auto
       button
         display: flex 
         flex-direction: column 
@@ -212,7 +216,7 @@ export default {
         font-size: .9em
         letter-spacing: .05em
         font-weight: $light
-        margin-top: 40px
+        //margin-top: 40px
         @include tablet-portrait
           font-size: .85em
           height: 36px 
