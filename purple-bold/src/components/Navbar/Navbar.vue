@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div :class="{ fixed: fixedNavClass }">
     <!--ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED-->
-    <nav class="navbar" :class="{ expanded: mobileNavExpanded }">
+    <nav class="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
       <div class="navbar__content">
         <div class="navbar__content__brand">
           <img src="../../assets/images/brand.svg" alt="Purple and Bold Logo">
@@ -60,6 +60,7 @@ export default {
     return {
       mobileNavExpanded: false,
       focus: false,
+      fixedNavClass: false,
       navItems: [
         {
           name: "About",
@@ -188,7 +189,26 @@ export default {
     },
     removeSubMenu() {
       console.log("lext the LI");
+    },
+    handleResize() {
+      this.windowOffset = window.innerHeight;
+    },
+    fixedNav() {
+      console.log(this.topOfNav);
     }
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+    const topOfNavb = this.$refs.navbar.offsetTop;
+    window.addEventListener("scroll", e => {
+      if (window.scrollY >= topOfNavb) {
+        console.log("bingo");
+        this.fixedNavClass = true;
+      } else {
+        this.fixedNavClass = false;
+      }
+    });
   }
 };
 
@@ -209,6 +229,22 @@ export default {
 
 //scoped variables 
 $nav-height: 60px
+
+.fixed
+  position: fixed
+  width: 100%
+  display: flex
+  z-index: 999
+.fixed.navbar
+  position: fixed
+  z-index: 999
+  background: white
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
+  &__content
+    z-index: 999
+    &__desktopnav
+      z-index: 999
+
 
 .navbar
   display: flex
