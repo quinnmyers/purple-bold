@@ -12,8 +12,8 @@
         </div>
           <div class="navbar__content__desktopnav">
             <ul class="main__nav">
-              <li class="main__nav__item" v-for="(navitem, index) in navItems"@mouseenter="setFocus" @mouseleave="setFocus" > 
-                <a :href=" navitem.url ">{{ navitem.name  }}</a>
+              <li class="main__nav__item" v-for="(navitem, index) in navItems"> 
+                <a :href=" navitem.url " v-smooth-scroll="{ duration: 1000, offset: -50}" >{{ navitem.name  }}</a>
                   <!-- <template v-if="navitem.hasOwnProperty('subCategories')">
                   <div class="navbar__content__desktopnav__subcategory">
                     <ul class="desktopnav__sub__menu"> 
@@ -27,7 +27,7 @@
               </ul>
           </div>
           <div class="navbar__content__mobilenav">
-            <button class="navbar__content__mobilenav__hamburger" @click="mobileNavExpanded = !mobileNavExpanded">
+            <button class="navbar__content__mobilenav__hamburger" @click="[mobileNavExpanded = !mobileNavExpanded, expandMobileNav = !expandMobileNav]">
               <span class="navbar__content__mobilenav__hamburger__line1"></span>
               <span class="navbar__content__mobilenav__hamburger__line2"></span>
               <span class="navbar__content__mobilenav__hamburger__line3"></span>
@@ -35,7 +35,7 @@
           </div>
       </div>
     </nav>
-    <app-mobile-nav :navItems="this.navItems" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
+    <app-mobile-nav :navItems="this.navItems" :expandMobileNav="this.expandMobileNav" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
 </div>
       <!-- //- nav.mobilenav
       //-   .mobilenav__container 
@@ -61,14 +61,15 @@ export default {
       mobileNavExpanded: false,
       focus: false,
       fixedNavClass: false,
+      expandMobileNav: false,
       navItems: [
         {
           name: "About",
-          url: "#"
+          url: "#about"
         },
         {
           name: "Services",
-          url: "#",
+          url: "#services",
           subCategories: [
             {
               name: "Web Development",
@@ -158,32 +159,32 @@ export default {
         },
         {
           name: "Portfolio",
-          url: "#"
+          url: "#portfolio"
         },
         {
           name: "Contact",
-          url: "#"
+          url: "#contact"
         }
       ]
     };
   },
   methods: {
-    setFocus(event) {
-      console.log(event);
-      this.focus = !this.focus;
-      const el = event.target;
-      const popoutMenu = el.childNodes[1];
-      console.log(this.focus);
-      // if (this.focus) {
-      //   // popoutMenu.style.opacity = "1";
-      //   // popoutMenu.style.visibility = "visible";
-      //   popoutMenu.classList.add("submenu-expanded");
-      // } else {
-      //   // popoutMenu.style.opacity = "0";
-      //   // popoutMenu.style.visibility = "hidden";
-      //   popoutMenu.classList.remove("submenu-expanded");
-      // }
-    },
+    // setFocus(event) {
+    //   console.log(event);
+    //   this.focus = !this.focus;
+    //   const el = event.target;
+    //   const popoutMenu = el.childNodes[1];
+    //   console.log(this.focus);
+    //   if (this.focus) {
+    //     // popoutMenu.style.opacity = "1";
+    //     // popoutMenu.style.visibility = "visible";
+    //     popoutMenu.classList.add("submenu-expanded");
+    //   } else {
+    //     // popoutMenu.style.opacity = "0";
+    //     // popoutMenu.style.visibility = "hidden";
+    //     popoutMenu.classList.remove("submenu-expanded");
+    //   }
+    // },
     expandSubMenu() {
       console.log(event.target);
     },

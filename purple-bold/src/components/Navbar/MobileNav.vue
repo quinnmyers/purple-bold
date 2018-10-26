@@ -2,13 +2,15 @@
     <div v-if='isMounted'>
       <nav class="mobilenav">
         <div class="mobilenav__container">
-          <ul :class="[{expanded: mobileNavExpanded}, mobilenavCollapsed]" ref="mobile-nav-ul">
+          <vue-slide-up-down :active="expandMobileNav" :duration="600">
+            <ul :class="[{expanded: mobileNavExpanded}, mobilenavCollapsed]" ref="mobile-nav-ul">
             <li v-for="navitem in navItems">
               <a :class="[`mobilenav__item`, textInView]" href="navitem.url">
                 {{ navitem.name }}
               </a>
             </li>
           </ul>
+          </vue-slide-up-down>
         </div>
       </nav>
     </div>
@@ -17,16 +19,21 @@
 </template>
 
 <script>
+import VueSlideUpDown from "vue-slide-up-down";
 // { expanded: mobileNavExpanded }
 export default {
+  components: {
+    VueSlideUpDown: VueSlideUpDown
+  },
   data() {
     return {
       textInView: "",
       isMounted: false,
       mobilenavCollapsed: ""
+      //expandMobileNav: true
     };
   },
-  props: ["navItems", "mobileNavExpanded"],
+  props: ["navItems", "mobileNavExpanded", "expandMobileNav"],
   watch: {
     mobileNavExpanded: function() {
       if (!this.mobileNavExpanded) {
@@ -45,6 +52,7 @@ export default {
       }
     }
   },
+  methods: {},
   mounted() {
     this.isMounted = true;
   }
@@ -79,12 +87,12 @@ export default {
       height: 100vh 
       background: rgba(255, 255, 255, 0.6)
       //transform: translateY(-100%)
-      opacity: 0
-      animation: mobile-menu-out 1s ease-out
+      //opacity: 0
+      //animation: mobile-menu-out 1s ease-out
       &.expanded 
-        animation: expand-mobilenav-menu 1s forwards ease-in-out
+        //animation: expand-mobilenav-menu 1s forwards ease-in-out
       &.mobilenav-collapse 
-        animation: collapse-mobilenav 0.5s forwards ease-out
+        //animation: collapse-mobilenav 0.5s forwards ease-out
       .mobilenav__item, a 
         //light
         display: block
@@ -99,7 +107,7 @@ export default {
         transform: translateX(100px)
         //transition: all 0.3s ease-in-out
         &.in-view 
-          // transform: translateX(0px)
+          transform: translateX(0px)
           animation: load-mobilenav-text 1.5s forwards
         &:visited 
           color: $blue-grey

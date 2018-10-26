@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio" v-if="isMounted">
+  <div class="portfolio" v-if="isMounted" id="portfolio">
     <div class="portfolio__content">
       <h2 class="section--header">Portfolio</h2>
       <div class="portfolio__content__container">
