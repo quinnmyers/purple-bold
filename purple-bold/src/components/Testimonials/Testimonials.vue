@@ -10,7 +10,8 @@
             </app-testimonials-slider>
              <app-testimonials-controls
               @playSlider="playSlider" 
-              @pauseSlider="pauseSlider"></app-testimonials-controls>
+              @pauseSlider="pauseSlider"
+              :isPaused="isPaused"></app-testimonials-controls>
           </div>
          
           <div class="testimonials__content__container__cta">
