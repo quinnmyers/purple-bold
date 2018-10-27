@@ -94,11 +94,16 @@ export default {
   //background: lightskyblue
   margin: 50px 0px
   height: 100%
+  &:nth-child(1)
+    color: red
   @include edgesnap 
     width: 100%
     padding: 0px 20px
   @include tablet-portrait 
     margin: 50px 0px
+  @include phone-small 
+    padding: 0px
+    margin: 40px 0px
   &__container
     display: flex
     align-items: center
@@ -119,13 +124,15 @@ export default {
         width: auto 
       h2, &__title
         font-family: "Rubik", "Avenir", sans-serif 
-        font-weight: $medium
+        font-weight: 400
         font-size: 1.7em
         margin-bottom: 10px
         align-self: flex-end
         @include tablet-portrait 
           align-self: center
           margin-bottom: 20px
+        @include phone-large 
+          align-self: flex-start
     &__middle
       display: flex 
       flex-direction: column

@@ -269,6 +269,9 @@ $nav-height: 60px
       padding: 0px 10px
     &__brand
       display: flex
+      flex-direction: column 
+      justify-content: center
+      height: 100%
       font-family: 'Rubik', 'Avenir', sans-serif
       color: $blue-grey
       h2
@@ -280,6 +283,9 @@ $nav-height: 60px
             font-weight: $normal
         .bold
           font-weight: 900
+      img
+        @include phone-large 
+          height: 65%
     &__desktopnav
       display: flex
       justify-content: center

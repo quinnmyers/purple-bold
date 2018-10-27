@@ -120,8 +120,12 @@ export default {
         //background: pink
       h3, &__name
         font-family: 'Rubik', 'Avenir', sans-serif 
-        font-weight: $normal 
+        font-weight: $light 
         font-size: 1.5em
+        @include phone-large 
+          font-size: 1.425em
+        @include phone-small 
+          font-size: 1.35
       &__arrow
         margin-left: 20px
         height: 20px 

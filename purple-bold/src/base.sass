@@ -52,6 +52,7 @@ $black: 900
 
 
 $phone-small: 330px
+$phone-normal: 375px
 $phone-max-width: 440px
 $phone-large: 414px
 $tablet-phone: 650px
@@ -79,6 +80,10 @@ $testimonial-snap: 900px
   @media (max-width: #{$tablet-phone})
     @content
 
+=phone
+  @media (max-width: #{$phone-normal})
+    @content
+
 =tablet-landscape
   @media (max-width: #{$tablet-width})
     @content
@@ -91,9 +96,9 @@ $testimonial-snap: 900px
   @media (max-width: #{$phone-large})
     @content
 
-=phone
-  @media (max-width: unquote("#{$phone-max-width} - 1"))
-    @content
+// =phone
+//   @media (max-width: unquote("#{$phone-max-width} - 1"))
+//     @content
 
 =phone-small
   @media (max-width: #{$phone-small})

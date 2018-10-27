@@ -50,6 +50,10 @@ ul
   list-style: none 
   @include edgesnap 
     padding: 0px 20px
+  @include phone-small 
+    display: flex 
+    width: 100% 
+    justify-content: space-between
   li 
     display: inline-block
     cursor: pointer
@@ -65,6 +69,9 @@ ul
     background-position: right top
     @include phone-large 
       font-size: 0.7em
+    @include phone-small 
+      padding: 3px 12px
+      margin: 0px 0px
     &.grow 
       animation: portfolio-tag-bounce .5s forwards
     &:nth-child(1)

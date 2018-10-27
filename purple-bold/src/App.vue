@@ -5,8 +5,8 @@
     <app-hero></app-hero>
     <app-about></app-about>
     <app-services></app-services>
-    <app-portfolio></app-portfolio>
     <app-testimonials></app-testimonials>
+    <app-portfolio></app-portfolio>
     <!-- <app-testimonials-cole></app-testimonials-cole> -->
     <app-contact></app-contact>
     <app-footer></app-footer>

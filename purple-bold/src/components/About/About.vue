@@ -103,6 +103,8 @@ export default {
           @include tablet-portrait 
             width: 100%
             margin-bottom: 15px
+          @include phone-large 
+            width: 75%
         
 @keyframes panel-entry-animation
   from 

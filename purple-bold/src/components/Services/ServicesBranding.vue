@@ -190,11 +190,15 @@ div
     justify-content: space-between
     width: 300px 
     height: 160px
+    @include phone-small 
+      width: 100% 
     &__left
       display: flex
       flex-direction: column
       justify-content: space-between
       width: 28%
+      @include phone-small 
+        width: 30%
       &__swatch 
         display: flex
         flex-direction: column
@@ -250,6 +254,8 @@ div
       width: 28% 
       height: 100% 
       font-family: 'Helvetica', sans-serif
+      @include phone-small 
+        width: 30%
       &__input__container
         display: flex
         //background: red
@@ -275,12 +281,18 @@ div
         font-weight: bold
         font-size: .9em
         color: black
+        @include phone-small 
+          font-size: .85em
       &--heading
         font-size: 0.8em
         font-weight: bold
+        @include phone-small 
+          font-size: .75em
       &--subheading
         font-size: 0.6em
         font-weight: bold
+        @include phone-small 
+          font-size: .55em
       &--bodytext
         font-size: 0.5em
       &--caption

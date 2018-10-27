@@ -99,10 +99,10 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(254px,1fr))
     grid-auto-rows: 43px
     @include edgesnap 
-      width: 100vw
+      width: 100%
       background: pink
       padding: 0px 20px
-      margin-left: 10px
+      // margin-left: 10px
     &__item 
       display: flex
       transition: all 1s

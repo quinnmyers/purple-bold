@@ -138,6 +138,7 @@ export default {
     position: fixed
     top: 50%
     left: 50%
+    z-index: 1000
     &__modal 
         display: flex 
         justify-content: space-between
@@ -147,29 +148,56 @@ export default {
         width: 1000px
         background: white
         padding: 20px 20px
+        @include edgesnap 
+          width: 90%
+        @include tablet-portrait 
+          height: 500px
+        @include tablet-phone 
+          height: auto
+          flex-direction: column
         &__left, &__right 
           background: pink 
           height: 100%
           width: 49%
+          @include tablet-phone 
+            width: 100%
         &__left
           background: pink
+          
           &__container
             display: flex 
             flex-direction: column
+            justify-content: space-between
             width: 100% 
             height: 100% 
             //background: lightskyblue
+            // @include tablet-phone 
+            //   flex-direction: row 
+            //   width: 100%
             &__image
               display: flex 
               justify-content: center 
               align-items: flex-start
               width: 100% 
-              height: 70% 
+              flex: grow
               background: orange
+              @include phone-large 
+                height: 200px
+                img 
+                  height: 200px
             &__lightbox 
               display: flex
               width: 100%
-              height: 30% 
+              height: 30%
+              @include tablet-portrait 
+                height: 20%
+              @include tablet-phone 
+                height: 80px
+                background: red 
+                margin-top: 15px 
+                margin-bottom: 20px
+              @include phone 
+                margin-top: 0px 
               .tiny__slider
                 width: 100% 
                 overflow: hidden
@@ -182,6 +210,12 @@ export default {
           justify-content: space-between
           font-size: 12pt
           &__info 
+            display: flex 
+            flex-direction: column
+            @include tablet-portrait 
+              font-size: 10pt 
+            @include phone-large 
+              font-size: 9pt
             &--name 
               font-family: $mainfont
               font-size: 1.4em
@@ -197,9 +231,19 @@ export default {
                 list-style: none
                 li
                   display: inline-block
+              @include phone-large 
+                margin-bottom: 15px
             &--description
+              display: flex  
               font-family: $subfont 
               font-size: 0.95em
+              overflow: scroll
+              margin-bottom: 30px
+              @include phone-large 
+                margin-bottom: 15px
+              @include phone 
+                max-height: 120px
+                overflow: scroll
           &__link, a 
             color: rgb(240,129,148)
             text-decoration: none
@@ -219,6 +263,10 @@ export default {
               font-size: .9em
               letter-spacing: .05em
               font-weight: $light
+              @include phone-large 
+                height: 35px 
+                font-size: 0.8em
+
                 
 
 .fade-enter-active, .fade-leave-active 
