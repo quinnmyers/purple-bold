@@ -1,7 +1,14 @@
 <template>
 <div class="testimonials__controls">
     <div class="testimonials__controls__container">
-      <div class="testimonials__controls__container__play"></div>
+      <div class="testimonials__controls__container__play">
+        <button type="button"                    @click="pauseSlider">
+            STAHHHPPPPP
+        </button>
+        <button type="button"                   @click="playSlider">
+            STEERRRRTTTT
+        </button>
+      </div>
       <div class="testimonials__controls__container__pause"></div>
       <div class="testimonials__controls__container__rewind"></div>
     </div> 
@@ -9,7 +16,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    pauseSlider() {
+      this.$emit("pauseSlider");
+    },
+    playSlider() {
+      this.$emit("playSlider");
+    }
+  }
+};
 </script>
 
 <style scoped lang="sass">

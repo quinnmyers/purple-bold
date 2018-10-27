@@ -94,8 +94,6 @@ export default {
   //background: lightskyblue
   margin: 50px 0px
   height: 100%
-  &:nth-child(1)
-    color: red
   @include edgesnap 
     width: 100%
     padding: 0px 20px

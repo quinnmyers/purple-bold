@@ -12,19 +12,8 @@
         </div>
       </div>
     </tiny-slider>
-     
+    <!-- <button class="test-button" ref="testbutton">testButton</button> -->
   </div>
-  <!-- <div class="testimonials__slider__container">
-    <div class="testimonials__slider__container__slide"
-    v-for="(testimonial, index) in testimonials"
-    :key="index">
-      <p class="description">{{ testimonial.testimonial }}</p>
-      <div class="slide__bottom">
-        <h4>{{ testimonial.name }}</h4>
-        <p class="position">{{ testimonial.position }}</p>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -34,10 +23,12 @@ export default {
   components: {
     tinySlider: VueTinySlider
   },
+  props: ["isPaused", "buttonClicked"],
   data() {
     return {
       isMounted: false,
       slidesInView: 3,
+      sliderButton: "",
       testimonials: [
         {
           id: 1,
@@ -85,27 +76,22 @@ export default {
     };
   },
   methods: {
-    // moveSlidesForward() {
-    //   const testimonialSlides = [...this.$refs["testimonial--slide"]];
-    //   testimonialSlides.forEach(slide => {
-    //     slide.classList.add("moving-forward");
-    //   });
-    //   console.log(testimonialSlides);
-    // },
-    // moveSlidesForward() {
-    // const testimonialSlides = [...this.$refs["testimonial--slide"]];
-    // this.slides = testimonialSlides;
-    // testimonialSlides[0].classList.add("is-visible");
-    //   setTimeout(() => {
-    //     this.$refs.testimonialslide[0].classList.add("is-visible");
-    //   }, 1000);
-    //   setTimeout(() => {
-    //     this.$refs.testimonialslide[1].classList.add("is-visible");
-    //   }, 5000);
-    //   setTimeout(() => {
-    //     this.$refs.testimonialslide[2].classList.add("is-visible");
-    //   }, 9000);
-    // }
+    handlePausePlay() {
+      let el = document.querySelectorAll('[data-action="stop"]');
+      el = el[0];
+      this.sliderButton = el;
+      console.log(this.sliderButton);
+      if (this.buttonClicked === "play") {
+        console.log("play button clicked, also clicked the button");
+        let el = document.querySelectorAll('[data-action="start"]');
+        el = el[0];
+        this.sliderButton = el;
+        this.sliderButton.click();
+      } else if (this.buttonClicked === "pause") {
+        console.log("pause button clicked, also clicked the button");
+        this.sliderButton.click();
+      }
+    }
   },
   mounted() {
     this.isMounted = true;
@@ -113,6 +99,12 @@ export default {
       this.slidesInView = 1;
     } else if (window.matchMedia("(max-width: 900px)").matches) {
       this.slidesInView = 2;
+    }
+  },
+  watch: {
+    buttonClicked: function() {
+      this.handlePausePlay();
+      // console.log("from Slider: " + this.isPaused);
     }
   }
 };
@@ -166,6 +158,29 @@ export default {
     .position 
       font-size: .75em 
       color: grey
+  // .testimonials__controls
+  //   display: flex 
+  //   position: absolute
+  //   right: 0 
+  //   top: 0
+  //   height: 150% 
+  //   width: 25%
+  //   background: $blue-grey 
+  //   z-index: 10 
+  //   @include testimonial-snap 
+  //     width: 35%
+  //   @media (max-width: 710px)
+  //     height: 120%
+  //   @include tablet-phone 
+  //     width: 40%
+  //   @include phone-large 
+  //     height: 110px 
+  //     width: 100%
+  //   &__container 
+  //     &__play, &__pause, &__rewind
+  //     &__play
+  //     &__pause
+  //     &__rewind
 
 
 @keyframes moving-forward 

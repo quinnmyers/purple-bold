@@ -4,8 +4,13 @@
         <div class="testimonials__content__container">
           <h2 class="section--header">Testimonials</h2>
           <div class="testimonials__content__container__middle">
-             <app-testimonials-slider></app-testimonials-slider>
-          <app-testimonials-controls></app-testimonials-controls>
+             <app-testimonials-slider 
+              :isPaused="isPaused"
+              :buttonClicked="buttonClicked">
+            </app-testimonials-slider>
+             <app-testimonials-controls
+              @playSlider="playSlider" 
+              @pauseSlider="pauseSlider"></app-testimonials-controls>
           </div>
          
           <div class="testimonials__content__container__cta">
@@ -23,6 +28,7 @@
         </div>
       </div>
   </section>
+  
 </template>
 
 <script>
@@ -37,6 +43,8 @@ export default {
   data() {
     return {
       isMounted: false,
+      isPaused: false,
+      buttonClicked: "",
       testimonialCtaSlides: ["website", "brand", "logo"]
     };
   },
@@ -54,6 +62,24 @@ export default {
         slide.style.textDecoration = "underline";
         slide.style.fontStyle = "italic";
       });
+    },
+    pauseSlider() {
+      this.buttonClicked = "pause";
+      if (this.isPaused) {
+        return;
+      } else {
+        this.isPaused = !this.isPaused;
+      }
+      // console.log("Paused: " + this.isPaused);
+    },
+    playSlider() {
+      this.buttonClicked = "play";
+      if (this.isPaused) {
+        this.isPaused = !this.isPaused;
+      } else {
+        return;
+      }
+      // console.log("Paused: " + this.isPaused);
     }
   },
   mounted() {

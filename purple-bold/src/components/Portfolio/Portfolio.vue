@@ -226,7 +226,6 @@ export default {
     display: flex 
     flex-direction: column
     width: 1100px
-    border: 1px solid black
     @include edgesnap 
       width: 100%
     &__container 

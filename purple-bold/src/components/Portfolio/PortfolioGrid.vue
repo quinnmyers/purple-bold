@@ -117,7 +117,8 @@ export default {
       width: 258px
       @include edgesnap
         width: auto
-      //transition: all .3s ease-in-out
+      @include phone-large 
+        margin-right: 0px
       &.is-visible 
         display: flex
         opacity: 1
