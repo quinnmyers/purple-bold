@@ -103,6 +103,8 @@ export default {
     align-items: center
     width: 100% 
     height: 60% 
+    @include phone-large  
+      flex-direction: row
     &__play, &__pause
       display: flex 
       justify-content: center 
@@ -119,5 +121,7 @@ export default {
       img
         left: 0 
         height: 70px
+        @include phone-large  
+          height: 55px
     &__rewind
 </style>

@@ -80,17 +80,19 @@ export default {
       let el = document.querySelectorAll('[data-action="stop"]');
       el = el[0];
       this.sliderButton = el;
-      console.log(this.sliderButton);
       if (this.buttonClicked === "play") {
-        console.log("play button clicked, also clicked the button");
         let el = document.querySelectorAll('[data-action="start"]');
         el = el[0];
         this.sliderButton = el;
         this.sliderButton.click();
       } else if (this.buttonClicked === "pause") {
-        console.log("pause button clicked, also clicked the button");
         this.sliderButton.click();
       }
+    },
+    hideButton() {
+      let el = document.querySelectorAll('[data-action="stop"]');
+      el = el[0];
+      el.style.display = "none";
     }
   },
   mounted() {
@@ -100,11 +102,11 @@ export default {
     } else if (window.matchMedia("(max-width: 900px)").matches) {
       this.slidesInView = 2;
     }
+    this.$nextTick(this.hideButton);
   },
   watch: {
     buttonClicked: function() {
       this.handlePausePlay();
-      // console.log("from Slider: " + this.isPaused);
     }
   }
 };
@@ -142,6 +144,7 @@ export default {
       width: 26%
     @include phone-large 
       width: 90%
+      margin-top: 15px
     .bottom
       position: absolute 
       bottom: 0
@@ -158,31 +161,7 @@ export default {
     .position 
       font-size: .75em 
       color: grey
-  // .testimonials__controls
-  //   display: flex 
-  //   position: absolute
-  //   right: 0 
-  //   top: 0
-  //   height: 150% 
-  //   width: 25%
-  //   background: $blue-grey 
-  //   z-index: 10 
-  //   @include testimonial-snap 
-  //     width: 35%
-  //   @media (max-width: 710px)
-  //     height: 120%
-  //   @include tablet-phone 
-  //     width: 40%
-  //   @include phone-large 
-  //     height: 110px 
-  //     width: 100%
-  //   &__container 
-  //     &__play, &__pause, &__rewind
-  //     &__play
-  //     &__pause
-  //     &__rewind
-
-
+  
 @keyframes moving-forward 
   0% 
     transform: translateX(0)
