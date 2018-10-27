@@ -110,7 +110,7 @@ $arrow-margin-bottom: 20px
 .landing__page
   display: flex
   flex-direction: column
-  width: 100vw
+  width: 100%
   height: 100vh
   background: $blue-grey
   font-family: 'Rubik', 'Avenir', sans-serif

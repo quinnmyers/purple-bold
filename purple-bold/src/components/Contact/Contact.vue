@@ -193,7 +193,7 @@ $maintextcolor: white
 $disabled: #fc3a3a45
 
 section
-    width: 100vw
+    width: 100%
     height: auto
     color: $maintextcolor
     background-image: $gradient
