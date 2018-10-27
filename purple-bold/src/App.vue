@@ -7,39 +7,9 @@
     <app-services></app-services>
     <app-testimonials></app-testimonials>
     <app-portfolio></app-portfolio>
-    <!-- <app-testimonials-cole></app-testimonials-cole> -->
     <app-contact></app-contact>
     <app-footer></app-footer>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
   </div>
   
   <!-- #app

@@ -30,7 +30,7 @@
            <div class="portfolio__item__overlay__modal__right__info--services">
              <ul>
                 <li v-for="(service, index) in portfolioPiece.services" :key="index">
-                  <p>{{ service + ","}}</p>
+                  <p>{{ service }}&nbsp; &nbsp;</p>
                </li>
              </ul>
             </div>
