@@ -1,4 +1,5 @@
-<template>
+<template> 
+<!-- <div :class="{ fixedhelp: fixedNavClass }"> -->
     <div :class="{ fixed: fixedNavClass }">
     <!--ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED-->
     <nav class="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
@@ -36,6 +37,7 @@
       </div>
     </nav>
     <app-mobile-nav :navItems="this.navItems" :expandMobileNav="this.expandMobileNav" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
+</div> 
 </div>
       <!-- //- nav.mobilenav
       //-   .mobilenav__container 
@@ -51,7 +53,6 @@
 <script>
 //subcategory LI are not getting a class may fix underline issue
 import MobileNav from "./MobileNav.vue";
-
 export default {
   components: {
     appMobileNav: MobileNav
@@ -62,6 +63,7 @@ export default {
       focus: false,
       fixedNavClass: false,
       expandMobileNav: false,
+      topOfNav: null,
       navItems: [
         {
           name: "About",
@@ -195,24 +197,56 @@ export default {
       this.windowOffset = window.innerHeight;
     },
     fixedNav() {
-      console.log(this.topOfNav);
-    }
-  },
-  mounted() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
-    const topOfNavb = this.$refs.navbar.offsetTop;
-    window.addEventListener("scroll", e => {
-      if (window.scrollY >= topOfNavb) {
-        console.log("bingo");
+      // check if the scroll of the page is past where the nav is and if it is then add a class to the nav wraper to make it fixed
+      if (window.scrollY >= this.topOfNav) {
         this.fixedNavClass = true;
       } else {
         this.fixedNavClass = false;
       }
-    });
+    },
+    // Returns a function, that, as long as it continues to be invoked, will not
+    // be triggered. The function will be called after it stops being called for
+    // N milliseconds. If `immediate` is passed, trigger the function on the
+    // leading edge, instead of the trailing.
+    debounce(func, wait, immediate) {
+      var timeout;
+      return function executedFunction() {
+        var context = this;
+        var args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+    // find the top of the nav bar on the page
+    const topOfNavb = this.$refs.navbar.offsetTop;
+    this.topOfNav = topOfNavb;
+    this.handleResize();
+    // fire above medthod when scroll
+    window.onscroll = () => {
+      if (!this.fixedNavClass) {
+        this.fixedNav();
+      } else {
+        // this.debounce(this.fixedNav(), 250);
+      }
+    };
+    // window.addEventListener("scroll", e => {
+    //   if (window.scrollY >= topOfNavb) {
+    //     this.fixedNavClass = true;
+    //   } else {
+    //     this.fixedNavClass = false;
+    //   }
+    // });
   }
 };
-
 // elementCoords(event) {
 //   const coords = event.target.getBoundingClientRect();
 //   const xCoord = Math.floor(coords.x);
@@ -227,26 +261,40 @@ export default {
 <style scoped lang="sass">
 @import '../../normalize.scss'
 @import '../../base.sass'
-
 //scoped variables 
 $nav-height: 60px
-
+// .fixedhelp
+//   height: 60px !important
+// .fixed
+//   position: fixed
+//   width: 100%
+//   display: flex
+//   z-index: 999
+//   top: 0px
+// .fixed.navbar
+//   position: fixed
+//   z-index: 999
+//   background: white
+//   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
+//   &__content
+//     z-index: 999
+//     &__desktopnav
+//       z-index: 999
 .fixed
-  position: fixed
+  position: sticky
+  top: 0px 
   width: 100%
   display: flex
   z-index: 999
-.fixed.navbar
-  position: fixed
-  z-index: 999
-  background: white
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
-  &__content
+  top: 0px 
+  .fixed.navbar
     z-index: 999
-    &__desktopnav
+    background: white
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
+    &__content
       z-index: 999
-
-
+      &__desktopnav
+        z-index: 999
 .navbar
   display: flex
   position: relative
@@ -269,11 +317,10 @@ $nav-height: 60px
       padding: 0px 10px
     &__brand
       display: flex
-      flex-direction: column 
-      justify-content: center
-      height: 100%
+      align-items: center
       font-family: 'Rubik', 'Avenir', sans-serif
       color: $blue-grey
+      height: 100%
       h2
         font-size: 2.3em
         letter-spacing: .025em
@@ -283,9 +330,9 @@ $nav-height: 60px
             font-weight: $normal
         .bold
           font-weight: 900
-      img
-        @include phone-large 
-          height: 65%
+      @include phone-large 
+        img 
+          height: 65% 
     &__desktopnav
       display: flex
       justify-content: center
@@ -391,7 +438,6 @@ $nav-height: 60px
                   content: ''
                   border: none
                
-
     &__mobilenav
       display: none
       height: 28px
@@ -414,8 +460,6 @@ $nav-height: 60px
         &__line1
         &__line2
         &__line3
-
-
 @keyframes expand-submenu 
   from 
     opacity: 0
@@ -425,6 +469,7 @@ $nav-height: 60px
     opacity: 1
     transform: rotateY(1080deg) scale(1) translateY($nav-height)
     //transform: scale(1) rotateX(0deg) translateY($nav-height)
-
-
 </style>
+
+
+
