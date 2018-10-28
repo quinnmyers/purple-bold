@@ -31,28 +31,28 @@ export default {
       testimonials: [
         {
           id: 1,
-          name: "Dima Duchet 1",
-          position: "Artist",
+          name: "Dima Duchet",
+          position: "Artist, Art Lead",
           testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            "Purple and Bold has worked on my personal art website, which means that I had to deliver many visual assets. Quinn was patient with me, and had good solutions to any questions I had. I am so excited to finally have a website of my own that is linked to all my other profiles and will serve as a good place to start my business."
         },
         {
           id: 2,
-          name: "Jim Jackson 2",
-          position: "CEO, BluHare Studios",
+          name: "Robert Riordan",
+          position: "Actor, Singer",
           testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis."
+            "Purple and Bold takes the picture in your head and brings it to life. They knows how to simplify tastefully and create solid options quickly. They are a real gem to work with too, and communicate very well."
         },
         {
           id: 3,
-          name: "Jared Bonnell 3",
+          name: "Jared Bonnell",
           position: "Broker/Owner, One Commercial",
           testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
+            "Purple and Bold has made me the exact website I want that has really helped me get in front of maybe buyers and sellers. I am proud to hand people the business card the designed for me and even prouder when people complement my website."
         },
         {
           id: 4,
-          name: "Jared Bonnell 4",
+          name: "Jim Jackson",
           position: "Broker/Owner, One Commercial",
           testimonial:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
@@ -118,7 +118,7 @@ export default {
 
 .testimonials__slider__container 
   position: relative
-  background: pink
+  //background: pink
   height: auto
   width: 75% 
   font-family: "Avenir", sans-serif
@@ -134,7 +134,7 @@ export default {
     height: 300px 
     width: 260px 
     padding: 0px 15px
-    background: khaki
+    //background: khaki
     flex-direction: column
     border-left: 1px solid black
     @include edgesnap 

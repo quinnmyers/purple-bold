@@ -8,7 +8,7 @@
             </div>
             <div class="about__content__container__right">
               <img src="../../assets/images/brand.svg" alt="" class="about__content__container__right__image">
-              <p>Amet excepteur consectetur cupidatat commodo enim esse fugiat fugiat et consectetur officia Lorem fugiat sit. Officia laborum laboris consectetur nisi tempor duis elit. Excepteur fugiat in exercitation consequat incididunt officia ad commodo tempor non velit quis. Incididunt et sit eu laborum nisi officia tempor dolor laboris amet enim dolore cillum incididunt.</p>
+              <p>Ideas, goals, and aspirations. The moment one is said aloud, the timeline starts. For most, getting to step one never even happens. Why? Because there are too many steps to take before you can even start: you need a logo, you need a website,  you don’t even have a name or brand, a business card is crucial, a Facebook page is a must, you also need to show up on Google, where do you start? Does this sound familiar?  We want to handle those tasks for you, the right way,  so you can focus on what really matters, your business and life. We enjoy and obsess over the large and small details of a business and brand and know that attention to detail early on in the process of opening a business or revamping one can make a dramatic difference later.  Our goal is to provide everything our clients need to start their next venture, or revamp one that needs a little attention. We are committed to providing quality work, clear and frequent communication, and delivering quality products on time, after all, we want to do this for a long time,  it’s what we love.</p>
             </div>
           </div>
         </div>
