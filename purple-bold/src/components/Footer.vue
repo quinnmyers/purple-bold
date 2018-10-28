@@ -18,11 +18,6 @@ export default {
       year: ""
     };
   },
-  methods: {
-    getYear() {
-      // return getFullYear().toString;
-    }
-  },
   mounted() {
     const d = new Date();
     const fullYear = d.getFullYear();

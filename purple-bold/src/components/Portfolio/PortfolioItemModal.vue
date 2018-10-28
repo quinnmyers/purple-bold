@@ -73,7 +73,6 @@ export default {
       newArray.forEach(image => {
         this.images.push(image.src);
       });
-      console.log(this.images);
     },
     closeModal() {
       eventBus.selected(false);
@@ -91,7 +90,6 @@ export default {
       newArray.forEach(image => {
         this.images.push(image.src);
       });
-      console.log(this.images);
     },
     itemSelected: function() {
       if (this.itemSelected) {

@@ -44,36 +44,13 @@ export default {
       this.servicesArray[index].expanded = !this.servicesArray[index].expanded;
     },
     updateCreativeColor(hexColor) {
-      // const limit = this.$refs[`${this.serviceName}` + counter]
-      // console.log(limit);
-      // let counter = 0;
-      // if (this.$refs["title-true"]) {
-      //   let limit = this.$refs["title-true"].length;
-      //   if (counter < limit) {
-      //     const el = this.$refs["title-true"][this.counter];
-      //     el.style.color = color;
-      //     counter++;
-      //   } else {
-      //     this.counter = limit - 1;
-      //     while (this.counter >= 0) {
-      //       this.$refs["title-true"][this.counter].style.color = "#000000";
-      //       counter--;
-      //     }
-      //     counter = 0;
-      //   }
-      // }
-      // const target = this.$refs["creative"];
-      // console.log(target);
-      //target.style.color = hexColor;
       if (this.name == "creative") {
         const limit = this.service.subCategories.length;
         if (this.counter < limit) {
           const target = this.$refs[
             `${this.serviceName}-sub-${this.counter}`
           ][0];
-          console.log(target);
           target.style.color = hexColor;
-          console.log(this.counter);
           this.counter++;
         } else if ((this.counter = limit - 1)) {
           while (this.counter >= 0) {

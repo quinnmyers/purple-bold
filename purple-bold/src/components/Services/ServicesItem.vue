@@ -80,7 +80,6 @@ export default {
   },
   mounted() {
     this.isMounted = true;
-    console.log(this.serviceName);
   }
 };
 </script>

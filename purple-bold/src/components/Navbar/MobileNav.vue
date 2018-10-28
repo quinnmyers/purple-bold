@@ -38,10 +38,8 @@ export default {
     mobileNavExpanded: function() {
       if (!this.mobileNavExpanded) {
         this.mobilenavCollapsed = "mobilenav-collapse";
-        console.log("collapsing");
       } else if (this.mobileNavExpanded) {
         this.mobilenavCollapsed = "";
-        console.log("is expanded");
       }
       if (this.textInView === "") {
         setTimeout(() => {

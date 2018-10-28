@@ -13,7 +13,7 @@
         <div class="websites__container__editor__main__numbers">
           <ul class="websites__container__editor__main__numbers__list">
             <li class="websites__container__editor__main__numbers__list__item"
-                v-for="number in sideNumberArray">{{ number }}</li>
+                v-for="(number, index) in sideNumberArray" :key="index">{{ number }}</li>
           </ul>
         </div>
         <textarea name="editor__textarea" cols="30" rows="10"
@@ -54,7 +54,6 @@ export default {
         this.sideNumberArray.push(counter.toString());
         counter++;
       }
-      console.log(this.sideNumberArray);
     },
     clearTextarea() {
       this.textareaFocused = false;

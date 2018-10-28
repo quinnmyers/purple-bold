@@ -12,7 +12,6 @@
         </div>
       </div>
     </tiny-slider>
-    <!-- <button class="test-button" ref="testbutton">testButton</button> -->
   </div>
 </template>
 

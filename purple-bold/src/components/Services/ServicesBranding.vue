@@ -132,25 +132,15 @@ export default {
       this.leftSwatch.hexBottom = this.leftSmallSwatches[index].background;
       this.leftSwatch.rgbBottom = this.leftSmallSwatches[index].rgb;
     },
-    inputHandler(bool) {
-      if (bool) {
-        console.log("input focued");
-      } else {
-        console.log("input UNFOCUSED");
-      }
-    },
     inputValue() {
-      //console.log(event.key);
       const characterLimit = 14;
       if (this.inputValueArray.length < characterLimit) {
         if (event.key === "Backspace" && this.inputValueArray.length === 0) {
           return;
         } else if (event.key === "Backspace") {
           this.inputValueArray.pop();
-          console.log(this.inputValueArray);
         } else {
           this.inputValueArray.push(event.key);
-          console.log(this.inputValueArray);
         }
       } else {
         return;
@@ -166,9 +156,6 @@ export default {
       // this.changeRgbValue(rgbColor);
       this.middleSwatch.rgbBottom = rgbColor;
     });
-    // eventBus.$on("colorWasEdited", rgbColor => {
-    //   console.log("this is branding talking: " + rgbColor);
-    // });
   },
   mounted() {
     this.isMounted = true;

@@ -1,5 +1,4 @@
 <template>
-<!-- Cole's newest -->
 <section id="contact">
     <div class="contact">
         <div class="Contact__title">
@@ -189,7 +188,6 @@ export default {
 @import '../../normalize.scss'
 @import '../../base.sass'
 $gradient: linear-gradient(165deg, #F7BA60 0%,#ff6797 65%)
-//linear-gradient(to right bottom, #eaa26e, #ff9e89, #ff9eab, #ffa4d1, #fab1f5);
 $inputback: #f7f3f3
 $cardback: rgba(255, 255, 255, .4)
 $inputColor: black
@@ -361,13 +359,6 @@ section
             justify-content: flex-end
             align-self: flex-end
             input
-                // margin-top: 20px
-                // font-size: 1.4em
-                // border-radius: 5px
-                // padding: .5em 1em
-                // border: 2px solid $maintextcolor
-                // transition: .8s 
-                // margin-bottom: 50px
                 display: flex 
                 flex-direction: column 
                 justify-content: center

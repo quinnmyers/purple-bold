@@ -55,11 +55,9 @@ export default {
       const firstGraph = this.$refs["marketing-graph-0"][0];
       const secondGraph = this.$refs["marketing-graph-1"][0];
       if (flag) {
-        console.log("true");
         firstGraph.classList.add("rotateNegative");
         secondGraph.classList.add("rotatePositive");
       } else {
-        console.log("false");
         firstGraph.classList.remove("rotateNegative");
         secondGraph.classList.remove("rotatePositive");
       }

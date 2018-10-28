@@ -146,28 +146,6 @@ export default {
     };
   },
   methods: {
-    // setFocus(event) {
-    //   console.log(event);
-    //   this.focus = !this.focus;
-    //   const el = event.target;
-    //   const popoutMenu = el.childNodes[1];
-    //   console.log(this.focus);
-    //   if (this.focus) {
-    //     // popoutMenu.style.opacity = "1";
-    //     // popoutMenu.style.visibility = "visible";
-    //     popoutMenu.classList.add("submenu-expanded");
-    //   } else {
-    //     // popoutMenu.style.opacity = "0";
-    //     // popoutMenu.style.visibility = "hidden";
-    //     popoutMenu.classList.remove("submenu-expanded");
-    //   }
-    // },
-    expandSubMenu() {
-      console.log(event.target);
-    },
-    removeSubMenu() {
-      console.log("lext the LI");
-    },
     handleResize() {
       this.windowOffset = window.innerHeight;
     },
@@ -213,24 +191,8 @@ export default {
         // this.debounce(this.fixedNav(), 250);
       }
     };
-    // window.addEventListener("scroll", e => {
-    //   if (window.scrollY >= topOfNavb) {
-    //     this.fixedNavClass = true;
-    //   } else {
-    //     this.fixedNavClass = false;
-    //   }
-    // });
   }
 };
-// elementCoords(event) {
-//   const coords = event.target.getBoundingClientRect();
-//   const xCoord = Math.floor(coords.x);
-//   const yCoord = Math.floor(coords.y);
-//   // console.log(`X: ${coords.x}, Y:${coords.y}`);
-//   console.log(`X: ${xCoord}, Y: ${yCoord}`);
-//   const el = event.target;
-//   el.style.color = "green";
-// },
 </script>
 
 <style scoped lang="sass">
@@ -238,23 +200,7 @@ export default {
 @import '../../base.sass'
 //scoped variables 
 $nav-height: 60px
-// .fixedhelp
-//   height: 60px !important
-// .fixed
-//   position: fixed
-//   width: 100%
-//   display: flex
-//   z-index: 999
-//   top: 0px
-// .fixed.navbar
-//   position: fixed
-//   z-index: 999
-//   background: white
-//   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
-//   &__content
-//     z-index: 999
-//     &__desktopnav
-//       z-index: 999
+
 .fixed
   position: sticky
   top: 0px 

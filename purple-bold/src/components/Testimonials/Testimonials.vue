@@ -54,7 +54,6 @@ export default {
       return `testimonial-cta-slide-${index}`;
     },
     styleCtaSlides() {
-      console.log("this is working");
       const ctaSlideArray = [...this.$refs["ctaSlide"]];
       ctaSlideArray.forEach(slide => {
         slide.style.color = "black";
@@ -71,7 +70,6 @@ export default {
       } else {
         this.isPaused = !this.isPaused;
       }
-      // console.log("Paused: " + this.isPaused);
     },
     playSlider() {
       this.buttonClicked = "play";
@@ -80,7 +78,6 @@ export default {
       } else {
         return;
       }
-      // console.log("Paused: " + this.isPaused);
     }
   },
   mounted() {

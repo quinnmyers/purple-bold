@@ -1,7 +1,7 @@
 <template>
     <div v-if="isMounted">
       <ul class="creative__color__palette">
-        <li class="creative__color__palette--color" v-for="(color, index) in colors" :style="styleBackground(index)" @click="colorSubHeaders(index)">
+        <li class="creative__color__palette--color" v-for="(color, index) in colors" :style="styleBackground(index)" :key="index" @click="colorSubHeaders(index)">
         </li>
       </ul>
       <p class="services__creative__cta">Click a color...</p>

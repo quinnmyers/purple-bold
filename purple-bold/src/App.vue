@@ -28,7 +28,6 @@ import About from "./components/About/About.vue";
 import Services from "./components/Services/Services.vue";
 import Portfolio from "./components/Portfolio/Portfolio.vue";
 import Testimonials from "./components/Testimonials/Testimonials.vue";
-import TestimonialsCole from "./components/TestimonialsCole/TestimonialsCole.vue";
 import Contact from "./components/Contact/Contact.vue";
 import Footer from "./components/Footer.vue";
 
@@ -41,7 +40,6 @@ export default {
     appServices: Services,
     appPortfolio: Portfolio,
     appTestimonials: Testimonials,
-    appTestimonialsCole: TestimonialsCole,
     appContact: Contact,
     appFooter: Footer
   }

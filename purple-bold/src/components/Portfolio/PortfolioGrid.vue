@@ -28,8 +28,6 @@ export default {
   },
   methods: {
     loadPanels() {
-      //const limit = this.$refs["portfolio-grid-item"].length;
-      //console.log(this.$refs["portfolio-grid-item"][0]);
       const itemArray = [...this.$refs["portfolio-grid-item"]];
       let index = 0;
       itemArray.forEach(function(i) {
@@ -44,7 +42,6 @@ export default {
       eventBus.openModal(index);
       eventBus.selected(true);
     }
-    // console.log("grid refs: ", this.$refs["portfolio-grid-item"][2]);
   },
   computed: {
     //provides the grid with the list of items to display

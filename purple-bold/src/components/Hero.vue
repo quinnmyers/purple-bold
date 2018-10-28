@@ -26,7 +26,6 @@
       </div>
     </section>
   </div>
-  <!-- <span>creative agency.</span> -->
 </template>
 <script>
 export default {
@@ -46,10 +45,8 @@ export default {
     removeLineBreak() {
       if (window.matchMedia("(max-width: 650px)").matches) {
         this.lineBreak = this.lineBreak;
-        console.log("smaller than 650");
       } else {
         this.lineBreak = true;
-        console.log("bigger than 650");
       }
     },
     slideClass(index) {
@@ -59,27 +56,19 @@ export default {
       const limit = this.aboutSlides.length;
       let counter = 0;
       const heroSlideArray = [...this.$refs["heroSlide"]];
-      console.log(heroSlideArray);
       heroSlideArray.forEach(slide => {
         slide.style.color = "white";
-        // slide.style.animation = "fade 12s infinite linear";
         slide.style.opacity = "0";
         slide.style.position = "absolute";
         slide.style.textDecoration = "underline";
         slide.style.fontStyle = "italic";
       });
-      // while(counter < limit) {
-      //   return
-      // }
-      // return { display: "none" };
     }
   },
   mounted() {
     this.isMounted = true;
     this.$nextTick(this.removeLineBreak);
     this.$nextTick(this.styleHeroSlides);
-    // this.removeLineBreak();
-    // this.styleHeroSlides();
   }
 };
 </script>
