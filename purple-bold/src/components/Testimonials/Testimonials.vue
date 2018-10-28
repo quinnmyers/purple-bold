@@ -19,7 +19,7 @@
               <ul>
                 <li 
                 :class="ctaSlideClass(index)"
-                v-for="(ctaSlide, index) in testimonialCtaSlides" ref="ctaSlide">
+                v-for="(ctaSlide, index) in testimonialCtaSlides" :key="index" ref="ctaSlide">
                   {{ ctaSlide }}?
                 </li>
               </ul>

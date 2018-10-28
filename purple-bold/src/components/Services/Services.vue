@@ -9,7 +9,8 @@
                            :services="services" 
                            :servicesIndex="index" 
                            :servicesArray="servicesArray[index]"
-                           :serviceName="services[index].name.toLowerCase()">
+                           :serviceName="services[index].name.toLowerCase()"
+                           :key="index">
         </app-services-item>
       </template>
     </div>

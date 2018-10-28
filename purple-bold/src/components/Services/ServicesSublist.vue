@@ -1,6 +1,8 @@
 <template>
   <div v-if="isMounted">
-    <li v-for="(sub, index) in service.subCategories" class="services__content__container__item__container__right__subcategories__item">
+    <li v-for="(sub, index) in service.subCategories" 
+        :key="index" 
+        class="services__content__container__item__container__right__subcategories__item">
       <div class="services__content__container__item__container__right__subcategories__item__title" @click="expandSubComponent(index)">
         <h3 class="services__content__container__item__container__right__subcategories__item__title__name" 
         :ref="`${serviceName}-sub-${index}`"> {{ sub.subName }} </h3>

@@ -2,6 +2,7 @@
   <ul v-if="isMounted">
     <li
       v-for="(tag, index) in tagArray"
+      :key="index"
       @click="categorySelected(index)"
       :ref="`tag-button-${index}`"> 
       {{ tag.name }}

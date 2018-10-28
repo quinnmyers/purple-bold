@@ -4,7 +4,7 @@
         <div class="mobilenav__container">
           <vue-slide-up-down :active="expandMobileNav" :duration="600">
             <ul :class="[{expanded: mobileNavExpanded}, mobilenavCollapsed]" ref="mobile-nav-ul">
-            <li v-for="navitem in navItems">
+            <li v-for="(navitem, index) in navItems" :key='index'>
               <a :class="[`mobilenav__item`, textInView]" href="navitem.url">
                 {{ navitem.name }}
               </a>

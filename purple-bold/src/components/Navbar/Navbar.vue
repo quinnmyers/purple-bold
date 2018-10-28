@@ -1,31 +1,16 @@
 <template> 
-<!-- <div :class="{ fixedhelp: fixedNavClass }"> -->
-    <div :class="{ fixed: fixedNavClass }">
-    <!--ADD IN BOTTOM BOX SHADOW ON NAV WHEN MOBILE IS EXPANDED-->
+  <div :class="{ fixed: fixedNavClass }">
     <nav class="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
       <div class="navbar__content">
         <div class="navbar__content__brand">
           <img src="../../assets/images/brand.svg" alt="Purple and Bold Logo">
-          <!-- <h2>
-            <span class="purple">Purple</span>
-            <span class="bold">+ Bold</span>
-          </h2> -->
         </div>
           <div class="navbar__content__desktopnav">
             <ul class="main__nav">
-              <li class="main__nav__item" v-for="(navitem, index) in navItems"> 
+              <li class="main__nav__item" v-for="(navitem, index) in navItems" :key="index"> 
                 <a :href=" navitem.url " v-smooth-scroll="{ duration: 1000, offset: -50}" >{{ navitem.name  }}</a>
-                  <!-- <template v-if="navitem.hasOwnProperty('subCategories')">
-                  <div class="navbar__content__desktopnav__subcategory">
-                    <ul class="desktopnav__sub__menu"> 
-                      <li class="desktopnav__sub__menu__item" 
-                          v-for="subCategory in navitem.subCategories">{{ subCategory.name }}
-                      </li>
-                    </ul>
-                  </div>
-                  </template> -->
-                </li>
-              </ul>
+              </li>
+            </ul>
           </div>
           <div class="navbar__content__mobilenav">
             <button class="navbar__content__mobilenav__hamburger" @click="[mobileNavExpanded = !mobileNavExpanded, expandMobileNav = !expandMobileNav]">
@@ -38,16 +23,6 @@
     </nav>
     <app-mobile-nav :navItems="this.navItems" :expandMobileNav="this.expandMobileNav" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
 </div> 
-</div>
-      <!-- //- nav.mobilenav
-      //-   .mobilenav__container 
-      //-      ul(
-      //-        :class="{ expanded: mobileNavExpanded }"
-      //-      )
-      //-         li(
-      //-           v-for="navitem in navItems"
-      //-           ) 
-      //-           a(:href=" navitem.url ") {{ navitem.name  }} -->
 </template>
 
 <script>

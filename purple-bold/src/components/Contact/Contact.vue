@@ -46,7 +46,7 @@
                     <div class="tag">
                         <transition-group name="tags">
                         <div class="tag__bubbles" v-for="(tag, index) in messageData.pickedTags" :key="index" >
-                            <p>{{ tag.toLowerCase() }}  </p><button@click="removeTag(index)" class="tag__bubbles--del"><p>x</p></button>
+                            <p>{{ tag.toLowerCase() }}  </p><button @click="removeTag(index)" class="tag__bubbles--del"><p>x</p></button>
                         </div>
                         </transition-group>
                     </div>

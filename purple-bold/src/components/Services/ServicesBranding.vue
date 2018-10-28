@@ -4,7 +4,7 @@
           <div class="branding__container__left">
             <div class="branding__container__left__swatch" ref="left-swatch">
               <template v-for="(smallSwatch, index) in leftSmallSwatches">
-                <div class="branding__container__left__swatch--small" @click="updateLeftSwatch(index)" :ref="`${serviceName}${index}`"></div>
+                <div class="branding__container__left__swatch--small" :key="index" @click="updateLeftSwatch(index)" :ref="`${serviceName}${index}`"></div>
               </template>
             </div> 
             <div class="branding__container__left--hex"><p>{{ leftSwatch.hexBottom }}</p></div> 
