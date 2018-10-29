@@ -21,7 +21,7 @@
           </div>
       </div>
     </nav>
-    <app-mobile-nav :navItems="this.navItems" :expandMobileNav="this.expandMobileNav" :mobileNavExpanded="this.mobileNavExpanded"></app-mobile-nav>
+    <app-mobile-nav :navItems="this.navItems" :expandMobileNav="this.expandMobileNav" :mobileNavExpanded="this.mobileNavExpanded" @collapseMobileNav="collapseMobile"></app-mobile-nav>
 </div> 
 </template>
 
@@ -149,6 +149,10 @@ export default {
     handleResize() {
       this.windowOffset = window.innerHeight;
     },
+    collapseMobile() {
+      console.log("collapse mobile");
+      this.expandMobileNav = false;
+    },
     fixedNav() {
       // check if the scroll of the page is past where the nav is and if it is then add a class to the nav wraper to make it fixed
       if (window.scrollY >= this.topOfNav) {
@@ -225,8 +229,6 @@ $nav-height: 60px
   z-index: 999
   @include tablet-portrait 
     height: 50px
-  &.expanded
-    background: pink
   &__content
     display: flex
     align-items: center
@@ -251,6 +253,8 @@ $nav-height: 60px
             font-weight: $normal
         .bold
           font-weight: 900
+      @include navsnap 
+        margin-left: 10px
       @include phone-large 
         img 
           height: 65% 
@@ -362,22 +366,24 @@ $nav-height: 60px
     &__mobilenav
       display: none
       height: 28px
-      width: 40px 
-      background: red
+      width: 40px
       @include navsnap 
-        display: flex
+        display: flex 
+        margin-left: 10px
       &__hamburger
         display: flex
         flex-direction: column 
         justify-content: space-between
         cursor: pointer
+        height: 60%
+        align-self: center
         //height: 3px
         &__line1, &__line2, &__line3
           display: flex
-          height: 3px
+          height: 2px
           border-radius: 2px
-          width: 40px
-          background: yellow
+          width: 30px
+          background: $blue-grey
         &__line1
         &__line2
         &__line3

@@ -1,19 +1,16 @@
 <template>
-    <div v-if='isMounted'>
       <nav class="mobilenav">
         <div class="mobilenav__container">
           <vue-slide-up-down :active="expandMobileNav" :duration="600">
             <ul :class="[{expanded: mobileNavExpanded}, mobilenavCollapsed]" ref="mobile-nav-ul">
             <li v-for="(navitem, index) in navItems" :key='index'>
-              <a :class="[`mobilenav__item`, textInView]" href="navitem.url">
-                {{ navitem.name }}
+              <a :class="[`mobilenav__item`, textInView]" @click="collapseMobileNav" :href="navitem.url" v-smooth-scroll="{ duration: 1000, offset: -50}" >{{ navitem.name  }}
               </a>
             </li>
           </ul>
           </vue-slide-up-down>
         </div>
       </nav>
-    </div>
 
   
 </template>
@@ -30,7 +27,7 @@ export default {
       textInView: "",
       isMounted: false,
       mobilenavCollapsed: ""
-      //expandMobileNav: true
+      // expandMobileNav: true
     };
   },
   props: ["navItems", "mobileNavExpanded", "expandMobileNav"],
@@ -50,7 +47,11 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    collapseMobileNav() {
+      this.$emit("collapseMobileNav");
+    }
+  },
   mounted() {
     this.isMounted = true;
   }
@@ -68,6 +69,7 @@ export default {
   z-index: 500
   text-align: right
   &__container
+    // position: absolute
     // ul 
     //   //dark
     //   display: flex 
@@ -79,11 +81,14 @@ export default {
     //   transition: transform 0.5s ease-in-out
     ul 
       //light
-      display: flex 
+      display: flex
       flex-direction: column
-      list-style: none 
+      list-style: none
       height: 100vh 
-      background: rgba(255, 255, 255, 0.6)
+      background: rgba(255, 255, 255, 0.8)
+      padding-right: 10px
+      &:nth-child(1) 
+        margin-top: 50px
       //transform: translateY(-100%)
       //opacity: 0
       //animation: mobile-menu-out 1s ease-out
@@ -102,13 +107,15 @@ export default {
         padding: 20px 10px
         text-decoration: none
         color: $blue-grey
-        transform: translateX(100px)
+        //transform: translateX(100px)
         //transition: all 0.3s ease-in-out
-        &.in-view 
-          transform: translateX(0px)
-          animation: load-mobilenav-text 1.5s forwards
+        // &.in-view 
+        //   transform: translateX(0px)
+        //   animation: load-mobilenav-text 1.5s forwards
         &:visited 
           color: $blue-grey
+
+
       // .mobilenav__item, a
       //   //dark
       //   display: block
@@ -120,8 +127,6 @@ export default {
       //   padding: 20px 10px
       //   text-decoration: none
       //   color: white
-        &:visited 
-          color: white
 
 @keyframes expand-mobilenav-menu
   from
