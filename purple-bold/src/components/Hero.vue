@@ -12,15 +12,18 @@
                   >
                 {{ aboutSlide }}.
               </li>
-          </ul>
+            </ul>
           </h3>
-          <h3>If you're starting something new,<br v-show="lineBreak">
-              let's make sure it's not already old.</h3>
-          <button class="hero__content__container__ctabutton">
-            Get A Free Quote
-          </button>
+          <h3>
+            If you're starting something new,<br v-show="lineBreak">
+            let's make sure it's not already old.
+          </h3>
+           <a href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50}">
+            <button class="hero__content__container__ctabutton">
+            Get A Free Quote</button>
+          </a>
+          </div>
         </div>
-      </div>
       <div class="hero__image__container">
         <img src="../assets/images/hero-monitor-2.svg" alt="">
       </div>
@@ -192,7 +195,7 @@ export default {
         width: 400px 
         @include tablet-portrait 
           width: auto
-      button
+      a
         display: flex 
         flex-direction: column 
         justify-content: center
@@ -205,7 +208,11 @@ export default {
         font-size: .9em
         letter-spacing: .05em
         font-weight: $light
+        text-decoration: none
         //margin-top: 40px
+        &:visited 
+          color: rgb(240,129,148) 
+          text-decoration: none 
         @include tablet-portrait
           font-size: .85em
           height: 36px 
@@ -214,6 +221,12 @@ export default {
           margin-bottom: 30px
         @include phone-small 
           margin-bottom: 20px
+        a
+          display: flex
+          background: red
+          width: 100% 
+          height: 100%
+
 
 //each new item added to [aboutSlides] needs to be added here, with the new number on the end
 //animation timing must be  [aboutSlides].length * 3

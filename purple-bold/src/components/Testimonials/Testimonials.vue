@@ -24,7 +24,9 @@
                 </li>
               </ul>
             </h3>
+            <a href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50}">
             <button>Get A Free Quote</button>
+            </a>
           </div>
         </div>
       </div>
@@ -153,11 +155,12 @@ export default {
             font-size: 1.45em
           @include phone-small
             font-size: 1.35em
-        button
+        a
           display: flex 
           flex-direction: column 
           justify-content: center
           align-items: center
+          text-decoration: none
           color: rgb(240,129,148)
           height: 40px
           width: 140px
@@ -167,6 +170,9 @@ export default {
           letter-spacing: .05em
           font-weight: $light
           margin-top: 20px
+          &:visited 
+            color: rgb(240,129,148)
+            text-decoration: none
           @include tablet-portrait
             font-size: .75em
             height: 30px 
