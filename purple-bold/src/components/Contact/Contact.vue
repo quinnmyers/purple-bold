@@ -234,6 +234,7 @@ section
                     div:nth-child(1)
                         margin-left: 0px
                     .tag__bubbles
+                        cursor: pointer
                         //this is the left tags
                         transition: all 1s ease-in-out
                         
@@ -286,6 +287,7 @@ section
                         height: 100%
                     &__bubbles
                         height: 75%
+                        cursor: pointer
                 .tags-enter-active
                     animation: tag-in 1.5s forwards
                 .tags-leave-active
@@ -319,19 +321,17 @@ section
                     // display: inline-block
                     display: flex
                     .tag__bubbles 
+                        cursor: pointer
                         display: flex
                         border-radius: 100px
-                        padding: 1px 5px
+                        // padding: 1px 5px 
+                        padding: 2px 2px
                         justify-content: space-between
                         align-items: center
                         p
-                            padding: 4px 15px
-                            font-size: 0.9em 
+                            padding: 2px 10px
+                            font-size: 0.9rem 
                             margin: 0px 0px
-                        .tag__bubbles--del
-                            
-                            p
-                                line-height: 10px
         .tag
             display: flex
             flex-wrap: wrap
@@ -342,16 +342,19 @@ section
                 background: none
                 border-bottom: 2px solid white
             &__bubbles
+                cursor: bubbles
                 background: $cardback
                 border-radius: 15px
                 padding: 4px 15px
                 margin: 5px
                 font-size: 0.9em
                 .tag__bubbles--del
-                    height: 1.5em
-                    width: 1.5em
+                    cursor: pointer
+                    height: 1.5rem
+                    width: 1.5rem
                     display: flex
                     justify-content: center
+                    align-items: center
                     border: 1px solid white
                     border-radius: 100%
         &__send
