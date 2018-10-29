@@ -151,6 +151,8 @@ div
     transform: scale(0.8)
   @include tablet-portrait
     transform: scale(0.6)
+  @include phone-small 
+    transform: scale(0.55)
   ul 
     display: flex
     align-items: center
@@ -158,6 +160,8 @@ div
     margin-right: 170px
     height: 100% 
     list-style: none
+    @include phone-small
+      margin-top: -40px
     li.panel__loaded 
       animation: after-panels-loaded 3s infinite
       //make sure this timeout is exactly the same as the IMG tag load-in animation timing

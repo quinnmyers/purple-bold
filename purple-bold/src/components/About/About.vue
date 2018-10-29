@@ -43,8 +43,12 @@ export default {
   @include tablet-portrait 
     padding: 80px 0px
   @include phone-large 
-    height: 590px
+    height: 750px
     padding: 0px 0px
+  @include phone 
+    height: 790px
+  @include phone-small
+    height: 800px
   &__content
     display: flex
     width: 1100px
@@ -63,6 +67,7 @@ export default {
         //animation: panel-entry-animation 2s forwards
         z-index: 1
         display: flex
+        position: relative
         justify-content: center
         //align-items: center
         // background: lightskyblue
@@ -71,10 +76,10 @@ export default {
         @include edgesnap 
           width: 30%
           margin-left: 100px
-        @include phone-large 
+        @include phone-large
           width: 100%
           margin-top: 175px 
-          margin-left: 25px
+          margin-left: 15px
       &__right
         display: flex
         flex-direction: column
@@ -96,15 +101,17 @@ export default {
           @include tablet-portrait
             width: 100%
         img 
+          display: flex 
           width: 60%
           margin-bottom: 20px
           @include edgesnap 
             width: 90%
           @include tablet-portrait 
-            width: 100%
+            width: 70%
             margin-bottom: 15px
           @include phone-large 
             width: 75%
+            align-self: center
         
 @keyframes panel-entry-animation
   from 
