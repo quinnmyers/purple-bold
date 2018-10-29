@@ -1,12 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { VueMasonryPlugin } from "vue-masonry";
 import Lightbox from "vue-pure-lightbox";
 import vueSmoothScroll from "vue2-smooth-scroll";
 
 Vue.use(vueSmoothScroll);
-Vue.use(VueMasonryPlugin);
 Vue.use(Lightbox);
 
 Vue.config.productionTip = false;
