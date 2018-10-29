@@ -35,6 +35,12 @@ export default {
   justify-content: center
   height: 200px 
   width: 100% 
+  @include tablet-portrait 
+    height: 155px
+  @include phone-large 
+    height: 130px
+  @include phone-small 
+    height: 115px
   &__content
     display: flex
     flex-direction: column 
@@ -50,6 +56,12 @@ export default {
       img 
         height: 50px
         margin-bottom: -5px
+        @include tablet-portrait 
+          height: 40px
+        @include phone-large 
+          height: 34px
+        @include phone-small 
+          height: 30px
       &__left 
       &__right 
     &__bottom 
@@ -58,6 +70,12 @@ export default {
       font-size: 0.9em
       font-family: $subfont
       margin-bottom: 5px
+      @include tablet-portrait  
+        font-size: 0.75em
+      @include phone-large 
+        font-size: 0.65em
+      @include phone-small 
+        font-size: 0.58em
 
 </style>
 
