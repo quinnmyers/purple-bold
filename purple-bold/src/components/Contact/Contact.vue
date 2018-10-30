@@ -45,7 +45,7 @@
                     <div class="tag">
                         <transition-group name="tags">
                         <div class="tag__bubbles" v-for="(tag, index) in messageData.pickedTags" :key="index" >
-                            <p>{{ tag.toLowerCase() }}  </p><button @click="removeTag(index)" class="tag__bubbles--del"><p>x</p></button>
+                            <p>{{ tag.toLowerCase() }}  </p><button @click="removeTag(index)" class="tag__bubbles--del"><img src="../../assets/images/icons/x.svg" alt="icon of letter X"> </button>
                         </div>
                         </transition-group>
                     </div>
@@ -187,7 +187,7 @@ export default {
 <style lang="sass" scoped>
 @import '../../normalize.scss'
 @import '../../base.sass'
-$gradient: linear-gradient(165deg, #F7BA60 0%,#ff6797 65%)
+$gradient: linear-gradient(145deg, #ff925b 0%,#ff6797 85%)
 $inputback: #f7f3f3
 $cardback: rgba(255, 255, 255, .4)
 $inputColor: black
@@ -336,6 +336,9 @@ section
                             padding: 2px 10px
                             font-size: 0.9rem 
                             margin: 0px 0px
+                        img 
+                            height: 10px 
+                            width: 10px
         .tag
             display: flex
             flex-wrap: wrap
@@ -356,13 +359,14 @@ section
                 font-size: 0.9em
                 .tag__bubbles--del
                     cursor: pointer
-                    height: 1.5rem
-                    width: 1.5rem
+                    height: 1.25rem
+                    width: 1.25rem
                     display: flex
                     justify-content: center
                     align-items: center
                     border: 1px solid white
                     border-radius: 100%
+                    margin-right: 2px
         &__send
             display: flex
             justify-content: flex-end

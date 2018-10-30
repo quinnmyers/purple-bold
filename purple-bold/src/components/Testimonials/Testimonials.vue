@@ -170,6 +170,10 @@ export default {
           letter-spacing: .05em
           font-weight: $light
           margin-top: 20px
+          transition: all 0.25s ease-in-out
+          &:hover 
+            transform: scale(1.01)
+            box-shadow: 0px 0px 10px 1px $accent;
           &:visited 
             color: rgb(240,129,148)
             text-decoration: none

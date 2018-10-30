@@ -308,7 +308,9 @@ $nav-height: 60px
             //:after of the li's above to cancel it
             margin-bottom: -2px
           a:visited 
-            color: $blue-grey
+            color: $blue-grey 
+          a:hover 
+            color: $accent
           &:last-child
             display: flex 
             flex-direction: column
