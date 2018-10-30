@@ -113,7 +113,7 @@ $arrow-margin-bottom: 20px
   width: 100%
   height: 100vh
   background: $blue-grey
-  font-family: 'Rubik', 'Avenir', sans-serif
+  font-family: $mainfont
   &__content
     display: flex
     flex-direction: column

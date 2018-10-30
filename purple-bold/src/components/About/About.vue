@@ -37,7 +37,7 @@ export default {
   padding: 150px 0px
   background: $light-grey
   color: black
-  font-family: 'Avenir', sans-serif
+  font-family: $subfont
   @include edgesnap 
     padding: 120px 0px
   @include tablet-portrait 

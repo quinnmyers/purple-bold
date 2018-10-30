@@ -45,9 +45,7 @@ $subfont: 'Avenir', sans-serif
 //font-weights
 $light: 300
 $normal: 400
-$medium: 500
 $bold: 700
-$black: 900
 
 // MIXINS
 
@@ -108,10 +106,10 @@ $testimonial-snap: 900px
 
 
 .section--header 
-  font-family: 'Rubik', 'Avenir', sans-serif 
+  font-family: $mainfont
   color: $blue-grey 
   font-size: 2.25em
-  font-weight: $medium
+  font-weight: $normal
   margin: 40px 0px
   align-self: flex-start
   @include edgesnap 
@@ -121,3 +119,7 @@ $testimonial-snap: 900px
   @include phone-large 
     margin: 20px 0px
     font-size: 2em
+
+
+//removed medium google font and changed section--header to use normal 
+//if we want to make it bolder again we will need to add it back in

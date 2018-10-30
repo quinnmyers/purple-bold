@@ -121,7 +121,7 @@ export default {
   //background: pink
   height: auto
   width: 75% 
-  font-family: "Avenir", sans-serif
+  font-family: $subfont
   z-index: 1
   @include testimonial-snap 
     width: 65%

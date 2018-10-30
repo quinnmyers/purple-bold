@@ -198,7 +198,7 @@ section
     height: auto
     color: $maintextcolor
     background-image: $gradient
-    font-family: "avenir", sans-serif
+    font-family: $subfont
     display: flex
     justify-content: center
     align-items: center

@@ -120,8 +120,8 @@ export default {
         align-items: center
         width: auto 
       h2, &__title
-        font-family: "Rubik", "Avenir", sans-serif 
-        font-weight: 400
+        font-family: $mainfont
+        font-weight: $normal
         font-size: 1.7em
         margin-bottom: 10px
         align-self: flex-end

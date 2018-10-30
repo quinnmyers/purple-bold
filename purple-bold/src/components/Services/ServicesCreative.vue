@@ -164,9 +164,9 @@ div
         box-shadow: 0px 0px 10px 3px rgba(200,200,200,1);
   p
     text-align: right 
-    font-family: 'Rubik', 'Avenir', sans-serif
+    font-family: $mainfont
     color: $grey 
-    font-weight: $medium
+    font-weight: $normal
     line-height: 20px
     font-size: .95em
         

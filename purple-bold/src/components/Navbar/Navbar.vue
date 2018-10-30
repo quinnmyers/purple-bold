@@ -241,18 +241,9 @@ $nav-height: 60px
     &__brand
       display: flex
       align-items: center
-      font-family: 'Rubik', 'Avenir', sans-serif
+      font-family: $mainfont
       color: $blue-grey
       height: 100%
-      h2
-        font-size: 2.3em
-        letter-spacing: .025em
-        @include tablet-portrait
-          font-size: 2em
-        .purple
-            font-weight: $normal
-        .bold
-          font-weight: 900
       @include navsnap 
         margin-left: 10px
       @include phone-large 
@@ -271,7 +262,7 @@ $nav-height: 60px
         justify-content: center
         align-items: center
         list-style: none
-        font-family: 'Rubik', 'Avenir', sans-serif
+        font-family: $mainfont
         height: 100%
         li.main__nav__item
           display: flex

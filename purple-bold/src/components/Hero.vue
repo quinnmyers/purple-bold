@@ -151,7 +151,7 @@ export default {
       display: flex
       flex-direction: column
       justify-content: space-around
-      font-family: 'Rubik', 'Avenir', sans-serif
+      font-family: $mainfont
       @include phone-large
           height: auto
           align-self: flex-end

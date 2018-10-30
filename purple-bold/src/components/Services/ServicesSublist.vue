@@ -98,7 +98,7 @@ export default {
         justify-content: space-between
         //background: pink
       h3, &__name
-        font-family: 'Rubik', 'Avenir', sans-serif 
+        font-family: $mainfont
         font-weight: $light 
         font-size: 1.5em
         @include phone-large 
@@ -127,7 +127,7 @@ export default {
         height: auto
       &__text
         display: flex
-        font-family: 'Avenir', sans-serif
+        font-family: $subfont
         margin-bottom: 20px
         font-size: 0.95em
         line-height: 1.25em

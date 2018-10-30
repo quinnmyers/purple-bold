@@ -100,8 +100,8 @@ export default {
         //light
         display: block
         text-decoration: none
-        font-family: 'Rubik', "Avenir", sans-serif 
-        font-weight: 300
+        font-family: $mainfont
+        font-weight: $light
         font-size: 1.2em 
         letter-spacing: .1em
         padding: 20px 10px
