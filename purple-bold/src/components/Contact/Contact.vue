@@ -49,12 +49,12 @@
                         </div>
                         </transition-group>
                     </div>
-                    <p class="pb"> You can reach me by phone at <span class="contact__body__right--ul"> {{messageData.telephone}} </span> or <br> at my email <span class="contact__body__right--ul">{{ messageData.email }}</span></p>
+                    <p class="pb"> You can reach me by phone at <span class="contact__body__right--ul"> {{messageData.telephone}} </span> or <span class="contact__body__right--span"><br></span>  at my email <span class="contact__body__right--ul">{{ messageData.email }}</span></p>
                     <p class="pb">I am looking to spend between <span class="contact__body__right--ul"> ${{messageData.price[0] | comma}} </span> and <span class="contact__body__right--ul"> ${{messageData.price[1] | comma}} </span> .</p>
                 </div>
                 <div class="flex__col transback contact__body__right--missed">
                     <label for="missed">Did We Miss Anything?</label>
-                    <textarea name="missed" v-model="messageData.missed" id="" cols="30" rows=5></textarea>
+                    <textarea name="missed" v-model="messageData.missed" id="" cols="30" rows=6></textarea>
                 </div>
             </div>
         </div> 
@@ -198,7 +198,7 @@ section
     height: auto
     color: $maintextcolor
     background-image: $gradient
-    font-family: $subfont
+    font-family: "avenir", sans-serif
     display: flex
     justify-content: center
     align-items: center
@@ -228,6 +228,7 @@ section
                     margin-bottom: 7px
             &__left
                 width: 48%
+                justify-content: space-between
                 @include tablet-phone
                     width: 100%
                 .tag 
@@ -273,7 +274,7 @@ section
                 textarea
                     border: none
                     background: $inputback
-                    margin-top: 29px 
+                    margin-top: 8px 
                     color: $inputColor
                     resize: none
                     padding: 2px
@@ -316,6 +317,9 @@ section
                     border-bottom: 2px solid white
                     display: inline-block
                     min-width: 50px
+                .contact__body__right--span
+                    @include tablet-phone
+                        display: none
                 .tag
                     //inline block on this sort of looks cool actually
                     // display: inline-block
@@ -340,7 +344,9 @@ section
                 flex-wrap: wrap 
             input
                 background: none
-                border-bottom: 2px solid white
+                border-bottom: 2px solid white 
+                &::placeholder
+                    color: $maintextcolor
             &__bubbles
                 cursor: bubbles
                 background: $cardback
@@ -376,6 +382,14 @@ section
                 font-weight: $light
                 margin-bottom: 40px
                 transition: all 0.3s ease-in-out
+                @include tablet-portrait
+                    font-size: .85em
+                    height: 36px 
+                    width: 145px
+                @include phone-large 
+                    margin-bottom: 30px
+                @include phone-small 
+                    margin-bottom: 20px
                 &:hover 
                     transform: scale(1.03) translateY(-3px)
                 &:disabled

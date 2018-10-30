@@ -117,7 +117,8 @@ export default {
       @include tablet-portrait 
         width: 100%
         margin-bottom: 20px 
-        align-items: center
+        //may need to switch this back to center
+        align-items: flex-start
         width: auto 
       h2, &__title
         font-family: $mainfont

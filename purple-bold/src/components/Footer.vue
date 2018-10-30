@@ -72,11 +72,10 @@ export default {
       margin-bottom: 5px
       @include tablet-portrait  
         font-size: 0.75em
+        margin-bottom: 12px
       @include phone-large 
         font-size: 0.65em
       @include phone-small 
         font-size: 0.58em
 
 </style>
-
-Copyright © 2018 MH Sub I, LLC dba Nolo ®

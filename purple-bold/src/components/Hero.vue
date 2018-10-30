@@ -1,6 +1,6 @@
 <template>
   <div v-if="isMounted">
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero__content">
         <div class="hero__content__container">
           <h3>A modern &nbsp;

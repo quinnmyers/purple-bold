@@ -3,7 +3,9 @@
     <nav class="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
       <div class="navbar__content">
         <div class="navbar__content__brand">
-          <img src="../../assets/images/brand.svg" alt="Purple and Bold Logo">
+          <a href="#hero" v-smooth-scroll="{ duration: 1000, offset: -50}" >
+            <img src="../../assets/images/brand.svg" alt="Purple and Bold Logo">
+          </a>
         </div>
           <div class="navbar__content__desktopnav">
             <ul class="main__nav">
@@ -238,17 +240,17 @@ $nav-height: 60px
     @include edgesnap 
       width: 100%
       padding: 0px 10px
-    &__brand
+    &__brand a
       display: flex
       align-items: center
       font-family: $mainfont
       color: $blue-grey
       height: 100%
-      @include navsnap 
+      @include tablet-portrait 
         margin-left: 10px
       @include phone-large 
-        img 
-          height: 65% 
+        img, a
+          height: 28px 
     &__desktopnav
       display: flex
       justify-content: center
@@ -316,6 +318,8 @@ $nav-height: 60px
             margin-bottom: 2px
             margin-right: 0px
             height: 100% 
+            @include tablet-portrait 
+              margin-right: 10px
             &:after 
               display: none
             a 
