@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import Lightbox from "vue-pure-lightbox";
 import vueSmoothScroll from "vue2-smooth-scroll";
+import inViewportDirective from "vue-in-viewport-directive";
+
+Vue.directive("in-viewport", inViewportDirective);
 
 Vue.use(vueSmoothScroll);
 Vue.use(Lightbox);

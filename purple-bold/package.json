@@ -13,6 +13,7 @@
     "normalize-scss": "^7.0.1",
     "vue": "^2.5.17",
     "vue-gallery": "^1.5.0",
+    "vue-in-viewport-directive": "^1.2.1",
     "vue-masonry": "^0.11.6",
     "vue-pure-lightbox": "^2.1.6",
     "vue-router": "^3.0.1",
