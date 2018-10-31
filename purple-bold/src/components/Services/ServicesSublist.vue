@@ -123,8 +123,6 @@ export default {
       overflow: hidden 
       height: auto
       width: 100%
-      @include phone-large 
-        font-size: 0.95em
       &.expanded 
         height: auto
       &__text

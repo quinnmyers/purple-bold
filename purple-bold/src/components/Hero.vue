@@ -3,7 +3,7 @@
     <section class="hero" id="hero">
       <div class="hero__content">
         <div class="hero__content__container">
-          <h3>A modern &nbsp; <template v-if="phone"><br></template>
+          <h3>A modern &nbsp;
             <ul>
               <li :class="slideClass(index)" 
                   v-for='(aboutSlide, index) in aboutSlides'
@@ -72,11 +72,6 @@ export default {
     this.isMounted = true;
     this.$nextTick(this.removeLineBreak);
     this.$nextTick(this.styleHeroSlides);
-    if (window.matchMedia("(max-width: 413px)").matches) {
-      this.phone = true;
-    } else {
-      this.phone = false;
-    }
   }
 };
 </script>
@@ -164,6 +159,13 @@ export default {
         font-size: 2.15em
         font-weight: $light
         color: white
+        //margin-top: 40px
+        // @include phone-large   
+        //   font-size: 1.6em 
+        // @media (max-width: 360px)
+        //   font-size: 1.45em
+        // @include phone-small
+        //   font-size: 1.35em
         @include tablet-portrait 
           font-size: 1.75em
           margin-top: 40px
@@ -177,8 +179,6 @@ export default {
         &:nth-child(1)
           margin-top: 0px
           margin-bottom: 70px
-          @include phone-large 
-            height: 30px
           @include phone-small 
             margin-bottom: 20px
         &:nth-child(2)
@@ -189,17 +189,12 @@ export default {
             margin-bottom: 10px
       ul  
         list-style: none
-        //display: inline
         li
         display: inline-block
-        position: absolute
+        position: absolute 
         width: 400px 
         @include tablet-portrait 
           width: auto
-        @include phone-large 
-          width: 300px
-        @include phone
-          width: 250px
       a
         display: flex 
         flex-direction: column 

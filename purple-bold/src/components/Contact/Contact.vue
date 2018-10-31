@@ -213,8 +213,7 @@ section
             width: 100%
         h2.section--header 
             color: white
-            padding-bottom: 10px 
-            padding-left: 0px
+            padding-bottom: 10px
         input:focus 
             outline: none
             box-shadow: 0px 0px 7px 1px rgba(250,177,245,1);//rgba(234,162,110,1);
