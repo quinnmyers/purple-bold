@@ -1,5 +1,5 @@
 <template>
-  <div class="services__content__container__item" v-if="isMounted">
+  <div :class="[`services__content__container__item`, `${service.name.toLowerCase()}-container`]" v-if="isMounted">
       <div class="services__content__container__item__container">
           <div class="services__content__container__item__container__left">
               <h2 class="services__content__container__item__container__left__title"> {{ service.name }} </h2>
@@ -87,10 +87,23 @@ export default {
 <style scoped lang="sass">
 @import '../../normalize.scss'
 @import '../../base.sass'
+.websites-container
+  margin-top: 100px !important
+  @include tablet-portrait 
+    margin-top: 50px !important 
+  @include phone-small 
+    margin-top: 40px !important
+
+.marketing-container 
+  margin-bottom: 100px !important
+  @include tablet-portrait 
+    margin-bottom: 50px !important
+  @include phone-small 
+    margin-bottom: 40px !important
+
 
 .services__content__container__item
   width: 880px
-  //background: lightskyblue
   margin: 50px 0px
   height: 100%
   @include edgesnap 
@@ -98,9 +111,11 @@ export default {
     padding: 0px 20px
   @include tablet-portrait 
     margin: 50px 0px
+  @include phone-large
+    margin: 35px 0px
   @include phone-small 
     padding: 0px
-    margin: 40px 0px
+    margin: 30px 0px
   &__container
     display: flex
     align-items: center
@@ -156,7 +171,7 @@ export default {
       height: 100%
       margin: 0px 50px 
       width: 1px
-      border-right: .12em solid $light-grey
+      border-right: .08em solid $light-grey
       @include edgesnap 
         margin: 0px 25px
       @include tablet-portrait 
@@ -165,6 +180,9 @@ export default {
         border-right: none
         border-bottom: 1px solid $light-grey
         margin: 15px 0px
+        @include phone-large 
+          margin: 5px 0px
+          margin-bottom: -5px
         //background: yellow
     &__right 
       flex: 1
