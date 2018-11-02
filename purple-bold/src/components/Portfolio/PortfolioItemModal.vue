@@ -154,13 +154,11 @@ export default {
           height: auto
           flex-direction: column
         &__left, &__right 
-          background: pink 
           height: 100%
           width: 49%
           @include tablet-phone 
             width: 100%
         &__left
-          background: pink
           
           &__container
             display: flex 
@@ -168,17 +166,12 @@ export default {
             justify-content: space-between
             width: 100% 
             height: 100% 
-            //background: lightskyblue
-            // @include tablet-phone 
-            //   flex-direction: row 
-            //   width: 100%
             &__image
               display: flex 
               justify-content: center 
               align-items: flex-start
               width: 100% 
               flex: grow
-              background: orange
               @include phone-large 
                 height: 200px
                 img 
@@ -191,7 +184,6 @@ export default {
                 height: 20%
               @include tablet-phone 
                 height: 80px
-                background: red 
                 margin-top: 15px 
                 margin-bottom: 20px
               @include phone 

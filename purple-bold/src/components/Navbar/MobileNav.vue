@@ -69,16 +69,6 @@ export default {
   z-index: 500
   text-align: right
   &__container
-    // position: absolute
-    // ul 
-    //   //dark
-    //   display: flex 
-    //   flex-direction: column
-    //   list-style: none 
-    //   height: 100vh 
-    //   background: rgba(50, 50, 50, 0.8)
-    //   transform: translateY(-100%)
-    //   transition: transform 0.5s ease-in-out
     ul 
       //light
       display: flex
@@ -89,13 +79,6 @@ export default {
       padding-right: 10px
       &:nth-child(1) 
         margin-top: 50px
-      //transform: translateY(-100%)
-      //opacity: 0
-      //animation: mobile-menu-out 1s ease-out
-      &.expanded 
-        //animation: expand-mobilenav-menu 1s forwards ease-in-out
-      &.mobilenav-collapse 
-        //animation: collapse-mobilenav 0.5s forwards ease-out
       .mobilenav__item, a 
         //light
         display: block
@@ -107,14 +90,8 @@ export default {
         padding: 20px 10px
         text-decoration: none
         color: $blue-grey
-        //transform: translateX(100px)
-        //transition: all 0.3s ease-in-out
-        // &.in-view 
-        //   transform: translateX(0px)
-        //   animation: load-mobilenav-text 1.5s forwards
         &:visited 
           color: $blue-grey
-
 
       // .mobilenav__item, a
       //   //dark

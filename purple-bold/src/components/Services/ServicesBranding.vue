@@ -245,7 +245,6 @@ div
         width: 30%
       &__input__container
         display: flex
-        //background: red
         height 20px
         &:before 
           display: flex

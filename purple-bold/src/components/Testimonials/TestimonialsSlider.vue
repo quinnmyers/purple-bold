@@ -118,7 +118,6 @@ export default {
 
 .testimonials__slider__container 
   position: relative
-  //background: pink
   height: auto
   width: 75% 
   font-family: $subfont
@@ -134,7 +133,6 @@ export default {
     height: 300px 
     width: 260px 
     padding: 0px 15px
-    //background: khaki
     flex-direction: column
     border-left: 1px solid black
     @include edgesnap 

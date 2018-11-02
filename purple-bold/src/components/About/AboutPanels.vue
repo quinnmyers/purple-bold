@@ -5,6 +5,7 @@
         :class="[aboutImage, panelLoaded]"
         v-for="(heroImg, index) in heroImages"
         :style="styleAboutListItem(index)"
+        :key='index'
         >
           <img v-in-viewport :src="getImgSrc(index + 1)" :class="`about__panel__image__${index + 1}`" :ref="index" :alt="heroImg.alt" :style="stylePanel(index)">
         </li>
@@ -175,7 +176,6 @@ div
       //-------------------------------------------------------------------was .load__in
       .in-viewport
         animation: panel-load-in 2s forwards
-        //cubic-bezier(.07,0,.73,.07)
         position: relative
         opacity: 0
     .about__panel__image

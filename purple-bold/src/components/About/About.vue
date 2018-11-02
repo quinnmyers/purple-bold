@@ -65,13 +65,10 @@ export default {
 
       &__left, &__right
       &__left
-        //animation: panel-entry-animation 2s forwards
         z-index: 1
         display: flex
         position: relative
         justify-content: center
-        //align-items: center
-        // background: lightskyblue
         width: 60%
         margin-right: 50px
         @include edgesnap 

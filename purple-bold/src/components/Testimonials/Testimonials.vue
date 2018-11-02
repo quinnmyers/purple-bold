@@ -107,7 +107,6 @@ export default {
     align-self: center
     width: 1100px
     height: 100%
-    //background: lightskyblue
     @include edgesnap 
       width: 100%
       padding: 0px 20px
@@ -120,7 +119,6 @@ export default {
       h2 
         height: 40px
         widht: 100% 
-        //background: orange
         margin: 0px 0px
         margin-top: 30px 
         padding: 0px 0px
@@ -130,14 +128,12 @@ export default {
         align-items: center 
         width: 100% 
         height: 55%
-        //background: red
         margin: 40px 0px
         @include phone-large 
           flex-direction: column-reverse
           height: auto
       &__cta
         margin-bottom: 30px
-        //background: green
         height: auto 
         width: 100%
         ul 

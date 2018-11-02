@@ -97,17 +97,12 @@ export default {
     grid-auto-rows: 43px
     @include edgesnap 
       width: 100%
-      background: pink
       padding: 0px 20px
-      // margin-left: 10px
     &__item 
       display: flex
       transition: all 1s
       margin-right: 10px
       cursor: pointer
-      //display: inline-block
-      //flex-direction: column
-      //border: 1px solid red
       opacity: 0
       box-shadow: 0px 0px 10px 1px rgba(218,218,218,1);
       border-radius: 4px
@@ -120,9 +115,6 @@ export default {
         display: flex
         opacity: 1
         flex-direction: column
-        //transform: rotate(0deg) scale(1)
-      //&:hover 
-      // transform: scale(1.01)
       &.website 
         grid-row-end: span 6
       &.logo
@@ -132,10 +124,6 @@ export default {
       &.branding
         grid-row-end: span 4
 
-  // .masonry-container 
-  //   width: 55%
-  //   margin: 0 auto
-
 .grid-enter, 
   opacity: 1
   transform: translateY(300px)
@@ -144,10 +132,8 @@ export default {
   opacity: 0
 
 .grid-leave-active 
-  //position: absolute
   opacity: 0
   transform: translateX(-1800px) scale(0.3)
-  //right: 0
 
 
 </style>

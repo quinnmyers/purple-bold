@@ -290,8 +290,6 @@ $nav-height: 60px
           &:hover:after
             background: $accent
             transform: scaleX(1)
-            //margin-bottom: 10px
-            // border-radius: 2px
           &:after
             content: ''
             width: 100%
@@ -336,8 +334,6 @@ $nav-height: 60px
     .navbar__content__desktopnav 
       ul
         li
-          // position: relative 
-          // z-index: -1
           .navbar__content__desktopnav__subcategory
             display: flex
             opacity: 0
@@ -347,8 +343,6 @@ $nav-height: 60px
             flex-direction: column
             transform: translateY($nav-height)
             position: absolute
-            //visibility: hidden
-            //z-index: -100
             &.submenu-expanded 
               animation: expand-submenu 1s cubic-bezier(.36,.19,.11,-0.38) forwards
               transform-origin: top
@@ -374,7 +368,6 @@ $nav-height: 60px
         cursor: pointer
         height: 60%
         align-self: center
-        //height: 3px
         &__line1, &__line2, &__line3
           display: flex
           height: 2px
@@ -388,11 +381,9 @@ $nav-height: 60px
   from 
     opacity: 0
     transform: rotateY(0deg) scale(0.3) translateY($nav-height)
-    //transform: scale(1) rotateX(-90deg) translateY($nav-height)
   to 
     opacity: 1
     transform: rotateY(1080deg) scale(1) translateY($nav-height)
-    //transform: scale(1) rotateX(0deg) translateY($nav-height)
 </style>
 
 

@@ -214,7 +214,6 @@ export default {
         font-weight: $light
         text-decoration: none
         transition: all 0.25s ease-in-out
-        //margin-top: 40px
         &:visited 
           color: rgb(240,129,148) 
           text-decoration: none 
@@ -231,7 +230,6 @@ export default {
           margin-bottom: 20px
         a
           display: flex
-          background: red
           width: 100% 
           height: 100%
 

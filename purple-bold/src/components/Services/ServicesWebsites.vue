@@ -109,7 +109,6 @@ $numbers-dark: #5A639A
         display: flex
         align-items: center
         &--red, &--yellow, &--green
-          background: pink 
           height: $nav-circle-size
           width: $nav-circle-size
           border-radius: 100%

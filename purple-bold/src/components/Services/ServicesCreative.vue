@@ -156,7 +156,6 @@ div
       box-shadow: 0px 0px 10px 3px rgba(218,218,218,1);
       height: 36px 
       width: 16% 
-      background: red
       margin: 4px 6px
       transition: all 0.15s ease-in
       &:hover 

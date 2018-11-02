@@ -96,7 +96,6 @@ export default {
       cursor: pointer
       @include tablet-portrait 
         justify-content: space-between
-        //background: pink
       h3, &__name
         font-family: $mainfont
         font-weight: $light 
@@ -109,8 +108,6 @@ export default {
         margin-left: 20px
         height: 20px 
         width: 20px
-        //transform: rotate(0deg)
-        //transition: transform 0.5s forwards
         background: 
           image: url('../../assets/images/services-title-arrow.svg')
           position: center 
@@ -119,7 +116,6 @@ export default {
         &.expanded 
           animation: arrow-grow 0.5s forwards
     &__description
-      //background: yellow
       overflow: hidden 
       height: auto
       width: 100%
@@ -137,10 +133,7 @@ export default {
         color: black
         height: auto
         transition: all .5s ease
-        //removed for library testing
-        //transform: translateY(-100%)
         &.expanded 
-          color: red
           max-height: 600px
           transform: translateY(0px)
               
