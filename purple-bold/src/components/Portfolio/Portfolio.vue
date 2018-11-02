@@ -8,14 +8,17 @@
             <app-portfolio-nav
               :tagArray="tagArray">
             </app-portfolio-nav>
+            <div class="coming-soon-cta">
+              <h3>Coming Soon! (seriously)</h3>
+            </div>
           </div>
           <div class="portfolio__content__container__navigation__search">
           </div>
         </div>
-        <app-portfolio-grid
+        <!-- <app-portfolio-grid
           :portfolioPieces='portfolioPieces'
           :tagArray="tagArray">
-        </app-portfolio-grid>
+        </app-portfolio-grid> -->
       </div>
     </div>
     <app-portfolio-item-modal
@@ -199,6 +202,7 @@ export default {
     };
   },
   methods: {
+    //what's really going on here?
     selectedPiece(index) {
       return `potfolioPieces[index]`;
     }
@@ -229,5 +233,13 @@ export default {
     @include edgesnap 
       width: 100%
     &__container 
+      .coming-soon-cta 
+        width: 100% 
+        text-align: center
+        margin-top: 50px
+        margin-bottom: 300px
+        h3
+          font-family: $mainfont 
+          font-weight: 300
 
 </style>

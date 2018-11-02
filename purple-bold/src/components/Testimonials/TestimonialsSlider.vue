@@ -53,23 +53,9 @@ export default {
         {
           id: 4,
           name: "Jim Jackson",
-          position: "Broker/Owner, One Commercial",
+          position: "Broker/Owner, Bluhare Studios",
           testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
-        },
-        {
-          id: 5,
-          name: "Jared Bonnell 5",
-          position: "Broker/Owner, One Commercial",
-          testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
-        },
-        {
-          id: 6,
-          name: "Jared Bonnell 6",
-          position: "Broker/Owner, One Commercial",
-          testimonial:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, temporibus iste. Iusto, tenetur voluptatum placeat repellendus, iure, neque numquam ullam suscipit eos voluptates nobis laudantium libero earum qui odit totam. Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus."
+            "Purple and Bold did a great job on our company website. They were attentive to our needs and delivered the exact product we were looking for in a timely manner."
         }
       ]
     };

@@ -67,17 +67,14 @@ export default {
     //LI are styled in function below which is the after-load animations
     //animations in CSS only serve to reset to 0 at this point
     //these set the starting position of the IMG/LI for the load-in animations
-    stylePanel(index) {
+    //removed index as a paramter from this function
+    stylePanel() {
       //translateX
       const minTranslateX = 100;
       const maxTranslateX = 800;
       let translateX = this.getRandomNumber(minTranslateX, maxTranslateX);
       if (Math.random() > 0.5) {
-        translateX = translateX;
-        // rotate = rotate;
-      } else {
         translateX = translateX * -1;
-        // rotate = rotate * -1;
       }
       //translateY
       //multiplied by 0.57 to ensure the deg movement is 30 degree the same angle used in isometric illustrations
@@ -92,19 +89,17 @@ export default {
     },
     //this styles the starting point of the styling for the LI tags
     //animation being styled is the "after-load" animation on the LI
-    styleAboutListItem(index) {
-      const minScale = 0.97;
-      const maxScale = 1.03;
-      const scale = this.getRandomNumber(minScale, maxScale);
+    //removed index from this parameter
+    styleAboutListItem() {
+      // const minScale = 0.97;
+      // const maxScale = 1.03;
+      //const scale = this.getRandomNumber(minScale, maxScale);
       const minHeightOffset = 2;
       const maxHeightOffset = 9;
       let heightOffset = this.getRandomNumber(minHeightOffset, maxHeightOffset);
       if (Math.random() > 0.5) {
-        heightOffset = heightOffset;
-      } else {
         heightOffset = heightOffset * -1;
       }
-      console.log(heightOffset);
       return {
         marginTop: `${heightOffset}px`
       };

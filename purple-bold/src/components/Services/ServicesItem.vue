@@ -62,16 +62,16 @@ export default {
   methods: {
     //each p description in right div gets a ref "description-index"
     //this function targets the same p ref as the index of the header clicked and gives it a class or removes a class
-    getDescriptionHeight(index) {
-      const el = event.target;
-      const targetIndex = index;
-      const expansionTarget = this.$refs[`description-${index.toString()}`][0];
-      if (expansionTarget.classList.contains("expanded")) {
-        expansionTarget.classList.remove("expanded");
-      } else {
-        expansionTarget.classList.add("expanded");
-      }
-    }
+    // getDescriptionHeight(index) {
+    //   const el = event.target;
+    //   const targetIndex = index;
+    //   const expansionTarget = this.$refs[`description-${index.toString()}`][0];
+    //   if (expansionTarget.classList.contains("expanded")) {
+    //     expansionTarget.classList.remove("expanded");
+    //   } else {
+    //     expansionTarget.classList.add("expanded");
+    //   }
+    // }
   },
   computed: {
     servicesImgComponent() {
@@ -103,7 +103,7 @@ export default {
 
 
 .services__content__container__item
-  width: 880px
+  width: 100%
   margin: 50px 0px
   height: 100%
   @include edgesnap 

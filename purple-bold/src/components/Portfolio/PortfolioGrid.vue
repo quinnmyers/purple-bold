@@ -30,7 +30,8 @@ export default {
     loadPanels() {
       const itemArray = [...this.$refs["portfolio-grid-item"]];
       let index = 0;
-      itemArray.forEach(function(i) {
+      //removed an i parameter from this for each function on itemArray
+      itemArray.forEach(function() {
         const el = itemArray[index];
         setTimeout(() => {
           el.classList.add("is-visible");

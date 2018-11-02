@@ -116,12 +116,14 @@ export default {
     &__play
       img
         width: 75px
+        @include phone-large 
+          width: 60px
     &__pause
       display: flex
       img
         left: 0 
         height: 70px
         @include phone-large  
-          height: 55px
+          height: 45px
     &__rewind
 </style>

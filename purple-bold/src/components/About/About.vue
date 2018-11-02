@@ -70,7 +70,8 @@ export default {
         position: relative
         justify-content: center
         width: 60%
-        margin-right: 50px
+        margin-right: 0px
+        margin-left: -20px
         @include edgesnap 
           width: 30%
           margin-left: 100px
@@ -100,8 +101,8 @@ export default {
             width: 100%
         img 
           display: flex 
-          width: 60%
-          margin-bottom: 20px
+          width: 50%
+          margin-bottom: 15px
           @include edgesnap 
             width: 90%
           @include tablet-portrait 

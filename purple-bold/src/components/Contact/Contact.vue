@@ -60,7 +60,7 @@
         </div> 
         <div class="contact__send">
             
-        <form action="https://formspree.io/l33t.ppl@gmail.com"
+        <form action="https://formspree.io/contact@purpleandbold.com"
             method="POST">
             <textarea name="message" id="contact__send--message" ref="realmessage" cols="3" rows="1"></textarea>
             <input type="submit" ref="submit" value="Send Message">
@@ -187,7 +187,7 @@ export default {
 <style lang="sass" scoped>
 @import '../../normalize.scss'
 @import '../../base.sass'
-$gradient: linear-gradient(145deg, #ff925b 0%,#ff6797 85%)
+$gradient: linear-gradient(145deg, #FED766 0%,#ff6797 85%)
 $inputback: #f7f3f3
 $cardback: rgba(255, 255, 255, .4)
 $inputColor: black
