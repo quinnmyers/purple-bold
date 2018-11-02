@@ -150,7 +150,7 @@ export default {
           font-weight: $light
           color: black
           @include phone-large 
-            font-size: 1.6em 
+            font-size: 1.55em 
           @media (max-width: 360px)
             font-size: 1.45em
           @include phone-small

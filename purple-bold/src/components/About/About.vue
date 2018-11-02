@@ -38,6 +38,7 @@ export default {
   background: $light-grey
   color: black
   font-family: $subfont
+  overflow: hidden
   @include edgesnap 
     padding: 120px 0px
   @include tablet-portrait 

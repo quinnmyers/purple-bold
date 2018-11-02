@@ -192,14 +192,12 @@ export default {
     flex-direction: column
     justify-content: center 
     align-items: center
-    // background: pink
     width: 1100px
     .section--header 
        margin-bottom: -10px
     @include edgesnap 
       width: 100%
-      padding: 0px 20px 
-      //background: lightskyblue
+      padding: 0px 0px 
     
 
 </style>
