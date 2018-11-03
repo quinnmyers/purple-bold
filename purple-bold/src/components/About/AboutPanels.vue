@@ -7,7 +7,7 @@
         :style="styleAboutListItem(index)"
         :key='index'
         >
-          <img v-in-viewport :src="getImgSrc(index + 1)" :class="`about__panel__image__${index + 1}`" :ref="index" :alt="heroImg.alt" :style="stylePanel(index)">
+          <img v-in-viewport :src="getImgSrc(index + 1)" :class="`about__panel__image__${index + 1}`" :ref="index" alt="Vector illustration of of a square" :style="stylePanel(index)">
         </li>
       </ul>
     </div>
@@ -19,36 +19,28 @@ export default {
     return {
       heroImages: [
         {
-          src: "./src/assets/images/hero-iso/iso-1.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-1.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-2.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-2.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-3.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-3.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-4.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-4.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-5.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-5.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-6.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-6.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-7.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-7.svg"
         },
         {
-          src: "./src/assets/images/hero-iso/iso-8.svg",
-          alt: ""
+          src: "./src/assets/images/hero-iso/iso-8.svg"
         }
       ],
       panelArray: [],

@@ -25,7 +25,7 @@
           </div>
         </div>
       <div class="hero__image__container">
-        <img src="../assets/images/hero-monitor-2.svg" alt="">
+        <img src="../assets/images/hero-monitor-2.svg" alt="Vector illustration of computer monitor">
       </div>
     </section>
   </div>
