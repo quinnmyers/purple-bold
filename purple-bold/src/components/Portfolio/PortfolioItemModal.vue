@@ -159,7 +159,6 @@ export default {
           @include tablet-phone 
             width: 100%
         &__left
-          
           &__container
             display: flex 
             flex-direction: column
@@ -168,18 +167,26 @@ export default {
             height: 100% 
             &__image
               display: flex 
+              border-radius: 3px
+              flex-direction: column
               justify-content: center 
               align-items: flex-start
-              width: 100% 
-              flex: grow
+              width: 100%
+              height: 70% 
+              //flex: grow
+              box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
+              //background: lightskyblue
               @include phone-large 
                 height: 200px
                 img 
                   height: 200px
             &__lightbox 
               display: flex
+              justify-content: center 
+              align-items: center
               width: 100%
-              height: 30%
+              height: 25%
+              box-shadow: 0px 0px 10px rgba(0,0,0,0.5)
               @include tablet-portrait 
                 height: 20%
               @include tablet-phone 
@@ -187,13 +194,17 @@ export default {
                 margin-top: 15px 
                 margin-bottom: 20px
               @include phone 
-                margin-top: 0px 
+                margin-top: 0px
               .tiny__slider
                 width: 100% 
                 overflow: hidden
                 height: 80px
-              .image 
+              .image
                 margin: 0px 3px
+                align-self: center 
+                justify-self: center
+                background-position: center !important
+                border: none !important
         &__right 
           display: flex
           flex-direction: column 
