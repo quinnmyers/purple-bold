@@ -98,6 +98,8 @@ export default {
           width: 100%
           margin-bottom: 40px
         p 
+          @include edgesnap 
+            line-height: 1.25rem
           @include tablet-portrait
             width: 100%
         img 
@@ -105,7 +107,7 @@ export default {
           width: 50%
           margin-bottom: 15px
           @include edgesnap 
-            width: 90%
+            width: 70%
           @include tablet-portrait 
             width: 70%
             margin-bottom: 15px
