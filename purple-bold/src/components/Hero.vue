@@ -72,7 +72,7 @@ export default {
     this.isMounted = true;
     this.$nextTick(this.removeLineBreak);
     this.$nextTick(this.styleHeroSlides);
-    if (window.matchMedia("(max-width: 413px)").matches) {
+    if (window.matchMedia("(max-width: 460px)").matches) {
       this.phone = true;
     } else {
       this.phone = false;
