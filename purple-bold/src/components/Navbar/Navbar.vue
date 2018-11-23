@@ -246,6 +246,8 @@ $nav-height: 60px
       font-family: $mainfont
       color: $blue-grey
       height: 100%
+      @include edgesnap 
+        margin-left: 10px
       @include tablet-portrait 
         margin-left: 10px
       @include phone-large 
@@ -257,6 +259,8 @@ $nav-height: 60px
       align-items: center
       width: auto
       height: 100%
+      @include edgesnap 
+        margin-right: 10px
       @include navsnap
         display: none
       ul.main__nav
