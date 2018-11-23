@@ -2,10 +2,17 @@
   <div class="portfolio__grid" v-if="isMounted">
     <transition-group name="grid" tag="div" class="portfolio__grid__container">
       <template v-for="(piece,index) in filteredPortfolioPieces">
-      <div :key="index" :class="[`item portfolio__grid__container__item`, piece.type.toLowerCase(), visibleClass]"
-      :ref="`portfolio-grid-item`" @click="itemSelected(index)">
-        <h4>{{ piece.type }}</h4>
-        <p>{{ piece.description.substr(0, 99)  }}</p>
+      <div :key="index" 
+           :class="[`item portfolio__grid__container__item`, piece.type.toLowerCase(), visibleClass]"
+           :ref="`portfolio-grid-item`" 
+           @click="itemSelected(index)"
+           @mouseenter="showNameOverlay(index)"
+           @mouseleave="hideNameOverlay(index)">
+        <img :src="piece.mainImg.src" :alt="piece.mainImg.alt">
+        <div class="portfolio__grid__container__item__name" ref="piecenameoverlay">
+          <h4>{{ piece.name }}</h4>
+        </div>
+        <!-- <p>{{ piece.description.substr(0, 99)  }}</p> -->
       </div>
       </template>
     </transition-group>
@@ -42,6 +49,20 @@ export default {
     itemSelected(index) {
       eventBus.openModal(index);
       eventBus.selected(true);
+    },
+    showNameOverlay(i) {
+      console.log(i);
+      const overlay = this.$refs.piecenameoverlay[i];
+      overlay.classList.add("overlay-shown");
+      // const overlayHeight = overlay.getBoundingClientRect().height;
+      // console.log(overlayHeight);
+    },
+    hideNameOverlay(i) {
+      console.log(i);
+      const overlay = this.$refs.piecenameoverlay[i];
+      overlay.classList.remove("overlay-shown");
+      // const overlayHeight = overlay.getBoundingClientRect().height;
+      // console.log(overlayHeight);
     }
   },
   computed: {
@@ -101,6 +122,11 @@ export default {
       padding: 0px 20px
     &__item 
       display: flex
+      position: relative
+      flex-direction: column 
+      align-items: center
+      justify-content: center 
+      overflow: hidden
       transition: all 1s
       margin-right: 10px
       cursor: pointer
@@ -112,6 +138,26 @@ export default {
         width: auto
       @include phone-large 
         margin-right: 0px
+      img 
+        // background: red
+      .overlay-shown 
+        transform: translateY(0)
+      &__name 
+        display: flex 
+        align-items: center
+        position: absolute
+        bottom: 0
+        transform: translateY(100%)
+        align-self: flex-start 
+        width: 100%
+        height: 40px
+        background: rgba(240,240,240,.7)
+        transition: all 0.4s ease
+        h4 
+          font-size: 0.925rem
+          font-family: $mainfont
+          font-weight: 300
+          margin-left: 10px
       &.is-visible 
         display: flex
         opacity: 1

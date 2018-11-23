@@ -8,17 +8,17 @@
             <app-portfolio-nav
               :tagArray="tagArray">
             </app-portfolio-nav>
-            <div class="coming-soon-cta">
+            <!-- <div class="coming-soon-cta">
               <h3>Coming Soon! (seriously)</h3>
-            </div>
+            </div> -->
           </div>
           <div class="portfolio__content__container__navigation__search">
           </div>
         </div>
-        <!-- <app-portfolio-grid
+        <app-portfolio-grid
           :portfolioPieces='portfolioPieces'
           :tagArray="tagArray">
-        </app-portfolio-grid> -->
+        </app-portfolio-grid>
       </div>
     </div>
     <app-portfolio-item-modal
@@ -94,22 +94,22 @@ export default {
         },
         {
           id: 1,
-          name: "Dima Duchet Artist Portfolio 1",
+          name: "Nexus Technology Group Logo",
           type: "Logo",
-          services: ["website design", "web development", "logo design"],
+          services: ["logo design"],
           siteLink: "",
           mainImg: {
-            src: "https://via.placeholder.com/231x329",
-            alt: "sample alt text"
+            src: require("../../assets/images/portfolio/ntg/ntg_main.svg"),
+            alt: "Nexus Technology Group Full Logo"
           },
           altImages: [
             {
-              src: "https://via.placeholder.com/100x100",
-              alt: "lorasdfasfsfsfem ipsum"
+              src: require("../../assets/images/portfolio/ntg/ntg_main.svg"),
+              alt: "Nexus Technology Group Full Logo"
             },
             {
-              src: "https://via.placeholder.com/200x200",
-              alt: "lorem ipsum"
+              src: require("../../assets/images/portfolio/ntg/ntg_1.svg"),
+              alt: "Nexus Technology Group Smaller Logo"
             },
             {
               src: "https://via.placeholder.com/300x300",
@@ -121,7 +121,7 @@ export default {
             }
           ],
           description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi DIMA dima dima dima dima eaque placeat expedita a nobis debitis iusto tempora soluta sequi omnis accusantium nesciunt, waddup with it you already know that this is the coolest shit around alias repellat quibusdam sint sunt laudantium quasi!!!"
+            "Nexus Technology Group is a company specializing in filtration technology for the food and beverage industry. Nexus Technology Group is a clean and environmentally aware company utlizing only organic filtration compounds. Our was with their logo was to create a clean, contemporary, and organic feel."
         },
         {
           id: 2,
