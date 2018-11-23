@@ -153,6 +153,8 @@ export default {
         height: 40px
         background: rgba(240,240,240,.7)
         transition: all 0.4s ease
+        @include tablet-portrait 
+          transform: translateY(0)
         h4 
           font-size: 0.925rem
           font-family: $mainfont

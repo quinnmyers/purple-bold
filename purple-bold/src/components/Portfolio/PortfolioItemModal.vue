@@ -173,13 +173,12 @@ export default {
               align-items: flex-start
               width: 100%
               height: 70% 
-              //flex: grow
+              margin-bottom: 10px
               box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
-              //background: lightskyblue
               @include phone-large 
-                height: 200px
-                img 
-                  height: 200px
+                box-shadow: none
+              @include phone-large
+                width: 100%
             &__lightbox 
               display: flex
               justify-content: center 
@@ -187,8 +186,10 @@ export default {
               width: 100%
               height: 25%
               box-shadow: 0px 0px 10px rgba(0,0,0,0.5)
+              @include phone-large 
+                box-shadow: none
               @include tablet-portrait 
-                height: 20%
+                height: 25%
               @include tablet-phone 
                 height: 80px
                 margin-top: 15px 
