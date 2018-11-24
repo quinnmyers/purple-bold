@@ -153,10 +153,8 @@ export default {
         @include tablet-portrait 
           height: 500px
         @include tablet-phone 
-          height: auto
+          height: 80%
           flex-direction: column
-        @include phone-large 
-          height: auto
         &__left, &__right 
           height: 100%
           width: 49%
@@ -188,26 +186,29 @@ export default {
             width: 21px
 
         &__left
+          @include tablet-phone 
+            height: 50%
           &__container
             display: flex 
             flex-direction: column
             justify-content: space-between
             width: 100% 
-            height: 100% 
+            height: 100%
             &__image
               display: flex 
               border-radius: 3px
               flex-direction: column
               justify-content: center 
-              align-items: flex-start
+              align-items: center
               width: 100%
               height: 70% 
               margin-bottom: 10px
               box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
-              @include phone-large 
+              @include tablet-phone 
                 box-shadow: none
-              @include phone-large
-                width: 100%
+                height: 100%
+                img 
+                  height: 100%
             &__lightbox 
               display: flex
               justify-content: center 
@@ -268,13 +269,14 @@ export default {
               display: flex  
               font-family: $subfont 
               font-size: 0.95em
-              overflow: scroll
+              height: auto
               margin-bottom: 30px
+              @include tablet-phone 
+                overflow: scroll
               @include phone-large 
                 margin-bottom: 15px
               @include phone 
                 max-height: 120px
-                overflow: scroll
           &__link, a 
             color: rgb(240,129,148)
             text-decoration: none
