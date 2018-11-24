@@ -181,6 +181,12 @@ export default {
             size: 50%
           &:hover 
             transform: rotate(360deg)
+          @include tablet-phone 
+            margin-right: 15px 
+            margin-top: 15px 
+            height: 21px 
+            width: 21px
+
         &__left
           &__container
             display: flex 
