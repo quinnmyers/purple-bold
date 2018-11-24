@@ -151,8 +151,10 @@ export default {
         @include tablet-portrait 
           height: 500px
         @include tablet-phone 
-          height: auto
+          height: 70% 
           flex-direction: column
+        @include phone-large 
+          height: 80%
         &__left, &__right 
           height: 100%
           width: 49%

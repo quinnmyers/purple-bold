@@ -80,6 +80,9 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
     if (!this.scroll) {
     }
+    window.addEventListener("touchmove", this.handleScroll);
+    if (!this.scroll) {
+    }
   }
 };
 // export default {
