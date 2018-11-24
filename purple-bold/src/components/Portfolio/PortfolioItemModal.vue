@@ -2,6 +2,7 @@
   <transition name="fade">
     <div class="portfolio__item__overlay" v-if="itemSelected" @click.self='closeModal'>
     <div class="portfolio__item__overlay__modal">
+      <div class="x__button" @click.self='closeModal'></div>
       <div class="portfolio__item__overlay__modal__left">
         <div class="portfolio__item__overlay__modal__left__container">
           <div class="portfolio__item__overlay__modal__left__container__image">
@@ -142,6 +143,7 @@ export default {
         justify-content: space-between
         align-items: center
         border-radius: 3px
+        position: relative
         height: 580px 
         width: 1000px
         background: white
@@ -151,15 +153,34 @@ export default {
         @include tablet-portrait 
           height: 500px
         @include tablet-phone 
-          height: 70% 
+          height: auto
           flex-direction: column
         @include phone-large 
-          height: 80%
+          height: auto
         &__left, &__right 
           height: 100%
           width: 49%
           @include tablet-phone 
             width: 100%
+        .x__button 
+          height: 25px 
+          width: 25px 
+          margin-right: 20px 
+          margin-top: 20px
+          position: absolute
+          border-radius: 100%
+          border: 1px solid black
+          transition: all 1.5s ease
+          right: 0 
+          top: 0
+          background: 
+            color: white
+            image: url(../../assets/images/icons/x-modal.svg) 
+            repeat: no-repeat 
+            position: center 
+            size: 50%
+          &:hover 
+            transform: rotate(360deg)
         &__left
           &__container
             display: flex 
