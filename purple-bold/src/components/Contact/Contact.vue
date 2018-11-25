@@ -8,19 +8,19 @@
             <div class="flex__col contact__body__left">
                 <div class="flex__col transback contact__body__left--name">
                     <label for="name">Name *</label>
-                    <input type="text" v-model="messageData.yourName" name="name">
+                    <input type="text" v-model="messageData.yourName" id="name">
                 </div>
                 <div class="flex__col transback contact__body__left--company">
                     <label for="company">Company</label>
-                    <input type="text" v-model="messageData.company" name="company">
+                    <input type="text" v-model="messageData.company" id="company">
                 </div>
                 <div class="flex__col transback contact__body__left--telephone">
                     <label for="Telephone">Telephone *</label>
-                    <input type="text" v-model="messageData.telephone" name="Telephone">
+                    <input type="text" v-model="messageData.telephone" id="Telephone">
                 </div>
                 <div class="flex__col transback contact__body__left--email">
                     <label for="email">Email *</label>
-                    <input type="text" v-model="messageData.email" name="email">
+                    <input type="text" v-model="messageData.email" id="email">
                 </div>
                 <div class="flex__col transback contact__body__left--details">
                     <label> Project Details</label>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="flex__col transback contact__body__right--missed">
                     <label for="missed">Did We Miss Anything?</label>
-                    <textarea name="missed" v-model="messageData.missed" id="" cols="30" rows=6></textarea>
+                    <textarea name="missed" v-model="messageData.missed" id="missed" cols="30" rows=6></textarea>
                 </div>
             </div>
         </div> 
