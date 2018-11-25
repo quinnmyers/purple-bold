@@ -87,10 +87,6 @@ $arrow-margin-bottom: 20px
       width: 100%
       overflow: hidden
       padding: 0px 20px
-    @include tablet-portrait
-      //may way to add this back if it's too far to the edge
-      //will need to test on an actual device
-      //margin-right: 40px
     &__container
       display: flex
       flex-direction: column

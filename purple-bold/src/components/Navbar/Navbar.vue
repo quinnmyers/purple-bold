@@ -252,7 +252,7 @@ $nav-height: 60px
         margin-left: 10px
       @include phone-large 
         img, a
-          height: 28px 
+          height: 28px
     &__desktopnav
       display: flex
       justify-content: center

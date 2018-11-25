@@ -58,9 +58,9 @@ $tablet-phone: 650px
 $tablet-width: 768px
 $desktop-width: 992px
 $edgesnap-width: 1100px
+$tablet-landscape-width: 1024px
 $nav-snap: 700px
-$testimonial-snap: 900px 
-// $testimonial-hieght: 815px
+$testimonial-snap: 900px
 
 
 =testimonial-snap 
@@ -69,6 +69,10 @@ $testimonial-snap: 900px
 
 =edgesnap
   @media (max-width: #{$edgesnap-width})
+    @content
+
+=tabletlandscape
+  @media (max-width: #{$tablet-landscape-width})
     @content
 
 =navsnap
