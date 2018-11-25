@@ -132,7 +132,7 @@ export default {
         width: auto
       @include phone-large 
         margin-right: 0px
-      img 
+      img
         width: 100%
       .overlay-shown 
         transform: translateY(0)
