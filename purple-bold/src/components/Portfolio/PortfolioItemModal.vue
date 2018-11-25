@@ -209,6 +209,7 @@ export default {
                 height: 100%
                 img 
                   height: 100%
+                  max-width: 100%
             &__lightbox 
               display: flex
               justify-content: center 
