@@ -1,9 +1,9 @@
 <template>
     <div v-if="isMounted">
-      <ul class="creative__color__palette">
-        <li class="creative__color__palette--color" v-for="(color, index) in colors" :style="styleBackground(index)" :key="index" @click="colorSubHeaders(index)">
-        </li>
-      </ul>
+      <div class="creative__color__palette">
+        <div class="creative__color__palette--color" v-for="(color, index) in colors" :style="styleBackground(index)" :key="index" @click="colorSubHeaders(index)">
+        </div>
+      </div>
       <p class="services__creative__cta">Click a color...</p>
       <p class="services__creative__cta">...see, it's not that easy</p>
     </div>
@@ -149,7 +149,6 @@ div
     flex-wrap: wrap
     width: 300px
     justify-content: space-between
-    list-style: none
     margin-bottom: 13px
     &--color 
       border-radius: 2px

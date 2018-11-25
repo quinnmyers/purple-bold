@@ -1,6 +1,6 @@
 <template>
   <div v-if="isMounted">
-    <li v-for="(sub, index) in service.subCategories" 
+    <div v-for="(sub, index) in service.subCategories" 
         :key="index" 
         class="services__content__container__item__container__right__subcategories__item">
       <div class="services__content__container__item__container__right__subcategories__item__title" @click="expandSubComponent(index)">
@@ -13,7 +13,7 @@
           <p class="services__content__container__item__container__right__subcategories__item__description__text "> {{ sub.subDescription }} </p>
       </div>
       </vue-slide-up-down>
-    </li>
+    </div>
   </div>
 </template>
 
@@ -87,7 +87,7 @@ export default {
 @import '../../base.sass'
 
 .services__content__container__item__container__right__subcategories
-  li, &__item
+  &__item
     &__title 
       display: flex
       justify-content: space-between 

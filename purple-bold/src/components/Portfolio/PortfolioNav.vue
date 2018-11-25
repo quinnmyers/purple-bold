@@ -1,13 +1,13 @@
 <template>
-  <ul v-if="isMounted">
-    <li
+  <div v-if="isMounted">
+    <div class="tags"
       v-for="(tag, index) in tagArray"
       :key="index"
       @click="categorySelected(index)"
       :ref="`tag-button-${index}`"> 
       {{ tag.name }}
-    </li>
-  </ul>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -46,7 +46,7 @@ export default {
 @import '../../normalize.scss'
 @import '../../base.sass'
 
-ul
+div
   margin-top: 10px
   list-style: none 
   @include edgesnap 
@@ -55,7 +55,7 @@ ul
     display: flex 
     width: 100% 
     justify-content: space-between
-  li 
+  .tags 
     display: inline-block
     cursor: pointer
     font-family: $subfont

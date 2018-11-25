@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrapper"> 
       <ul>
         <li
         :class="[aboutImage, panelLoaded]"
@@ -133,7 +133,7 @@ export default {
 //IMPORTANT 
   //in order to reorder these images later or recolor them, if you set the display of the UL/LI
   //to make all panel images show  in a line on top of each other the order is correct, 1 is 1, 2 is 2, etc.
-div 
+.wrapper 
   transform: scale(0.8)
   @include edgesnap
     transform: scale(0.8)
