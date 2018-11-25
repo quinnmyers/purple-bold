@@ -18,8 +18,7 @@
                      :class="[loaded, afterLoad]">
                      <a href="#hero" 
                         v-smooth-scroll="{ duration: 1000, offset: -50}">
-                       <img class="landing--arrow" 
-                            @click="handleScroll" 
+                       <img class="landing--arrow"
                             :class="[loaded, afterLoad]" src="../assets/images/icons/arrow.svg" 
                             alt="icon of arrow facing downward to scroll down the page" />
                      </a>
