@@ -1,51 +1,33 @@
-<template lang="pug">
-  div
-    .landing__page( ref="wraper" )
-      .landing__page__content
-        .landing__page__content__container
-          .landing__page__content__container__top(
-            :class="[loaded, afterLoad]"
-            )
-            h1 Purple
-          .landing__page__content__container__middle
-            .landing__page__content__container__middle__left(
-              :class="[loaded, afterLoad]"
-              )
-              h1 +
-            .landing__page__content__container__middle__right(
-              :class="[loaded, afterLoad]"
-              )
-              h1 Bold
-          .landing__page__content__container__bottom(
-            :class="[loaded, afterLoad]"
-            )
-            img.landing--arrow(
-              @click="handleScroll"
-              :class="[loaded, afterLoad]"
-              src='../assets/images/icons/arrow.svg')
-    //- div
-    //-   .landing__page
-    //-     .landing__page__content
-    //-       .landing__page__content__container
-    //-         .landing__page__content__container__top(
-    //-           :class="[loaded, afterLoad]"
-    //-           )
-    //-           h1 Purple
-    //-         .landing__page__content__container__middle
-    //-           .landing__page__content__container__middle__left(
-    //-             :class="[loaded, afterLoad]"
-    //-             )
-    //-             h1 +
-    //-           .landing__page__content__container__middle__right(
-    //-             :class="[loaded, afterLoad]"
-    //-             )
-    //-             h1 Bold
-    //-         .landing__page__content__container__bottom(
-    //-           :class="[loaded, afterLoad]"
-    //-           )
-    //-           img.landing--arrow(
-    //-             :class="[loaded, afterLoad]"
-    //-             src='../assets/images/icons/arrow.svg')
+<template>
+  <div>
+    <div class="landing__page" ref="wrapper">
+        <div class="landing__page__content">
+            <div class="landing__page__content__container">
+                <div class="landing__page__content__container__top" :class="[loaded, afterLoad]">
+                    <h1>Purple</h1>
+                </div>
+                <div class="landing__page__content__container__middle">
+                    <div class="landing__page__content__container__middle__left" :class="[loaded, afterLoad]">
+                        <h1>+</h1>
+                    </div>
+                    <div class="landing__page__content__container__middle__right" :class="[loaded, afterLoad]">
+                        <h1>Bold</h1>
+                    </div>
+                </div>
+                <div class="landing__page__content__container__bottom" 
+                     :class="[loaded, afterLoad]">
+                     <a href="#hero" 
+                        v-smooth-scroll="{ duration: 1000, offset: -50}">
+                       <img class="landing--arrow" 
+                            @click="handleScroll" 
+                            :class="[loaded, afterLoad]" src="../assets/images/icons/arrow.svg" 
+                            alt="icon of arrow facing downward to scroll down the page" />
+                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -65,7 +47,7 @@ export default {
       }, 1500);
     },
     handleScroll() {
-      const navbartop = this.$refs.wraper.clientHeight;
+      const navbartop = this.$refs.wrapper.clientHeight;
       if (!this.scroll) {
         window.scroll({
           top: navbartop,
@@ -78,32 +60,9 @@ export default {
   mounted() {
     this.toggleLoad();
     window.addEventListener("scroll", this.handleScroll);
-    if (!this.scroll) {
-    }
     window.addEventListener("touchmove", this.handleScroll);
-    if (!this.scroll) {
-    }
   }
 };
-// export default {
-//   data() {
-//     return {
-//       loaded: "",
-//       afterLoad: ""
-//     };
-//   },
-//   methods: {
-//     toggleLoad() {
-//       this.loaded = "loaded";
-//       setTimeout(() => {
-//         this.afterLoad = "after-load";
-//       }, 1500);
-//     }
-//   },
-//   mounted() {
-//     this.toggleLoad();
-//   }
-// };
 </script>
 
 <style lang="sass">

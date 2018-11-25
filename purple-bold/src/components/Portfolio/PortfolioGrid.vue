@@ -51,18 +51,12 @@ export default {
       eventBus.selected(true);
     },
     showNameOverlay(i) {
-      console.log(i);
       const overlay = this.$refs.piecenameoverlay[i];
       overlay.classList.add("overlay-shown");
-      // const overlayHeight = overlay.getBoundingClientRect().height;
-      // console.log(overlayHeight);
     },
     hideNameOverlay(i) {
-      console.log(i);
       const overlay = this.$refs.piecenameoverlay[i];
       overlay.classList.remove("overlay-shown");
-      // const overlayHeight = overlay.getBoundingClientRect().height;
-      // console.log(overlayHeight);
     }
   },
   computed: {
