@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    <a href="#navbar" ref="scrollto" v-smooth-scroll="{ duration: 1500}" aria-hidden="true"></a>
 </div>
 </template>
 
@@ -46,12 +47,13 @@ export default {
       }, 1500);
     },
     handleScroll() {
-      const navbartop = this.$refs.wrapper.clientHeight;
+      // const navbartop = this.$refs.wrapper.clientHeight;
       if (!this.scroll) {
-        window.scroll({
-          top: navbartop,
-          behavior: "smooth"
-        });
+        this.$refs.scrollto.click();
+        // window.scroll({
+        //   top: navbartop,
+        //   behavior: "smooth"
+        // });
         this.scroll = true;
       }
     }
