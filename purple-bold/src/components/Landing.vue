@@ -1,33 +1,40 @@
 <template>
   <div>
     <div class="landing__page" ref="wrapper">
-        <div class="landing__page__content">
-            <div class="landing__page__content__container">
-                <div class="landing__page__content__container__top" :class="[loaded, afterLoad]">
-                    <h1>Purple</h1>
-                </div>
-                <div class="landing__page__content__container__middle">
-                    <div class="landing__page__content__container__middle__left" :class="[loaded, afterLoad]">
-                        <h1>+</h1>
-                    </div>
-                    <div class="landing__page__content__container__middle__right" :class="[loaded, afterLoad]">
-                        <h1>Bold</h1>
-                    </div>
-                </div>
-                <div class="landing__page__content__container__bottom" 
-                     :class="[loaded, afterLoad]">
-                     <a href="#hero" 
-                        v-smooth-scroll="{ duration: 1000, offset: -50}">
-                       <img class="landing--arrow"
-                            :class="[loaded, afterLoad]" src="../assets/images/icons/arrow.svg" 
-                            alt="icon of arrow facing downward to scroll down the page" />
-                     </a>
-                </div>
+      <div class="landing__page__content">
+        <div class="landing__page__content__container">
+          <div class="landing__page__content__container__top" :class="[loaded, afterLoad]">
+            <h1>Purple</h1>
+          </div>
+          <div class="landing__page__content__container__middle">
+            <div
+              class="landing__page__content__container__middle__left"
+              :class="[loaded, afterLoad]"
+            >
+              <h1>+</h1>
             </div>
+            <div
+              class="landing__page__content__container__middle__right"
+              :class="[loaded, afterLoad]"
+            >
+              <h1>Bold</h1>
+            </div>
+          </div>
+          <div class="landing__page__content__container__bottom" :class="[loaded, afterLoad]">
+            <a href="#hero" v-smooth-scroll="{ duration: 1000, offset: -50}">
+              <img
+                class="landing--arrow"
+                :class="[loaded, afterLoad]"
+                src="../assets/images/icons/arrow.svg"
+                alt="icon of arrow facing downward to scroll down the page"
+              >
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-    <a href="#navbar" ref="scrollto" v-smooth-scroll="{ duration: 1500}" aria-hidden="true"></a>
-</div>
+    <a href="#navbar" ref="scrollto" v-smooth-scroll="{ duration: 900}" aria-hidden="true"></a>
+  </div>
 </template>
 
 <script>
