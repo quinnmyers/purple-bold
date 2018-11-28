@@ -1,6 +1,6 @@
 <template> 
   <div :class="{ fixed: fixedNavClass }">
-    <nav class="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
+    <nav class="navbar" id="navbar" ref="navbar" :class="{ expanded: mobileNavExpanded, fixed: fixedNavClass }">
       <div class="navbar__content">
         <div class="navbar__content__brand">
           <a href="#hero" v-smooth-scroll="{ duration: 1000, offset: -50}" >
