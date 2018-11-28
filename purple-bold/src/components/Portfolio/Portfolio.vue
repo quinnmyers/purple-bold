@@ -5,28 +5,20 @@
       <div class="portfolio__content__container">
         <div class="portfolio__content__container__navigation">
           <div class="portfolio__content__container__navigation__tags">
-            <app-portfolio-nav
-              :tagArray="tagArray">
-            </app-portfolio-nav>
+            <app-portfolio-nav :tagArray="tagArray"></app-portfolio-nav>
             <!-- <div class="coming-soon-cta">
               <h3>Coming Soon! (seriously)</h3>
-            </div> -->
+            </div>-->
           </div>
-          <div class="portfolio__content__container__navigation__search">
-          </div>
+          <div class="portfolio__content__container__navigation__search"></div>
         </div>
-        <app-portfolio-grid
-          :portfolioPieces='portfolioPieces'
-          :tagArray="tagArray">
-        </app-portfolio-grid>
+        <app-portfolio-grid :portfolioPieces="portfolioPieces" :tagArray="tagArray"></app-portfolio-grid>
       </div>
     </div>
     <app-portfolio-item-modal
-          :portfolioPiece="portfolioPieces[pieceIndex]"
-          :imageArray='portfolioPieces[pieceIndex].altImages'
-          >
-
-    </app-portfolio-item-modal>
+      :portfolioPiece="portfolioPieces[pieceIndex]"
+      :imageArray="portfolioPieces[pieceIndex].altImages"
+    ></app-portfolio-item-modal>
   </div>
 </template>
 
@@ -112,14 +104,6 @@ export default {
             {
               src: require("../../assets/images/portfolio/ntg/ntg_1.svg"),
               alt: "Nexus Technology Group Smaller Logo"
-            },
-            {
-              src: "https://via.placeholder.com/300x300",
-              alt: "lorem ipsum"
-            },
-            {
-              src: "https://via.placeholder.com/400x400",
-              alt: "lorem ipsum"
             }
           ],
           description:
